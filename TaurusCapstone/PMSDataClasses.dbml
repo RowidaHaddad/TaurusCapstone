@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PMS_DB" Class="PMSDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=rowida;Initial Catalog=PMS_DB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PMS_DBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientName" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientMobileNumber" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientNumber" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientEmail" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Client_Project" Member="Projects" ThisKey="ClientID" OtherKey="ClientID" Type="Project" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions">
+    <Type Name="TaskLeadFindingSubmission">
+      <Column Name="TLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FindingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Finding_TaskLeadFindingSubmission" Member="Finding" ThisKey="FindingID" OtherKey="FindingID" Type="Finding" IsForeignKey="true" />
+      <Association Name="Task_TaskLeadFindingSubmission" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
+      <Association Name="TaskLead_TaskLeadFindingSubmission" Member="TaskLead" ThisKey="TLID" OtherKey="TLID" Type="TaskLead" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CostProposal" Member="CostProposals">
+    <Type Name="CostProposal">
+      <Column Name="CostProposalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ClientNotes" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientDecision" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClientID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="CostProposal_CostProposalCreation" Member="CostProposalCreations" ThisKey="CostProposalID" OtherKey="CostProposalID" Type="CostProposalCreation" />
+      <Association Name="CostProposal_ProjectDefinition" Member="ProjectDefinitions" ThisKey="CostProposalID" OtherKey="CostProposalID" Type="ProjectDefinition" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CostProposalCreation" Member="CostProposalCreations">
+    <Type Name="CostProposalCreation">
+      <Column Name="DOID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CostProposalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="CostProposal_CostProposalCreation" Member="CostProposal" ThisKey="CostProposalID" OtherKey="CostProposalID" Type="CostProposal" IsForeignKey="true" />
+      <Association Name="DesignOfficer_CostProposalCreation" Member="DesignOfficer" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
+      <Association Name="Project_CostProposalCreation" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DesignLead" Member="DesignLeads">
+    <Type Name="DesignLead">
+      <Column Name="DLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="DesignLead_DesignLeadFindingSubmission" Member="DesignLeadFindingSubmissions" ThisKey="DLID" OtherKey="DLID" Type="DesignLeadFindingSubmission" />
+      <Association Name="DesignLead_DLAssignment" Member="DLAssignments" ThisKey="DLID" OtherKey="DLID" Type="DLAssignment" />
+      <Association Name="DesignLead_ImpactAnalysisUpload" Member="ImpactAnalysisUploads" ThisKey="DLID" OtherKey="DLID" Type="ImpactAnalysisUpload" />
+      <Association Name="DesignLead_ProjectCharterSubmission" Member="ProjectCharterSubmissions" ThisKey="DLID" OtherKey="DLID" Type="ProjectCharterSubmission" />
+      <Association Name="DesignLead_TaskCreation" Member="TaskCreations" ThisKey="DLID" OtherKey="DLID" Type="TaskCreation" />
+      <Association Name="DesignLead_TaskLeadAssignment" Member="TaskLeadAssignments" ThisKey="DLID" OtherKey="DLID" Type="TaskLeadAssignment" />
+      <Association Name="Employee_DesignLead" Member="Employee" ThisKey="DLID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DesignLeadFindingSubmission" Member="DesignLeadFindingSubmissions">
+    <Type Name="DesignLeadFindingSubmission">
+      <Column Name="DLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FindingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="DesignLead_DesignLeadFindingSubmission" Member="DesignLead" ThisKey="DLID" OtherKey="DLID" Type="DesignLead" IsForeignKey="true" />
+      <Association Name="Finding_DesignLeadFindingSubmission" Member="Finding" ThisKey="FindingID" OtherKey="FindingID" Type="Finding" IsForeignKey="true" />
+      <Association Name="Task_DesignLeadFindingSubmission" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DesignOfficer" Member="DesignOfficers">
+    <Type Name="DesignOfficer">
+      <Column Name="DOID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="DesignOfficer_CostProposalCreation" Member="CostProposalCreations" ThisKey="DOID" OtherKey="DOID" Type="CostProposalCreation" />
+      <Association Name="DesignOfficer_DLAssignment" Member="DLAssignments" ThisKey="DOID" OtherKey="DOID" Type="DLAssignment" />
+      <Association Name="DesignOfficer_Project" Member="Projects" ThisKey="DOID" OtherKey="DOID" Type="Project" />
+      <Association Name="DesignOfficer_Task" Member="Tasks" ThisKey="DOID" OtherKey="DOID" Type="Task" />
+      <Association Name="DesignOfficer_Task1" Member="Tasks1" ThisKey="DOID" OtherKey="DOID" Type="Task" />
+      <Association Name="Employee_DesignOfficer" Member="Employee" ThisKey="DOID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DLAssignment" Member="DLAssignments">
+    <Type Name="DLAssignment">
+      <Column Name="DOID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="DesignLead_DLAssignment" Member="DesignLead" ThisKey="DLID" OtherKey="DLID" Type="DesignLead" IsForeignKey="true" />
+      <Association Name="DesignOfficer_DLAssignment" Member="DesignOfficer" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
+      <Association Name="Project_DLAssignment" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="JobTitle" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_DesignLead" Member="DesignLead" ThisKey="EmployeeID" OtherKey="DLID" Type="DesignLead" Cardinality="One" />
+      <Association Name="Employee_DesignOfficer" Member="DesignOfficer" ThisKey="EmployeeID" OtherKey="DOID" Type="DesignOfficer" Cardinality="One" />
+      <Association Name="Employee_TaskLead" Member="TaskLead" ThisKey="EmployeeID" OtherKey="TLID" Type="TaskLead" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Finding" Member="Findings">
+    <Type Name="Finding">
+      <Column Name="FindingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FindingName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="FindingDescription" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FindingType" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="FindingResult" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientNotes" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Finding_TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions" ThisKey="FindingID" OtherKey="FindingID" Type="TaskLeadFindingSubmission" />
+      <Association Name="Finding_DesignLeadFindingSubmission" Member="DesignLeadFindingSubmissions" ThisKey="FindingID" OtherKey="FindingID" Type="DesignLeadFindingSubmission" />
+      <Association Name="Finding_TaskFinding" Member="TaskFindings" ThisKey="FindingID" OtherKey="FindingID" Type="TaskFinding" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ImpactAnalysis" Member="ImpactAnalysis">
+    <Type Name="ImpactAnalysi">
+      <Column Name="ImpactID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Measures" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="ImpactAnalysi_ImpactAnalysisUpload" Member="ImpactAnalysisUploads" ThisKey="ImpactID" OtherKey="ImpactID" Type="ImpactAnalysisUpload" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ImpactAnalysisUpload" Member="ImpactAnalysisUploads">
+    <Type Name="ImpactAnalysisUpload">
+      <Column Name="DLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ImpactID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="DesignLead_ImpactAnalysisUpload" Member="DesignLead" ThisKey="DLID" OtherKey="DLID" Type="DesignLead" IsForeignKey="true" />
+      <Association Name="ImpactAnalysi_ImpactAnalysisUpload" Member="ImpactAnalysi" ThisKey="ImpactID" OtherKey="ImpactID" Type="ImpactAnalysi" IsForeignKey="true" />
+      <Association Name="Project_ImpactAnalysisUpload" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Project" Member="Projects">
+    <Type Name="Project">
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectType" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpectedEndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ActualEndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientCommentEvaluation" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOComments" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Project_CostProposalCreation" Member="CostProposalCreations" ThisKey="ProjectID" OtherKey="ProjectID" Type="CostProposalCreation" />
+      <Association Name="Project_DLAssignment" Member="DLAssignments" ThisKey="ProjectID" OtherKey="ProjectID" Type="DLAssignment" />
+      <Association Name="Project_ImpactAnalysisUpload" Member="ImpactAnalysisUploads" ThisKey="ProjectID" OtherKey="ProjectID" Type="ImpactAnalysisUpload" />
+      <Association Name="Project_ProjectCharterSubmission" Member="ProjectCharterSubmissions" ThisKey="ProjectID" OtherKey="ProjectID" Type="ProjectCharterSubmission" />
+      <Association Name="Project_TaskCreation" Member="TaskCreations" ThisKey="ProjectID" OtherKey="ProjectID" Type="TaskCreation" />
+      <Association Name="Client_Project" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
+      <Association Name="DesignOfficer_Project" Member="DesignOfficer" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectCharter" Member="ProjectCharters">
+    <Type Name="ProjectCharter">
+      <Column Name="CharterID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProblemStatement" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Objectives" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ProjectCharter_ProjectCharterSubmission" Member="ProjectCharterSubmissions" ThisKey="CharterID" OtherKey="CharterID" Type="ProjectCharterSubmission" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectCharterSubmission" Member="ProjectCharterSubmissions">
+    <Type Name="ProjectCharterSubmission">
+      <Column Name="DLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CharterID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="date" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="DesignLead_ProjectCharterSubmission" Member="DesignLead" ThisKey="DLID" OtherKey="DLID" Type="DesignLead" IsForeignKey="true" />
+      <Association Name="Project_ProjectCharterSubmission" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+      <Association Name="ProjectCharter_ProjectCharterSubmission" Member="ProjectCharter" ThisKey="CharterID" OtherKey="CharterID" Type="ProjectCharter" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectDefinition" Member="ProjectDefinitions">
+    <Type Name="ProjectDefinition">
+      <Column Name="CostProposalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Scope" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Deliverable" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Catergory" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="CostProposal_ProjectDefinition" Member="CostProposal" ThisKey="CostProposalID" OtherKey="CostProposalID" Type="CostProposal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Task" Member="Tasks">
+    <Type Name="Task">
+      <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaskName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ExpectedEndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ActualEndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DOID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DONotes" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Task_TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions" ThisKey="TaskID" OtherKey="TaskID" Type="TaskLeadFindingSubmission" />
+      <Association Name="Task_DesignLeadFindingSubmission" Member="DesignLeadFindingSubmissions" ThisKey="TaskID" OtherKey="TaskID" Type="DesignLeadFindingSubmission" />
+      <Association Name="Task_TaskCreation" Member="TaskCreations" ThisKey="TaskID" OtherKey="TaskID" Type="TaskCreation" />
+      <Association Name="Task_TaskFinding" Member="TaskFindings" ThisKey="TaskID" OtherKey="TaskID" Type="TaskFinding" />
+      <Association Name="Task_TaskLeadAssignment" Member="TaskLeadAssignments" ThisKey="TaskID" OtherKey="TaskID" Type="TaskLeadAssignment" />
+      <Association Name="DesignOfficer_Task" Member="DesignOfficer" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
+      <Association Name="DesignOfficer_Task1" Member="DesignOfficer1" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaskCreation" Member="TaskCreations">
+    <Type Name="TaskCreation">
+      <Column Name="DLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="DesignLead_TaskCreation" Member="DesignLead" ThisKey="DLID" OtherKey="DLID" Type="DesignLead" IsForeignKey="true" />
+      <Association Name="Project_TaskCreation" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+      <Association Name="Task_TaskCreation" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaskFinding" Member="TaskFindings">
+    <Type Name="TaskFinding">
+      <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FindingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Finding_TaskFinding" Member="Finding" ThisKey="FindingID" OtherKey="FindingID" Type="Finding" IsForeignKey="true" />
+      <Association Name="Task_TaskFinding" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaskLead" Member="TaskLeads">
+    <Type Name="TaskLead">
+      <Column Name="TLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="TaskLead_TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions" ThisKey="TLID" OtherKey="TLID" Type="TaskLeadFindingSubmission" />
+      <Association Name="TaskLead_TaskLeadAssignment" Member="TaskLeadAssignments" ThisKey="TLID" OtherKey="TLID" Type="TaskLeadAssignment" />
+      <Association Name="Employee_TaskLead" Member="Employee" ThisKey="TLID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaskLeadAssignment" Member="TaskLeadAssignments">
+    <Type Name="TaskLeadAssignment">
+      <Column Name="DLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="DesignLead_TaskLeadAssignment" Member="DesignLead" ThisKey="DLID" OtherKey="DLID" Type="DesignLead" IsForeignKey="true" />
+      <Association Name="Task_TaskLeadAssignment" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
+      <Association Name="TaskLead_TaskLeadAssignment" Member="TaskLead" ThisKey="TLID" OtherKey="TLID" Type="TaskLead" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
