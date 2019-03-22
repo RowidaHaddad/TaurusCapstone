@@ -4,12 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
     <ul class="nav nav-tabs">
-  <li><a href="~/AdminViewClients.aspx" data-toggle="tab" runat="server">View Employees</a></li>
-  <li><a href="~/AdminAddClient.aspx" data-toggle="tab" runat="server">Add Employees</a></li>
+  <li><a href="~/AdminViewClients.aspx" data-toggle="tab" runat="server">View Clients</a></li>
+  <li><a href="~/AdminAddClient.aspx" data-toggle="tab" runat="server">Add Clients</a></li>
 </ul>
-    <div class="tab-pane fade active in" id="viewEmployees">
+    <div class="tab-pane fade active in" id="viewClients">
   </div>
-    <div class="tab-pane fade active in" id="addEmployee"> 
+    <div class="tab-pane fade active in" id="addClient"> 
   </div>
 
 </asp:Content>

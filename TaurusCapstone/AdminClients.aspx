@@ -4,8 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
      <ul class="nav nav-tabs">
-  <li><a href="~/AdminViewClients.aspx" data-toggle="tab" runat="server">View Employees</a></li>
-  <li><a href="~/AdminAddClient.aspx" data-toggle="tab" runat="server">Add Employees</a></li>
+  <li><a href="~/AdminViewClients.aspx" data-toggle="tab" runat="server">View Client</a></li>
+  <li><a href="~/AdminAddClient.aspx" data-toggle="tab" runat="server">Add Clients</a></li>
 </ul>
     <div class="tab-pane fade active in" id="viewEmployees">
   </div>

@@ -18,14 +18,18 @@ namespace TaurusCapstone
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+
+            }
 
         }
 
-        protected void cancelButton_ServerClick(object sender, EventArgs e)
-        {
-            Response.Redirect("~/AdminHomePage.aspx");
-        }
-        protected void addEmployee_ServerClick (object sender, EventArgs e)
+        //protected void cancelButton_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/AdminHomePage.aspx");
+        //}
+        protected void addEmployee_Click(object sender, EventArgs e)
         {
             if (valid)
             {
@@ -33,20 +37,40 @@ namespace TaurusCapstone
                 myEmp.LastName = empLN.Value;
                 myEmp.Mobile = empNumber.Value;
                 myEmp.Email = empEmail.Value;
-               //myEmp.EmployeeType = Convert.ToInt32(empType.SelectedValue);
+            
+                myEmp.JobTitle = jobTitle.Value;
+
+                if (myEmp.JobTitle == "Admin")
+                {
+                    myEmp.EmployeeType = "3";
+                }
+                if (myEmp.JobTitle == "Design Lead")
+                {
+                    myEmp.EmployeeType = "2";
+                }
+                if (myEmp.JobTitle == "Design Officer")
+                {
+                    myEmp.EmployeeType = "1";
+                }
+                if (myEmp.JobTitle=="Task Lead")
+                {
+                   myEmp.EmployeeType = "0";
+                }
+                
                 myEmp.Password = empPassword.Value;
 
                 db.Employees.InsertOnSubmit(myEmp);
                 db.SubmitChanges();
 
-                if (myEmp.EmployeeType == 2)
+                if (myEmp.EmployeeType == "2")
                 {
                     //myEmp.EmployeeID;
 
                 }
-                Response.Write("<script> alert('User is Successfully Added!')</script> ");
+                Response.Redirect("~/ AdminEmployeeConfirmationPage.aspx");
+
+                //Response.Write("<script> alert('User is Successfully Added!')</script> ");
             }
         }
     }
     }
-}

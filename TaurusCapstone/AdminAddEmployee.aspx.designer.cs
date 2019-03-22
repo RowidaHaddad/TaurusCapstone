@@ -58,13 +58,13 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl empEmail;
         
         /// <summary>
-        /// ëmpType control.
+        /// empType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ëmpType;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect empType;
         
         /// <summary>
         /// empPassword control.
@@ -73,6 +73,24 @@ namespace TaurusCapstone {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl empPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText empPassword;
+        
+        /// <summary>
+        /// cancelButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton cancelButton;
+        
+        /// <summary>
+        /// addEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton addEmployee;
     }
 }

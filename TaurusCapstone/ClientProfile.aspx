@@ -20,7 +20,7 @@
     Username: <asp:Label ID="usernameLabel" runat="server" Text=""></asp:Label>
   </div>
     <div class="panel-body" runat="server">
-    Email: <asp:TextBox ID="usernameTB" runat="server" ReadOnly="True"></asp:TextBox>
+    Email:  <asp:Label ID="emailLabel" runat="server" Text=""></asp:Label>
   </div>
     <div class="panel-body" runat="server">
     Phone number: <asp:Label ID="numberLabel" runat="server" Text=""></asp:Label>
@@ -32,8 +32,7 @@
   <div class="panel-body">
     <div class="list-group">
   <a href="~/ClientPendigProjects.aspx" runat="server" class="list-group-item">
-    <h4 class="list-group-item-heading"runat="server">On-going Projects
-    </h4>
+    <h4 class="list-group-item-heading" runat="server" > On-going Projects</h4>
     <p class="list-group-item-text">The status of these projects is on-going and yet to be delivered upon completion</p>
   </a>
   <a href="~/ClientCompletedProjects.aspx" runat="server" class="list-group-item">

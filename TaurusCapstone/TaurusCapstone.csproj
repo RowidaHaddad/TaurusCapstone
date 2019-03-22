@@ -161,6 +161,9 @@
     <Content Include="ClientViewCostProposal.aspx" />
     <Content Include="DLViewProjects.aspx" />
     <Content Include="DLAddTask.aspx" />
+    <Content Include="AdminClientConfirmationPage.aspx" />
+    <Content Include="AdminEmployeeConfirmationPage.aspx" />
+    <Content Include="AdminEditProfile.aspx" />
     <None Include="PMSDataClasses.dbml.layout">
       <DependentUpon>PMSDataClasses.dbml</DependentUpon>
     </None>
@@ -398,6 +401,27 @@
     </Compile>
     <Compile Include="DLAddTask.aspx.designer.cs">
       <DependentUpon>DLAddTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminClientConfirmationPage.aspx.cs">
+      <DependentUpon>AdminClientConfirmationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminClientConfirmationPage.aspx.designer.cs">
+      <DependentUpon>AdminClientConfirmationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployeeConfirmationPage.aspx.cs">
+      <DependentUpon>AdminEmployeeConfirmationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployeeConfirmationPage.aspx.designer.cs">
+      <DependentUpon>AdminEmployeeConfirmationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEditProfile.aspx.cs">
+      <DependentUpon>AdminEditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEditProfile.aspx.designer.cs">
+      <DependentUpon>AdminEditProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

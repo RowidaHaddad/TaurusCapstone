@@ -21,8 +21,9 @@ namespace TaurusCapstone
                 {
                     if (item == "Firstname")
                     {
-                        //myEmp = (Employee)Session[item];
-                        userName.Text = myEmp.FirstName; /*+ " " + myEmp.LastName;*/
+
+                        myEmp = (Employee)Session[item];
+                        userName.Text = myEmp.FirstName;
                     }
                 }
             }

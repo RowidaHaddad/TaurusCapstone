@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PMS_DB" Class="PMSDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=rowida;Initial Catalog=PMS_DB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PMS_DBConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Client" Member="Clients">
-    <Type Name="Client">
-      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ClientName" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="ClientMobileNumber" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="ClientNumber" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="ClientEmail" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Association Name="Client_Project" Member="Projects" ThisKey="ClientID" OtherKey="ClientID" Type="Project" />
-    </Type>
-  </Table>
   <Table Name="dbo.TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions">
     <Type Name="TaskLeadFindingSubmission">
       <Column Name="TLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -89,21 +78,6 @@
       <Association Name="Project_DLAssignment" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Employee" Member="Employees">
-    <Type Name="Employee">
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="JobTitle" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Mobile" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Employee_DesignLead" Member="DesignLead" ThisKey="EmployeeID" OtherKey="DLID" Type="DesignLead" Cardinality="One" />
-      <Association Name="Employee_DesignOfficer" Member="DesignOfficer" ThisKey="EmployeeID" OtherKey="DOID" Type="DesignOfficer" Cardinality="One" />
-      <Association Name="Employee_TaskLead" Member="TaskLead" ThisKey="EmployeeID" OtherKey="TLID" Type="TaskLead" Cardinality="One" />
-    </Type>
-  </Table>
   <Table Name="dbo.Finding" Member="Findings">
     <Type Name="Finding">
       <Column Name="FindingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -156,8 +130,8 @@
       <Association Name="Project_ImpactAnalysisUpload" Member="ImpactAnalysisUploads" ThisKey="ProjectID" OtherKey="ProjectID" Type="ImpactAnalysisUpload" />
       <Association Name="Project_ProjectCharterSubmission" Member="ProjectCharterSubmissions" ThisKey="ProjectID" OtherKey="ProjectID" Type="ProjectCharterSubmission" />
       <Association Name="Project_TaskCreation" Member="TaskCreations" ThisKey="ProjectID" OtherKey="ProjectID" Type="TaskCreation" />
-      <Association Name="Client_Project" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
       <Association Name="DesignOfficer_Project" Member="DesignOfficer" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
+      <Association Name="Client_Project" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ProjectCharter" Member="ProjectCharters">
@@ -242,6 +216,32 @@
       <Association Name="DesignLead_TaskLeadAssignment" Member="DesignLead" ThisKey="DLID" OtherKey="DLID" Type="DesignLead" IsForeignKey="true" />
       <Association Name="Task_TaskLeadAssignment" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
       <Association Name="TaskLead_TaskLeadAssignment" Member="TaskLead" ThisKey="TLID" OtherKey="TLID" Type="TaskLead" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="JobTitle" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeType" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_DesignLead" Member="DesignLead" ThisKey="EmployeeID" OtherKey="DLID" Type="DesignLead" Cardinality="One" />
+      <Association Name="Employee_DesignOfficer" Member="DesignOfficer" ThisKey="EmployeeID" OtherKey="DOID" Type="DesignOfficer" Cardinality="One" />
+      <Association Name="Employee_TaskLead" Member="TaskLead" ThisKey="EmployeeID" OtherKey="TLID" Type="TaskLead" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientName" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientMobileNumber" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientNumber" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientEmail" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Client_Project" Member="Projects" ThisKey="ClientID" OtherKey="ClientID" Type="Project" />
     </Type>
   </Table>
 </Database>

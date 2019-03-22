@@ -12,10 +12,12 @@ namespace TaurusCapstone
         PMSDataClassesDataContext db = new PMSDataClassesDataContext();
         Employee myEmp = new Employee();
         Client myClient = new Client();
+        //bool empty = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             errorInput.Visible = false;
+            missingField.Visible = false;
         }
 
         protected void loginButton_ServerClick(object sender, EventArgs e)
@@ -30,21 +32,21 @@ namespace TaurusCapstone
             if (enteredName.Count() != 0)
             {
                 Employee myEmp = enteredName.First();
-                Session.Add("Firstname", myEmp.FirstName);
+                Session.Add("Firstname", myEmp);
 
-                if (myEmp.EmployeeType == 3)
+                if (myEmp.EmployeeType == "3")
                 {
                     Response.Redirect("~/AdminHomePage.aspx");
                 }
-                else if (myEmp.EmployeeType == 2)
+                else if (myEmp.EmployeeType == "2")
                 {
                     Response.Redirect("~/DLHomePage.aspx");
                 }
-                else if (myEmp.EmployeeType == 1)
+                else if (myEmp.EmployeeType == "1")
                 {
                     Response.Redirect("~/DOHomePage.aspx");
                 }
-                else if (myEmp.EmployeeType == 0)
+                else if (myEmp.EmployeeType == "0")
                 {
                     Response.Redirect("~/TLHomePage.aspx");
                 }
@@ -59,7 +61,7 @@ namespace TaurusCapstone
                 if (clientLogin.Count() != 0)
                 {
                     Client myClient = clientLogin.First();
-                    Session.Add("Firstname", myClient.ClientName);
+                    Session.Add("FirstClient", myClient.ClientName);
                     Response.Redirect("~/ClientHomePage.aspx");
                 }
             }
@@ -67,7 +69,15 @@ namespace TaurusCapstone
             else
             {
                 errorInput.Visible = true;
+               
             }
+
+            //if (usrTB.Value || pswTB.Value) == empty)
+            //{
+            //    usernameRFV.Visible = true;
+            //    passwordRFV.Visible = true;
+            //    missingField.Visible = true;
+            //}
         }
     }
 }

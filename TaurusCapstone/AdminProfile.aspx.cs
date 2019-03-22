@@ -12,6 +12,19 @@ namespace TaurusCapstone
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (Session.Count != 0)
+            {
+                foreach (string item in Session.Keys)
+                {
+                    if (item == "Firstname")
+                    {
+                        Employee myemployee = (Employee)Session[item];
+                        usernameLabel.Text = myemployee.EmployeeID.ToString();
+                        emailLabel.Text = myemployee.Email;
+                        numberLabel.Text = myemployee.Mobile;
+                    }
+                }
+            }
         }
     }
 }

@@ -7,11 +7,16 @@
  .jumbotron {
      text-align: center;
  }
+ .label{
+     font-family: 'Trebuchet MS';
+     color: black;
+     font-size: x-large;
+ }
 </style>
 
     <div class="jumbotron">
-  <h1>Welcome back, <asp:Label ID="userName" runat="server" Text=""></asp:Label>!</h1>
-       <p>Quick actions:</p>
+        <asp:Label class= "label" ID="Label1" runat="server" Text="Welcome, "></asp:Label><asp:Label class="label" ID="userName" runat="server" Text=""></asp:Label>
+        <asp:Label CssClass="label" ID="Label2" runat="server" Text="!"></asp:Label><p>Quick actions:</p>
 <button type="submit" id="viewProjects" runat="server" class="btn btn-default" onserverclick="viewProjectsButton_ServerClick" style="background-color: black; color:white; text-align: right" >View Projects</button>
 <button type="submit" id="viewCP" runat="server" class="btn btn-default" onserverclick="viewCPButton_ServerClick" style="background-color: black; color:white; text-align: right" >View Cost Proposals</button>
 

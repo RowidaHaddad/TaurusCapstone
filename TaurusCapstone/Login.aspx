@@ -27,38 +27,46 @@
         .well{
             display: normal;
             border:ridge;
-            background-color: #DEEDF5;
         }
         .auto-style1{
             font-family: Avenir LT Std 65 Medium; 
             text-align:center;
             font-size:large;
         }
+        .rfv {
+            font-family: 'Avenir LT Std 65 Medium';
+            font-size: medium;
+            text-align: center;
+        }
     </style>
     <div class="well">
     <form class="form-horizontal" style="text-align: center">
   <fieldset>
     <legend class="auto-style1">Login</legend>
+      <br />
     <div class="form-group" >
       <div class="col-md-5" style="text-align: center">
-        <input type="text" class="form-control" id="usrTB" runat="server" placeholder="Username" style="font-family: Avenir LT Std 65 Medium">&nbsp;</div>
-    </div>
+          <br />
+        <input type="text" class="form-control" id="usrTB" runat="server" placeholder="Username" style="font-family: Avenir LT Std 65 Medium">&nbsp;<asp:RequiredFieldValidator class="rfv" ID="usernameRFV" runat="server" ErrorMessage="*" ControlToValidate="usrTB" Font-Bold="True" Font-Names="Avenir LT Std 65 Medium" ForeColor="#990000"></asp:RequiredFieldValidator></div></div>
+
+    
     <div class="form-group">
       <div class="col-md-5">
-        <input type="password" class="form-control" id="pswTB" runat="server" placeholder="Password" style="font-family: Avenir LT Std 65 Medium">
-    </div>
-        </div>
-      <br />
-      <div class ="col-md-5">
-          <span class="label label-danger" id="errorInput" runat="server" style="font-family: Avenir LT Std 65 Medium; font-size: small; text-align: center">Incorrect username and password!</span>
+        <input type="password" class="form-control" id="pswTB" runat="server" placeholder="Password" style="font-family: Avenir LT Std 65 Medium"><asp:RequiredFieldValidator class="rfv" ID="passwordRFV" runat="server" ErrorMessage="*" ControlToValidate="pswTB" Font-Bold="True" Font-Names="Avenir LT Std 65 Medium" ForeColor="#990000"></asp:RequiredFieldValidator>
       </div>
-      <br />
+      </div>
+      <div class ="col-md-5">
+          <span class="label label-danger" id="errorInput" runat="server" style="font-family: Avenir LT Std 65 Medium; font-size: small; text-align: center">Incorrect username and/or password!</span>
+           <span class="label label-danger" id="missingField" runat="server" style="font-family: Avenir LT Std 65 Medium; font-size: small; text-align: center">Missing required fields!</span>
+
+      </div>
       <br />
     
   </fieldset>
         <div class="col-md-5" style= "font-family: Avenir LT Std 65 Medium">
 <button type="submit" id="loginButton" runat="server" class="btn btn-default btn-lg" onserverclick="loginButton_ServerClick" style="background-color: black; color:white; text-align: right" >Login</button>
 </div>
+        </div>
 </form>
         </div>
 </asp:Content>

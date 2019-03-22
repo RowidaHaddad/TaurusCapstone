@@ -14,7 +14,17 @@ namespace TaurusCapstone
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session.Count != 0)
+            {
+                foreach (string item in Session.Keys)
+                {
+                    if (item == "FirstClient")
+                    {
+                   
+                        userName.Text = (string)Session[item]; ; /*+ " " + myEmp.LastName;*/
+                    }
+                }
+            }
         }
 
         protected void viewProjectsButton_ServerClick (object sender, EventArgs e)
