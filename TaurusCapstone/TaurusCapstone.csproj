@@ -164,6 +164,14 @@
     <Content Include="AdminClientConfirmationPage.aspx" />
     <Content Include="AdminEmployeeConfirmationPage.aspx" />
     <Content Include="AdminEditProfile.aspx" />
+    <Content Include="ClientViewFindings.aspx" />
+    <Content Include="DOCreateAProject.aspx" />
+    <Content Include="DOViewProjects.aspx" />
+    <Content Include="DOCreateACostProposal.aspx" />
+    <Content Include="DOViewClients.aspx" />
+    <Content Include="DOViewEmployees.aspx" />
+    <Content Include="DOHomePage.aspx" />
+    <Content Include="DOProfile.aspx" />
     <None Include="PMSDataClasses.dbml.layout">
       <DependentUpon>PMSDataClasses.dbml</DependentUpon>
     </None>
@@ -422,6 +430,62 @@
     </Compile>
     <Compile Include="AdminEditProfile.aspx.designer.cs">
       <DependentUpon>AdminEditProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientViewFindings.aspx.cs">
+      <DependentUpon>ClientViewFindings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientViewFindings.aspx.designer.cs">
+      <DependentUpon>ClientViewFindings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOCreateAProject.aspx.cs">
+      <DependentUpon>DOCreateAProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOCreateAProject.aspx.designer.cs">
+      <DependentUpon>DOCreateAProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOViewProjects.aspx.cs">
+      <DependentUpon>DOViewProjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOViewProjects.aspx.designer.cs">
+      <DependentUpon>DOViewProjects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOCreateACostProposal.aspx.cs">
+      <DependentUpon>DOCreateACostProposal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOCreateACostProposal.aspx.designer.cs">
+      <DependentUpon>DOCreateACostProposal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOViewClients.aspx.cs">
+      <DependentUpon>DOViewClients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOViewClients.aspx.designer.cs">
+      <DependentUpon>DOViewClients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOViewEmployees.aspx.cs">
+      <DependentUpon>DOViewEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOViewEmployees.aspx.designer.cs">
+      <DependentUpon>DOViewEmployees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOHomePage.aspx.cs">
+      <DependentUpon>DOHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOHomePage.aspx.designer.cs">
+      <DependentUpon>DOHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOProfile.aspx.cs">
+      <DependentUpon>DOProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOProfile.aspx.designer.cs">
+      <DependentUpon>DOProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

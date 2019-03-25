@@ -8,13 +8,89 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+ <script type="text/javascript">
+            function disableBackButton() {
+            window.history.forward();
+        }
+        setTimeout("disableBackButton()", 0);
+        </script>
+    <style type="text/css">
+        .auto-style2 {
+            width: 100%;
+            height: 163px;
+        }
+        .auto-style3 {
+            width: 118px;
+        }
+        .navbar-default {
+            font-family: Avenir LT Std 65 Medium;
+            font-size: medium;
+        }
+        .label-label {
+            color: black;
+        }
+        .footer{
+            font-family: Avenir LT Std 65 Medium;
+            font-size: small;
+        }
+        .auto-style4 {
+            font-family: "Avenir LT Std 65 Medium";
+            background-color: #C0C0C0;
+        }
+    </style>
 </head>
 <body>
+    
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+    <table class="auto-style2">
+        <tr>
+            <td class="auto-style3">
+                <asp:Image ID="Image1" runat="server" Height="121px" ImageUrl="~/images/logo2.png" Width="121px" />
+            </td>
+            <td>
+                 <span class="label-label" style="font-size: medium;  font-family: Avenir LT Std 65 Medium">TAURUS | HCD</span>
+                            <br />
+                 <span class="label-label" style="font-size: medium; text-align:center; font-family: Avenir LT Std 65 Medium">PROJECT MANAGEMENT SYSTEM</span>
+            </td>
+        </tr>
+        </table>
+        <nav class="navbar-default" runat ="server" id="adminNavBar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="~/DOHomePage.aspx" runat="server"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a href="~/DOProfile.aspx" runat="server"> <span class="glyphicon glyphicon-user"></span> Profile </a></li>
+        <li><a href="~/DOViewProjects.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Projects</a></li>
+        <li><a href="~/DOViewEmployees.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Employees</a></li>
+        <li><a href="~/DOViewClients.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Clients </a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="~/Login.aspx" runat="server" CausesValidation="false"> <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+        
+<asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+</asp:ContentPlaceHolder>
+
+         <div>
+        <p><span class="footer" style="font-family: Avenir LT Std 65 Medium; background-color:#c0c0c0">© Copyrights 2019</span></p>
+               </div>
     </form>
+    <p class="auto-style4">
+&nbsp;</p>
 </body>
+
 </html>

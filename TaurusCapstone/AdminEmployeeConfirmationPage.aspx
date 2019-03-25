@@ -2,7 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-
+    <style>
+    .jumbotron{
+        text-align:center;
+    }
+</style>
     <div class="jumbotron">
         <h1>
             Employee is added successfully!

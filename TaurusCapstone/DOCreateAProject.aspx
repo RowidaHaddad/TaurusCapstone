@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AdminAddClient.aspx.cs" Inherits="TaurusCapstone.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DO.Master" AutoEventWireup="true" CodeBehind="DOCreateAProject.aspx.cs" Inherits="TaurusCapstone.WebForm24" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-
+    
     <style>
         .col-xs-4{
             float: none;
@@ -76,33 +76,86 @@
         }
     </style>
 
-    <ul class="nav nav-tabs">
-  <li><a href="~/AdminViewClients.aspx" data-toggle="tab" runat="server">View Client</a></li>
-  <li><a href="~/AdminAddClient.aspx" data-toggle="tab" runat="server">Add Clients</a></li>
-</ul>
-    <div class="tab-pane fade active in" id="viewEmployees">
-  </div>
-    <div class="tab-pane fade active in" id="addEmployee"> 
-  </div>
     <div class="well">
     <form class="form-horizontal">
   <fieldset>
-    <h3 style="font-family: Avenir LT Std 65 Medium; text-align: center">Add a New Client</h3>
+    <h3 style="font-family: Avenir LT Std 65 Medium; text-align: center">Create a New Project</h3>
     <div class="form-group">
-      <label for="inputEmail" class="auto-style5">Client Name</label>
+      <label for="nameLabel" class="auto-style5">Project Name</label>
       <div class="col-xs-4">
-        <input type="text" class="form-control" id="clientName" runat="server"><asp:RequiredFieldValidator ID="nameRFV" runat="server" ControlToValidate="clientName" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
+        <input type="text" class="form-control" id="projectName" runat="server"><asp:RequiredFieldValidator ID="nameRFV" runat="server" ControlToValidate="clientName" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
 
       &nbsp;</div>
     </div>
     <div class="form-group">
-      <label for="inputPassword" class="auto-style6">Client Phone Number</label>
+      <label for="inputPassword" class="auto-style6">Client Name</label>
       <div class="col-xs-4">
-        <input type="text" class="form-control" id="clientNumber" runat="server"><asp:RequiredFieldValidator ID="numberRFV" runat="server" ControlToValidate="clientNumber" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
+          <asp:DropDownList ID="clientNamesDL" runat="server" DataSourceID="clientNames" DataTextField="ClientName" DataValueField="ClientName"></asp:DropDownList><asp:LinqDataSource ID="clientNames" runat="server" ContextTypeName="TaurusCapstone.PMSDataClassesDataContext" EntityTypeName="" Select="new (ClientName)" TableName="Clients"></asp:LinqDataSource>
+          <asp:RequiredFieldValidator ID="numberRFV" runat="server" ControlToValidate="clientNamesDL" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
 
           &nbsp;</div>
         </div>
       <br />
+      <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">Date: </label>
+      <div class="col-xs-2">
+        <select runat="server" class="form-control" id="day">
+          <option>01</option>
+          <option>02</option>
+          <option>03</option>
+          <option>04</option>
+          <option>05</option>
+          <option>06</option>
+          <option>07</option>
+          <option>08</option>
+          <option>09</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+          <option>22</option>
+          <option>23</option>
+          <option>24</option>
+          <option>25</option>
+          <option>26</option>
+          <option>27</option>
+          <option>28</option>
+          <option>29</option>
+          <option>30</option>
+          <option>31</option>
+        </select>
+          <select runat="server" class="form-control" id="month">
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+          </select>
+          <select runat="server" class="form-control" id="year">
+              <option>2019</option>
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+          </select>
+    </div>
+        </div>
       <div class="form-group">
       <label for="inputPassword" class="auto-style7">Company Number</label>
       <div class="col-xs-4">
@@ -131,7 +184,7 @@
       </div>
     <div class="form-group">
       <div class="col-xs-4 col-lg-offset-2">
-        <button type="submit" class="btn btn-default" style="color: white; background-color: black" runat="server" id="addClient" onserverclick="addClient_ServerClick">Add</button>
+        <button type="submit" class="btn btn-default" style="color: white; background-color: black" runat="server" id="addProject" onserverclick="addProject_ServerClick">Add</button>
         <button type="submit" class="btn btn-default" runat="server" id="cancelButton" onserverclick="cancelButton_ServerClick">Cancel</button>
       </div>
     </div>

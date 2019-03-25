@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace TaurusCapstone
 {
-    public partial class WebForm15 : System.Web.UI.Page
+    public partial class WebForm29 : System.Web.UI.Page
     {
         PMSDataClassesDataContext db = new PMSDataClassesDataContext();
         Employee myEmp = new Employee();
-        DesignLead myDL = new DesignLead();
+        DesignOfficer myDO = new DesignOfficer();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,14 +28,14 @@ namespace TaurusCapstone
                 }
             }
         }
-        protected void addClientButton_ServerClick(object sender, EventArgs e)
+        protected void newProjectButton_ServerClick (object sender, EventArgs e)
         {
-            Response.Redirect("~/AdminAddClient.aspx");
+            Response.Redirect("~/DOCreateAProject.aspx");
         }
-        protected void addEmployeeButton_ServerClick(object sender, EventArgs e)
-        {
-            Response.Redirect("~/AdminAddEmployee.aspx");
 
+        protected void newCPButton_ServerClick (object sender, EventArgs e)
+        {
+            Response.Redirect("~/DOCreateACostProposal.aspx");
         }
     }
 }

@@ -32,7 +32,7 @@ namespace TaurusCapstone
             {
                 db.Clients.InsertOnSubmit(newClient);
                 db.SubmitChanges();
-                Response.Redirect("~/ AdminClientConfirmationPage.aspx");
+                Response.Redirect("~/AdminClientConfirmationPage.aspx");
             }
             else
             {

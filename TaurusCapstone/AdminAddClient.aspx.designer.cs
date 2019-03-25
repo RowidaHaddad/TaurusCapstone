@@ -22,6 +22,15 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.HtmlControls.HtmlInputText clientName;
         
         /// <summary>
+        /// nameRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator nameRFV;
+        
+        /// <summary>
         /// clientNumber control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace TaurusCapstone {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText clientNumber;
+        
+        /// <summary>
+        /// numberRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator numberRFV;
         
         /// <summary>
         /// compNumber control.
@@ -40,6 +58,15 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.HtmlControls.HtmlInputText compNumber;
         
         /// <summary>
+        /// compRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator compRFV;
+        
+        /// <summary>
         /// clientEmail control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.HtmlControls.HtmlInputText clientEmail;
         
         /// <summary>
+        /// emailRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator emailRFV;
+        
+        /// <summary>
         /// clientPassword control.
         /// </summary>
         /// <remarks>
@@ -56,6 +92,15 @@ namespace TaurusCapstone {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText clientPassword;
+        
+        /// <summary>
+        /// passwordRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordRFV;
         
         /// <summary>
         /// requiredField control.

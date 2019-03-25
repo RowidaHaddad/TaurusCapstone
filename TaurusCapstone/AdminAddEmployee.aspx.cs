@@ -18,17 +18,13 @@ namespace TaurusCapstone
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            {
-
-            }
-
+            requiredField.Visible = false;
         }
 
-        //protected void cancelButton_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect("~/AdminHomePage.aspx");
-        //}
+        protected void cancelButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AdminHomePage.aspx");
+        }
         protected void addEmployee_Click(object sender, EventArgs e)
         {
             if (valid)
@@ -37,7 +33,6 @@ namespace TaurusCapstone
                 myEmp.LastName = empLN.Value;
                 myEmp.Mobile = empNumber.Value;
                 myEmp.Email = empEmail.Value;
-            
                 myEmp.JobTitle = jobTitle.Value;
 
                 if (myEmp.JobTitle == "Admin")
@@ -61,15 +56,11 @@ namespace TaurusCapstone
 
                 db.Employees.InsertOnSubmit(myEmp);
                 db.SubmitChanges();
-
-                if (myEmp.EmployeeType == "2")
-                {
-                    //myEmp.EmployeeID;
-
-                }
                 Response.Redirect("~/ AdminEmployeeConfirmationPage.aspx");
-
-                //Response.Write("<script> alert('User is Successfully Added!')</script> ");
+            }
+            else
+            {
+                requiredField.Visible = true;
             }
         }
     }

@@ -18,10 +18,11 @@ namespace TaurusCapstone
             {
                 foreach (string item in Session.Keys)
                 {
-                    if (item == "FirstClient")
+                    if (item == "Firstname")
                     {
-                   
-                        userName.Text = (string)Session[item]; ; /*+ " " + myEmp.LastName;*/
+
+                        myClient = (Client)Session[item];
+                        userName.Text = myClient.ClientName;
                     }
                 }
             }

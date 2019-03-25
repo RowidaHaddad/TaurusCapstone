@@ -10,115 +10,97 @@
 namespace TaurusCapstone {
     
     
-    public partial class WebForm4 {
+    public partial class WebForm26 {
         
         /// <summary>
-        /// empFN control.
+        /// projectName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText empFN;
+        protected global::System.Web.UI.WebControls.Label projectName;
         
         /// <summary>
-        /// empFNRFV control.
+        /// day control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator empFNRFV;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect day;
         
         /// <summary>
-        /// empLN control.
+        /// month control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText empLN;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect month;
         
         /// <summary>
-        /// empLNRFV control.
+        /// year control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator empLNRFV;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect year;
         
         /// <summary>
-        /// jobTitle control.
+        /// scopeRFV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText jobTitle;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator scopeRFV;
         
         /// <summary>
-        /// jobTitleRFV control.
+        /// category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator jobTitleRFV;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect category;
         
         /// <summary>
-        /// empNumber control.
+        /// categoryRFV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText empNumber;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator categoryRFV;
         
         /// <summary>
-        /// empNumberRFV control.
+        /// deliverable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator empNumberRFV;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText deliverable;
         
         /// <summary>
-        /// empEmail control.
+        /// deliverableRFV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl empEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator deliverableRFV;
         
         /// <summary>
-        /// empType control.
+        /// addDeliverable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect empType;
-        
-        /// <summary>
-        /// empPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText empPassword;
-        
-        /// <summary>
-        /// empPasswordRFV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator empPasswordRFV;
+        protected global::System.Web.UI.HtmlControls.HtmlButton addDeliverable;
         
         /// <summary>
         /// requiredField control.
@@ -130,6 +112,15 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl requiredField;
         
         /// <summary>
+        /// sendCP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton sendCP;
+        
+        /// <summary>
         /// cancelButton control.
         /// </summary>
         /// <remarks>
@@ -137,14 +128,5 @@ namespace TaurusCapstone {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton cancelButton;
-        
-        /// <summary>
-        /// addEmployee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton addEmployee;
     }
 }
