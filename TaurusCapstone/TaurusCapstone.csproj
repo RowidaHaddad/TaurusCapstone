@@ -129,6 +129,8 @@
     <Content Include="images\line.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo2.png" />
+    <Content Include="images\pattern-1-01.png" />
+    <Content Include="images\pattern-2-01-01.png" />
     <Content Include="images\right-arrow-icon-27.png" />
     <Content Include="images\uploadFile.png" />
     <Content Include="images\uploadLogo.png" />
@@ -172,6 +174,18 @@
     <Content Include="DOViewEmployees.aspx" />
     <Content Include="DOHomePage.aspx" />
     <Content Include="DOProfile.aspx" />
+    <Content Include="DOProjectCreationConfirmation.aspx" />
+    <Content Include="DOProjects.aspx" />
+    <Content Include="DOViewCP.aspx" />
+    <Content Include="DOProjectDetails.aspx" />
+    <Content Include="DOEditsCP.aspx" />
+    <Content Include="TLHomePage.aspx" />
+    <Content Include="TLProfile.aspx" />
+    <Content Include="TLViewProjects.aspx" />
+    <Content Include="TLViewTasks.aspx" />
+    <Content Include="TLTaskDetails.aspx" />
+    <Content Include="TLViewFindings.aspx" />
+    <Content Include="TLFindingDetails.aspx" />
     <None Include="PMSDataClasses.dbml.layout">
       <DependentUpon>PMSDataClasses.dbml</DependentUpon>
     </None>
@@ -486,6 +500,90 @@
     </Compile>
     <Compile Include="DOProfile.aspx.designer.cs">
       <DependentUpon>DOProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOProjectCreationConfirmation.aspx.cs">
+      <DependentUpon>DOProjectCreationConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOProjectCreationConfirmation.aspx.designer.cs">
+      <DependentUpon>DOProjectCreationConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOProjects.aspx.cs">
+      <DependentUpon>DOProjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOProjects.aspx.designer.cs">
+      <DependentUpon>DOProjects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOViewCP.aspx.cs">
+      <DependentUpon>DOViewCP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOViewCP.aspx.designer.cs">
+      <DependentUpon>DOViewCP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOProjectDetails.aspx.cs">
+      <DependentUpon>DOProjectDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOProjectDetails.aspx.designer.cs">
+      <DependentUpon>DOProjectDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOEditsCP.aspx.cs">
+      <DependentUpon>DOEditsCP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOEditsCP.aspx.designer.cs">
+      <DependentUpon>DOEditsCP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TLHomePage.aspx.cs">
+      <DependentUpon>TLHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TLHomePage.aspx.designer.cs">
+      <DependentUpon>TLHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TLProfile.aspx.cs">
+      <DependentUpon>TLProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TLProfile.aspx.designer.cs">
+      <DependentUpon>TLProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TLViewProjects.aspx.cs">
+      <DependentUpon>TLViewProjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TLViewProjects.aspx.designer.cs">
+      <DependentUpon>TLViewProjects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TLViewTasks.aspx.cs">
+      <DependentUpon>TLViewTasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TLViewTasks.aspx.designer.cs">
+      <DependentUpon>TLViewTasks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TLTaskDetails.aspx.cs">
+      <DependentUpon>TLTaskDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TLTaskDetails.aspx.designer.cs">
+      <DependentUpon>TLTaskDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TLViewFindings.aspx.cs">
+      <DependentUpon>TLViewFindings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TLViewFindings.aspx.designer.cs">
+      <DependentUpon>TLViewFindings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TLFindingDetails.aspx.cs">
+      <DependentUpon>TLFindingDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TLFindingDetails.aspx.designer.cs">
+      <DependentUpon>TLFindingDetails.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

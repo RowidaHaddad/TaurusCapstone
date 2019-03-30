@@ -50,97 +50,110 @@
             padding-left: 15px;
             padding-right: 15px;
         }
+        .auto-style9 {
+            position: relative;
+            min-height: 1px;
+            float: left;
+            width: 16.66666667%;
+            text-align: center;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .text-center{
+            font-size:medium;
+        }
         </style>
 
     <div class="well">
     <form class="form-horizontal">
   <fieldset>
     <h3 style="font-family: Avenir LT Std 65 Medium; text-align: center">A New Cost Proposal</h3>
-      <p class="text-center"><strong>For: <asp:Label ID="projectName" runat="server" Text=""></asp:Label></strong></p>
+      <p class="text-center"><strong>For: <asp:DropDownList ID="projectNames" runat="server" DataSourceID="project" DataTextField="ProjectName" DataValueField="ProjectID" ForeColor="Black"></asp:DropDownList>
+          <asp:LinqDataSource ID="project" runat="server" ContextTypeName="TaurusCapstone.PMSDataClassesDataContext" EntityTypeName="" Select="new (ProjectName, ProjectID)" TableName="Projects">
+          </asp:LinqDataSource>
+          </strong></p>
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">Date: </label>
-      <div class="col-xs-2">
-        <select runat="server" class="form-control" id="day">
-          <option>01</option>
-          <option>02</option>
-          <option>03</option>
-          <option>04</option>
-          <option>05</option>
-          <option>06</option>
-          <option>07</option>
-          <option>08</option>
-          <option>09</option>
-          <option>10</option>
-          <option>11</option>
-          <option>12</option>
-          <option>13</option>
-          <option>14</option>
-          <option>15</option>
-          <option>16</option>
-          <option>17</option>
-          <option>18</option>
-          <option>19</option>
-          <option>20</option>
-          <option>21</option>
-          <option>22</option>
-          <option>23</option>
-          <option>24</option>
-          <option>25</option>
-          <option>26</option>
-          <option>27</option>
-          <option>28</option>
-          <option>29</option>
-          <option>30</option>
-          <option>31</option>
-        </select>
-          <select runat="server" class="form-control" id="month">
-              <option>01</option>
-              <option>02</option>
-              <option>03</option>
-              <option>04</option>
-              <option>05</option>
-              <option>06</option>
-              <option>07</option>
-              <option>08</option>
-              <option>09</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-          </select>
-          <select runat="server" class="form-control" id="year">
-              <option>2019</option>
-              <option>2020</option>
-              <option>2021</option>
-              <option>2022</option>
-              <option>2023</option>
-              <option>2024</option>
-          </select>
+      <div class="auto-style9">
+        <asp:DropDownList ID="day" runat="server" Height="36px" Width="66px">
+              <asp:ListItem>01</asp:ListItem>
+              <asp:ListItem>02</asp:ListItem>
+              <asp:ListItem>03</asp:ListItem>
+              <asp:ListItem>04</asp:ListItem>
+              <asp:ListItem>05</asp:ListItem>
+              <asp:ListItem>06</asp:ListItem>
+              <asp:ListItem>07</asp:ListItem>
+              <asp:ListItem>08</asp:ListItem>
+              <asp:ListItem>09</asp:ListItem>
+              <asp:ListItem>10</asp:ListItem>
+              <asp:ListItem>11</asp:ListItem>
+              <asp:ListItem>12</asp:ListItem>
+              <asp:ListItem>13</asp:ListItem>
+              <asp:ListItem>14</asp:ListItem>
+              <asp:ListItem>15</asp:ListItem>
+              <asp:ListItem>16</asp:ListItem>
+              <asp:ListItem>17</asp:ListItem>
+              <asp:ListItem>18</asp:ListItem>
+              <asp:ListItem>19</asp:ListItem>
+              <asp:ListItem>20</asp:ListItem>
+              <asp:ListItem>21</asp:ListItem>
+              <asp:ListItem>22</asp:ListItem>
+              <asp:ListItem>23</asp:ListItem>
+              <asp:ListItem>24</asp:ListItem>
+              <asp:ListItem>25</asp:ListItem>
+              <asp:ListItem>26</asp:ListItem>
+              <asp:ListItem>27</asp:ListItem>
+              <asp:ListItem>28</asp:ListItem>
+              <asp:ListItem>29</asp:ListItem>
+              <asp:ListItem>30</asp:ListItem>
+              <asp:ListItem>31</asp:ListItem>
+          </asp:DropDownList><asp:DropDownList ID="month" runat="server" Height="36px" Width="66px">
+              <asp:ListItem Value="01">Jan</asp:ListItem>
+              <asp:ListItem Value="02">Feb</asp:ListItem>
+              <asp:ListItem Value="03">Mar</asp:ListItem>
+              <asp:ListItem Value="04">Apr</asp:ListItem>
+              <asp:ListItem Value="05">May</asp:ListItem>
+              <asp:ListItem Value="06">Jun</asp:ListItem>
+              <asp:ListItem Value="07">Jul</asp:ListItem>
+              <asp:ListItem Value="08">Aug</asp:ListItem>
+              <asp:ListItem Value="09">Sep</asp:ListItem>
+              <asp:ListItem Value="10">Oct</asp:ListItem>
+              <asp:ListItem Value="11">Nov</asp:ListItem>
+              <asp:ListItem Value="12">Dec</asp:ListItem>
+          </asp:DropDownList><asp:DropDownList ID="year" runat="server" Height="36px" Width="66px">
+              <asp:ListItem>2019</asp:ListItem>
+              <asp:ListItem>2020</asp:ListItem>
+              <asp:ListItem>2021</asp:ListItem>
+              <asp:ListItem>2022</asp:ListItem>
+              <asp:ListItem>2023</asp:ListItem>
+              <asp:ListItem>2024</asp:ListItem>
+          </asp:DropDownList>
     </div>
         </div>
     <div class="form-group">
       <label for="inputPassword" class="auto-style6">Scope</label>
       <div class="col-xs-4">
-        <textarea class="form-control" rows="5" id="scope"></textarea><asp:RequiredFieldValidator ID="scopeRFV" runat="server" ControlToValidate="scope" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
+        <textarea class="form-control" rows="5" id="scope"></textarea>
       </div>
         </div>
       <br />
       <div class="form-group">
       <label for="inputPassword" class="auto-style7">Category</label>
       <div class="col-xs-4">
-        <select runat="server" id="category" class="form-control">
-            <option>Research-based Project</option>
-            <option>Product-based Project</option>
-            <option>Both</option>
-        </select><asp:RequiredFieldValidator ID="categoryRFV" runat="server" ControlToValidate="category" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
+          <asp:DropDownList ID="catergory" runat="server" Height="40px" Width="470px">
+              <asp:ListItem>Research-based</asp:ListItem>
+              <asp:ListItem>Product-based</asp:ListItem>
+              <asp:ListItem>Both</asp:ListItem>
+          </asp:DropDownList>
         </div>
         </div>
       <br />
       <div class="form-group">
       <label for="inputPassword" class="auto-style8">Deliverables</label>
       <div class="col-xs-4">
-        <input type="text" class="form-control" id="deliverable" runat="server"><asp:RequiredFieldValidator ID="deliverableRFV" runat="server" ControlToValidate="clientEmail" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
-        <button type="submit" class="btn btn-default" style="color: white; background-color: black" runat="server" id="addDeliverable" onserverclick="addDeliverable_ServerClick">Add more</button>
-
+          <p style="font-style:italic;">separate with commas</p>
+        <textarea id="deliverable" runat="server" class="form-control">
+        </textarea>
       </div>
         </div>
       

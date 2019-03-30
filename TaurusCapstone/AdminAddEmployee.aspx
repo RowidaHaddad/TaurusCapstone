@@ -87,6 +87,7 @@
                     <br />
                     <br />
                     <div class="col-xs-4">
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
                         <button id="cancelButton" type="reset" class="btn btn-default" runat="server">Cancel</button>
                         <button id="addEmployee" type="submit" class="btn btn-default" style="color: white; background-color: black" onserverclick="addEmployee_Click" runat="server">Add</button>
                     </div>

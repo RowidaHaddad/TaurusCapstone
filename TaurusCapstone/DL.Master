@@ -39,7 +39,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background-position: 100% 100%; background-image: url('/images/pattern-2-01-01.png')">
     
     <form id="form1" runat="server">
     <table class="auto-style2">
@@ -88,8 +88,6 @@
         <p><span class="footer" style="font-family: Avenir LT Std 65 Medium; background-color:#c0c0c0">© Copyrights 2019</span></p>
                </div>
     </form>
-    <p class="auto-style4">
-&nbsp;</p>
 </body>
 
 </html>

@@ -31,7 +31,8 @@
         .auto-style1{
             font-family: Avenir LT Std 65 Medium; 
             text-align:center;
-            font-size:large;
+            font-size:larger;
+            color: white;
         }
         .rfv {
             font-family: 'Avenir LT Std 65 Medium';
@@ -39,20 +40,19 @@
             text-align: center;
         }
     </style>
-    <div class="well">
+    
     <form class="form-horizontal" style="text-align: center">
-  <fieldset>
-    <legend class="auto-style1">Login</legend>
-      <br />
+ 
+    <p class="auto-style1">Login</p>
     <div class="form-group" >
       <div class="col-md-5" style="text-align: center">
           <br />
-        <input type="text" class="form-control" id="usrTB" runat="server" placeholder="Username" style="font-family: Avenir LT Std 65 Medium">&nbsp;<asp:RequiredFieldValidator class="rfv" ID="usernameRFV" runat="server" ErrorMessage="*" ControlToValidate="usrTB" Font-Bold="True" Font-Names="Avenir LT Std 65 Medium" ForeColor="#990000"></asp:RequiredFieldValidator></div></div>
+      <input type="text" class="form-control" id="usrTB" runat="server" placeholder="Username" style="font-family: Avenir LT Std 65 Medium">&nbsp;<asp:RequiredFieldValidator class="rfv" ID="usernameRFV" runat="server" ErrorMessage="*" ControlToValidate="usrTB" Font-Bold="True" Font-Names="Avenir LT Std 65 Medium" ForeColor="white"></asp:RequiredFieldValidator></div></div>
 
     
     <div class="form-group">
       <div class="col-md-5">
-        <input type="password" class="form-control" id="pswTB" runat="server" placeholder="Password" style="font-family: Avenir LT Std 65 Medium"><asp:RequiredFieldValidator class="rfv" ID="passwordRFV" runat="server" ErrorMessage="*" ControlToValidate="pswTB" Font-Bold="True" Font-Names="Avenir LT Std 65 Medium" ForeColor="#990000"></asp:RequiredFieldValidator>
+        <input type="password" class="form-control" id="pswTB" runat="server" placeholder="Password" style="font-family: Avenir LT Std 65 Medium"><asp:RequiredFieldValidator class="rfv" ID="passwordRFV" runat="server" ErrorMessage="*" ControlToValidate="pswTB" Font-Bold="True" Font-Names="Avenir LT Std 65 Medium" ForeColor="white"></asp:RequiredFieldValidator>
       </div>
       </div>
       <div class ="col-md-5">
@@ -62,11 +62,9 @@
       </div>
       <br />
     
-  </fieldset>
+
         <div class="col-md-5" style= "font-family: Avenir LT Std 65 Medium">
 <button type="submit" id="loginButton" runat="server" class="btn btn-default btn-lg" onserverclick="loginButton_ServerClick" style="background-color: black; color:white; text-align: right" >Login</button>
 </div>
-        </div>
-</form>
-        </div>
+       
 </asp:Content>

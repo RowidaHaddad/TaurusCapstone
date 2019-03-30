@@ -13,13 +13,22 @@ namespace TaurusCapstone {
     public partial class WebForm26 {
         
         /// <summary>
-        /// projectName control.
+        /// projectNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label projectName;
+        protected global::System.Web.UI.WebControls.DropDownList projectNames;
+        
+        /// <summary>
+        /// project control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinqDataSource project;
         
         /// <summary>
         /// day control.
@@ -28,7 +37,7 @@ namespace TaurusCapstone {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect day;
+        protected global::System.Web.UI.WebControls.DropDownList day;
         
         /// <summary>
         /// month control.
@@ -37,7 +46,7 @@ namespace TaurusCapstone {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect month;
+        protected global::System.Web.UI.WebControls.DropDownList month;
         
         /// <summary>
         /// year control.
@@ -46,34 +55,16 @@ namespace TaurusCapstone {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect year;
+        protected global::System.Web.UI.WebControls.DropDownList year;
         
         /// <summary>
-        /// scopeRFV control.
+        /// catergory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator scopeRFV;
-        
-        /// <summary>
-        /// category control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect category;
-        
-        /// <summary>
-        /// categoryRFV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator categoryRFV;
+        protected global::System.Web.UI.WebControls.DropDownList catergory;
         
         /// <summary>
         /// deliverable control.
@@ -82,25 +73,7 @@ namespace TaurusCapstone {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText deliverable;
-        
-        /// <summary>
-        /// deliverableRFV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator deliverableRFV;
-        
-        /// <summary>
-        /// addDeliverable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton addDeliverable;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea deliverable;
         
         /// <summary>
         /// requiredField control.

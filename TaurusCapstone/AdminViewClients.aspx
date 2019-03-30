@@ -12,4 +12,6 @@
     <div class="tab-pane fade active in" id="addClient"> 
   </div>
 
+    <asp:GridView ID="gridviewClients" runat="server"></asp:GridView>
+
 </asp:Content>

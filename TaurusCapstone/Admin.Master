@@ -35,7 +35,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background-position: 100% 100%; background-image: url('/images/pattern-2-01-01.png')">
     
     <form id="form1" runat="server">
     <table class="auto-style2">

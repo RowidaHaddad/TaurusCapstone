@@ -13,24 +13,37 @@ namespace TaurusCapstone
         bool valid = true;
         PMSDataClassesDataContext db = new PMSDataClassesDataContext();
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session.Count != 0)
+            {
+                foreach (string item in Session.Keys)
+                {
+                    if (item == "Firstname")
+                    {
+                        Project myProject = new Project();
+                        
+                    }
+                }
+            }
             requiredField.Visible = false;
 
+
         }
-        protected void sendCP_ServerClick (object sender, EventArgs e)
+        protected void sendCP_ServerClick(object sender, EventArgs e)
         {
-            CostProposal myCP = new CostProposal();
-            myCP.ClientName = clientName.Value;
-            myCP.ClientMobileNumber = clientNumber.Value;
-            myCP.ClientNumber = clientNumber.Value;
-            myCP.ClientEmail = clientEmail.Value;
-            myCP.Password = clientPassword.Value;
+            //CostProposal myCP = new CostProposal();
+            //myCP.ClientName = clientName.Value;
+            //myCP.ClientMobileNumber = clientNumber.Value;
+            //myCP.ClientNumber = clientNumber.Value;
+            //myCP.ClientEmail = clientEmail.Value;
+            //myCP.Password = clientPassword.Value;
 
             if (valid)
             {
-                db.CostProposals.InsertOnSubmit(myCP);
-                db.SubmitChanges();
+                //db.CostProposals.InsertOnSubmit(myCP);
+                //db.SubmitChanges();
                 //Response.Redirect("~/AdminClientConfirmationPage.aspx");
             }
             else
@@ -39,8 +52,9 @@ namespace TaurusCapstone
             }
         }
 
-        protected void cancelButton_ServerClick (object sender, EventArgs e)
+        protected void cancelButton_ServerClick(object sender, EventArgs e)
         {
             Response.Redirect("~/DOHomePage.aspx");
         }
+    }
 }

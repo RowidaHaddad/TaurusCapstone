@@ -22,9 +22,9 @@
         }
     </style>
 </head>
-<body bgcolor ="#c0c0c0">
+<body style="background-position: 100% 100%; background-image: url('/images/pattern-1-01.png')">
                 <form id="form1" runat="server">
-                <table style="width:100%; background-color: #c0c0c0">
+                <table >
                     <tr>
                         <td class="auto-style7">
 
