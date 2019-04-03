@@ -12,7 +12,6 @@ namespace TaurusCapstone
         PMSDataClassesDataContext db = new PMSDataClassesDataContext();
 
         Employee myEmp = new Employee();
-        bool valid = true;
         protected void Page_Load(object sender, EventArgs e)
         {
             requiredField.Visible = false;

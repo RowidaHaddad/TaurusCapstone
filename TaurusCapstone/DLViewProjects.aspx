@@ -3,15 +3,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <br />
-    <asp:GridView ID="viewProjects" runat="server" Width="1020px" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+    <asp:GridView ID="viewProjects" runat="server" Width="1020px" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" OnRowCommand="viewProjects_RowCommand">
         <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
             <asp:BoundField HeaderText="Project Name" />
             <asp:BoundField HeaderText="Status" />
             <asp:BoundField HeaderText="Project Type" />
-            <asp:BoundField HeaderText="Start Date" />
             <asp:BoundField HeaderText="Expected End Date" />
-            <asp:TemplateField HeaderText="View Details"></asp:TemplateField>
+            <asp:BoundField HeaderText="Status" />
+            <asp:BoundField HeaderText="Client Name" />
+            <asp:TemplateField HeaderText="View Details">
+                <ItemTemplate>
+                    <asp:LinkButton ID="viewDetails" runat="server">View</asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />

@@ -12,7 +12,7 @@ namespace TaurusCapstone
         PMSDataClassesDataContext db = new PMSDataClassesDataContext();
         CostProposal myCP = new CostProposal();
         Project myProject = new Project();
-        CostProposalCreation newCP = new CostProposalCreation();
+        //CostProposalCreation newCP = new CostProposalCreation();
         ProjectDefinition projectDef = new ProjectDefinition();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +29,7 @@ namespace TaurusCapstone
             //it will go to DO with decision and remarks
             
             clientDecision.SelectedValue = myCP.ClientDecision.ToString();
-            clientRemarks.Value = myCP.ClientNotes;
+           // clientRemarks.Value = myCP.ClientNotes;
 
             db.CostProposals.InsertOnSubmit(myCP);
             db.SubmitChanges();

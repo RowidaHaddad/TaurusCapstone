@@ -10,7 +10,7 @@
        }
    </style>
     <p class="label">View Employees</p>
-    <asp:GridView ID="viewEmployees" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" OnRowCommand="viewEmployees_RowCommand"  Width="950px">
+    <asp:GridView ID="viewEmployees" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" OnRowCommand="viewEmployees_RowCommand"  Width="950px" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
             <asp:BoundField HeaderText="Employee Name" />

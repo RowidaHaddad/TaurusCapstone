@@ -30,15 +30,18 @@ namespace TaurusCapstone
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertClient(Client instance);
+    partial void UpdateClient(Client instance);
+    partial void DeleteClient(Client instance);
     partial void InsertTaskLeadFindingSubmission(TaskLeadFindingSubmission instance);
     partial void UpdateTaskLeadFindingSubmission(TaskLeadFindingSubmission instance);
     partial void DeleteTaskLeadFindingSubmission(TaskLeadFindingSubmission instance);
     partial void InsertCostProposal(CostProposal instance);
     partial void UpdateCostProposal(CostProposal instance);
     partial void DeleteCostProposal(CostProposal instance);
-    partial void InsertCostProposalCreation(CostProposalCreation instance);
-    partial void UpdateCostProposalCreation(CostProposalCreation instance);
-    partial void DeleteCostProposalCreation(CostProposalCreation instance);
+    partial void InsertCostProposalScope(CostProposalScope instance);
+    partial void UpdateCostProposalScope(CostProposalScope instance);
+    partial void DeleteCostProposalScope(CostProposalScope instance);
     partial void InsertDesignLead(DesignLead instance);
     partial void UpdateDesignLead(DesignLead instance);
     partial void DeleteDesignLead(DesignLead instance);
@@ -51,6 +54,9 @@ namespace TaurusCapstone
     partial void InsertDLAssignment(DLAssignment instance);
     partial void UpdateDLAssignment(DLAssignment instance);
     partial void DeleteDLAssignment(DLAssignment instance);
+    partial void InsertEmployee(Employee instance);
+    partial void UpdateEmployee(Employee instance);
+    partial void DeleteEmployee(Employee instance);
     partial void InsertFinding(Finding instance);
     partial void UpdateFinding(Finding instance);
     partial void DeleteFinding(Finding instance);
@@ -60,6 +66,9 @@ namespace TaurusCapstone
     partial void InsertImpactAnalysisUpload(ImpactAnalysisUpload instance);
     partial void UpdateImpactAnalysisUpload(ImpactAnalysisUpload instance);
     partial void DeleteImpactAnalysisUpload(ImpactAnalysisUpload instance);
+    partial void InsertProject(Project instance);
+    partial void UpdateProject(Project instance);
+    partial void DeleteProject(Project instance);
     partial void InsertProjectCharter(ProjectCharter instance);
     partial void UpdateProjectCharter(ProjectCharter instance);
     partial void DeleteProjectCharter(ProjectCharter instance);
@@ -69,6 +78,9 @@ namespace TaurusCapstone
     partial void InsertProjectDefinition(ProjectDefinition instance);
     partial void UpdateProjectDefinition(ProjectDefinition instance);
     partial void DeleteProjectDefinition(ProjectDefinition instance);
+    partial void InsertScopeDeliverable(ScopeDeliverable instance);
+    partial void UpdateScopeDeliverable(ScopeDeliverable instance);
+    partial void DeleteScopeDeliverable(ScopeDeliverable instance);
     partial void InsertTask(Task instance);
     partial void UpdateTask(Task instance);
     partial void DeleteTask(Task instance);
@@ -84,15 +96,6 @@ namespace TaurusCapstone
     partial void InsertTaskLeadAssignment(TaskLeadAssignment instance);
     partial void UpdateTaskLeadAssignment(TaskLeadAssignment instance);
     partial void DeleteTaskLeadAssignment(TaskLeadAssignment instance);
-    partial void InsertEmployee(Employee instance);
-    partial void UpdateEmployee(Employee instance);
-    partial void DeleteEmployee(Employee instance);
-    partial void InsertClient(Client instance);
-    partial void UpdateClient(Client instance);
-    partial void DeleteClient(Client instance);
-    partial void InsertProject(Project instance);
-    partial void UpdateProject(Project instance);
-    partial void DeleteProject(Project instance);
     #endregion
 		
 		public PMSDataClassesDataContext() : 
@@ -125,6 +128,14 @@ namespace TaurusCapstone
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<Client> Clients
+		{
+			get
+			{
+				return this.GetTable<Client>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TaskLeadFindingSubmission> TaskLeadFindingSubmissions
 		{
 			get
@@ -141,11 +152,11 @@ namespace TaurusCapstone
 			}
 		}
 		
-		public System.Data.Linq.Table<CostProposalCreation> CostProposalCreations
+		public System.Data.Linq.Table<CostProposalScope> CostProposalScopes
 		{
 			get
 			{
-				return this.GetTable<CostProposalCreation>();
+				return this.GetTable<CostProposalScope>();
 			}
 		}
 		
@@ -181,6 +192,14 @@ namespace TaurusCapstone
 			}
 		}
 		
+		public System.Data.Linq.Table<Employee> Employees
+		{
+			get
+			{
+				return this.GetTable<Employee>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Finding> Findings
 		{
 			get
@@ -205,6 +224,14 @@ namespace TaurusCapstone
 			}
 		}
 		
+		public System.Data.Linq.Table<Project> Projects
+		{
+			get
+			{
+				return this.GetTable<Project>();
+			}
+		}
+		
 		public System.Data.Linq.Table<ProjectCharter> ProjectCharters
 		{
 			get
@@ -226,6 +253,14 @@ namespace TaurusCapstone
 			get
 			{
 				return this.GetTable<ProjectDefinition>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ScopeDeliverable> ScopeDeliverables
+		{
+			get
+			{
+				return this.GetTable<ScopeDeliverable>();
 			}
 		}
 		
@@ -268,29 +303,215 @@ namespace TaurusCapstone
 				return this.GetTable<TaskLeadAssignment>();
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Client")]
+	public partial class Client : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		public System.Data.Linq.Table<Employee> Employees
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ClientID;
+		
+		private string _ClientName;
+		
+		private string _ClientMobileNumber;
+		
+		private string _ClientNumber;
+		
+		private string _ClientEmail;
+		
+		private string _Password;
+		
+		private EntitySet<Project> _Projects;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnClientIDChanging(int value);
+    partial void OnClientIDChanged();
+    partial void OnClientNameChanging(string value);
+    partial void OnClientNameChanged();
+    partial void OnClientMobileNumberChanging(string value);
+    partial void OnClientMobileNumberChanged();
+    partial void OnClientNumberChanging(string value);
+    partial void OnClientNumberChanged();
+    partial void OnClientEmailChanging(string value);
+    partial void OnClientEmailChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    #endregion
+		
+		public Client()
+		{
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ClientID
 		{
 			get
 			{
-				return this.GetTable<Employee>();
+				return this._ClientID;
+			}
+			set
+			{
+				if ((this._ClientID != value))
+				{
+					this.OnClientIDChanging(value);
+					this.SendPropertyChanging();
+					this._ClientID = value;
+					this.SendPropertyChanged("ClientID");
+					this.OnClientIDChanged();
+				}
 			}
 		}
 		
-		public System.Data.Linq.Table<Client> Clients
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientName", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string ClientName
 		{
 			get
 			{
-				return this.GetTable<Client>();
+				return this._ClientName;
+			}
+			set
+			{
+				if ((this._ClientName != value))
+				{
+					this.OnClientNameChanging(value);
+					this.SendPropertyChanging();
+					this._ClientName = value;
+					this.SendPropertyChanged("ClientName");
+					this.OnClientNameChanged();
+				}
 			}
 		}
 		
-		public System.Data.Linq.Table<Project> Projects
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientMobileNumber", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string ClientMobileNumber
 		{
 			get
 			{
-				return this.GetTable<Project>();
+				return this._ClientMobileNumber;
 			}
+			set
+			{
+				if ((this._ClientMobileNumber != value))
+				{
+					this.OnClientMobileNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ClientMobileNumber = value;
+					this.SendPropertyChanged("ClientMobileNumber");
+					this.OnClientMobileNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientNumber", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string ClientNumber
+		{
+			get
+			{
+				return this._ClientNumber;
+			}
+			set
+			{
+				if ((this._ClientNumber != value))
+				{
+					this.OnClientNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ClientNumber = value;
+					this.SendPropertyChanged("ClientNumber");
+					this.OnClientNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientEmail", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ClientEmail
+		{
+			get
+			{
+				return this._ClientEmail;
+			}
+			set
+			{
+				if ((this._ClientEmail != value))
+				{
+					this.OnClientEmailChanging(value);
+					this.SendPropertyChanging();
+					this._ClientEmail = value;
+					this.SendPropertyChanged("ClientEmail");
+					this.OnClientEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Client_Project", Storage="_Projects", ThisKey="ClientID", OtherKey="ClientID")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.Client = this;
+		}
+		
+		private void detach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.Client = null;
 		}
 	}
 	
@@ -561,19 +782,25 @@ namespace TaurusCapstone
 		
 		private string _Status;
 		
+		private string _Category;
+		
 		private string _Description;
 		
 		private string _ClientNotes;
 		
-		private int _ClientDecision;
+		private System.Nullable<int> _ClientDecision;
 		
 		private System.Nullable<int> _ClientID;
 		
 		private System.DateTime _date;
 		
-		private EntitySet<CostProposalCreation> _CostProposalCreations;
+		private System.Nullable<int> _ProjectID;
+		
+		private EntitySet<CostProposalScope> _CostProposalScopes;
 		
 		private EntitySet<ProjectDefinition> _ProjectDefinitions;
+		
+		private EntityRef<Project> _Project;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -583,26 +810,31 @@ namespace TaurusCapstone
     partial void OnCostProposalIDChanged();
     partial void OnStatusChanging(string value);
     partial void OnStatusChanged();
+    partial void OnCategoryChanging(string value);
+    partial void OnCategoryChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
     partial void OnClientNotesChanging(string value);
     partial void OnClientNotesChanged();
-    partial void OnClientDecisionChanging(int value);
+    partial void OnClientDecisionChanging(System.Nullable<int> value);
     partial void OnClientDecisionChanged();
     partial void OnClientIDChanging(System.Nullable<int> value);
     partial void OnClientIDChanged();
     partial void OndateChanging(System.DateTime value);
     partial void OndateChanged();
+    partial void OnProjectIDChanging(System.Nullable<int> value);
+    partial void OnProjectIDChanged();
     #endregion
 		
 		public CostProposal()
 		{
-			this._CostProposalCreations = new EntitySet<CostProposalCreation>(new Action<CostProposalCreation>(this.attach_CostProposalCreations), new Action<CostProposalCreation>(this.detach_CostProposalCreations));
+			this._CostProposalScopes = new EntitySet<CostProposalScope>(new Action<CostProposalScope>(this.attach_CostProposalScopes), new Action<CostProposalScope>(this.detach_CostProposalScopes));
 			this._ProjectDefinitions = new EntitySet<ProjectDefinition>(new Action<ProjectDefinition>(this.attach_ProjectDefinitions), new Action<ProjectDefinition>(this.detach_ProjectDefinitions));
+			this._Project = default(EntityRef<Project>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CostProposalID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CostProposalID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int CostProposalID
 		{
 			get
@@ -642,6 +874,26 @@ namespace TaurusCapstone
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				if ((this._Category != value))
+				{
+					this.OnCategoryChanging(value);
+					this.SendPropertyChanging();
+					this._Category = value;
+					this.SendPropertyChanged("Category");
+					this.OnCategoryChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(50)")]
 		public string Description
 		{
@@ -662,7 +914,7 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientNotes", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientNotes", DbType="VarChar(50)")]
 		public string ClientNotes
 		{
 			get
@@ -682,8 +934,8 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientDecision", DbType="Int NOT NULL")]
-		public int ClientDecision
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientDecision", DbType="Int")]
+		public System.Nullable<int> ClientDecision
 		{
 			get
 			{
@@ -742,165 +994,8 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CostProposal_CostProposalCreation", Storage="_CostProposalCreations", ThisKey="CostProposalID", OtherKey="CostProposalID")]
-		public EntitySet<CostProposalCreation> CostProposalCreations
-		{
-			get
-			{
-				return this._CostProposalCreations;
-			}
-			set
-			{
-				this._CostProposalCreations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CostProposal_ProjectDefinition", Storage="_ProjectDefinitions", ThisKey="CostProposalID", OtherKey="CostProposalID")]
-		public EntitySet<ProjectDefinition> ProjectDefinitions
-		{
-			get
-			{
-				return this._ProjectDefinitions;
-			}
-			set
-			{
-				this._ProjectDefinitions.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CostProposalCreations(CostProposalCreation entity)
-		{
-			this.SendPropertyChanging();
-			entity.CostProposal = this;
-		}
-		
-		private void detach_CostProposalCreations(CostProposalCreation entity)
-		{
-			this.SendPropertyChanging();
-			entity.CostProposal = null;
-		}
-		
-		private void attach_ProjectDefinitions(ProjectDefinition entity)
-		{
-			this.SendPropertyChanging();
-			entity.CostProposal = this;
-		}
-		
-		private void detach_ProjectDefinitions(ProjectDefinition entity)
-		{
-			this.SendPropertyChanging();
-			entity.CostProposal = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CostProposalCreation")]
-	public partial class CostProposalCreation : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _DOID;
-		
-		private int _CostProposalID;
-		
-		private int _ProjectID;
-		
-		private EntityRef<CostProposal> _CostProposal;
-		
-		private EntityRef<DesignOfficer> _DesignOfficer;
-		
-		private EntityRef<Project> _Project;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnDOIDChanging(int value);
-    partial void OnDOIDChanged();
-    partial void OnCostProposalIDChanging(int value);
-    partial void OnCostProposalIDChanged();
-    partial void OnProjectIDChanging(int value);
-    partial void OnProjectIDChanged();
-    #endregion
-		
-		public CostProposalCreation()
-		{
-			this._CostProposal = default(EntityRef<CostProposal>);
-			this._DesignOfficer = default(EntityRef<DesignOfficer>);
-			this._Project = default(EntityRef<Project>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int DOID
-		{
-			get
-			{
-				return this._DOID;
-			}
-			set
-			{
-				if ((this._DOID != value))
-				{
-					if (this._DesignOfficer.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDOIDChanging(value);
-					this.SendPropertyChanging();
-					this._DOID = value;
-					this.SendPropertyChanged("DOID");
-					this.OnDOIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CostProposalID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int CostProposalID
-		{
-			get
-			{
-				return this._CostProposalID;
-			}
-			set
-			{
-				if ((this._CostProposalID != value))
-				{
-					if (this._CostProposal.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCostProposalIDChanging(value);
-					this.SendPropertyChanging();
-					this._CostProposalID = value;
-					this.SendPropertyChanged("CostProposalID");
-					this.OnCostProposalIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ProjectID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="Int")]
+		public System.Nullable<int> ProjectID
 		{
 			get
 			{
@@ -923,75 +1018,33 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CostProposal_CostProposalCreation", Storage="_CostProposal", ThisKey="CostProposalID", OtherKey="CostProposalID", IsForeignKey=true)]
-		public CostProposal CostProposal
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CostProposal_CostProposalScope", Storage="_CostProposalScopes", ThisKey="CostProposalID", OtherKey="CostProposalID")]
+		public EntitySet<CostProposalScope> CostProposalScopes
 		{
 			get
 			{
-				return this._CostProposal.Entity;
+				return this._CostProposalScopes;
 			}
 			set
 			{
-				CostProposal previousValue = this._CostProposal.Entity;
-				if (((previousValue != value) 
-							|| (this._CostProposal.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CostProposal.Entity = null;
-						previousValue.CostProposalCreations.Remove(this);
-					}
-					this._CostProposal.Entity = value;
-					if ((value != null))
-					{
-						value.CostProposalCreations.Add(this);
-						this._CostProposalID = value.CostProposalID;
-					}
-					else
-					{
-						this._CostProposalID = default(int);
-					}
-					this.SendPropertyChanged("CostProposal");
-				}
+				this._CostProposalScopes.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DesignOfficer_CostProposalCreation", Storage="_DesignOfficer", ThisKey="DOID", OtherKey="DOID", IsForeignKey=true)]
-		public DesignOfficer DesignOfficer
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CostProposal_ProjectDefinition", Storage="_ProjectDefinitions", ThisKey="CostProposalID", OtherKey="CostProposalID")]
+		public EntitySet<ProjectDefinition> ProjectDefinitions
 		{
 			get
 			{
-				return this._DesignOfficer.Entity;
+				return this._ProjectDefinitions;
 			}
 			set
 			{
-				DesignOfficer previousValue = this._DesignOfficer.Entity;
-				if (((previousValue != value) 
-							|| (this._DesignOfficer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DesignOfficer.Entity = null;
-						previousValue.CostProposalCreations.Remove(this);
-					}
-					this._DesignOfficer.Entity = value;
-					if ((value != null))
-					{
-						value.CostProposalCreations.Add(this);
-						this._DOID = value.DOID;
-					}
-					else
-					{
-						this._DOID = default(int);
-					}
-					this.SendPropertyChanged("DesignOfficer");
-				}
+				this._ProjectDefinitions.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_CostProposalCreation", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_CostProposal", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
 		public Project Project
 		{
 			get
@@ -1008,17 +1061,17 @@ namespace TaurusCapstone
 					if ((previousValue != null))
 					{
 						this._Project.Entity = null;
-						previousValue.CostProposalCreations.Remove(this);
+						previousValue.CostProposals.Remove(this);
 					}
 					this._Project.Entity = value;
 					if ((value != null))
 					{
-						value.CostProposalCreations.Add(this);
+						value.CostProposals.Add(this);
 						this._ProjectID = value.ProjectID;
 					}
 					else
 					{
-						this._ProjectID = default(int);
+						this._ProjectID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Project");
 				}
@@ -1043,6 +1096,209 @@ namespace TaurusCapstone
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_CostProposalScopes(CostProposalScope entity)
+		{
+			this.SendPropertyChanging();
+			entity.CostProposal = this;
+		}
+		
+		private void detach_CostProposalScopes(CostProposalScope entity)
+		{
+			this.SendPropertyChanging();
+			entity.CostProposal = null;
+		}
+		
+		private void attach_ProjectDefinitions(ProjectDefinition entity)
+		{
+			this.SendPropertyChanging();
+			entity.CostProposal = this;
+		}
+		
+		private void detach_ProjectDefinitions(ProjectDefinition entity)
+		{
+			this.SendPropertyChanging();
+			entity.CostProposal = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CostProposalScope")]
+	public partial class CostProposalScope : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ScopeID;
+		
+		private string _ScopeName;
+		
+		private int _CostProposalID;
+		
+		private EntitySet<ScopeDeliverable> _ScopeDeliverables;
+		
+		private EntityRef<CostProposal> _CostProposal;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnScopeIDChanging(int value);
+    partial void OnScopeIDChanged();
+    partial void OnScopeNameChanging(string value);
+    partial void OnScopeNameChanged();
+    partial void OnCostProposalIDChanging(int value);
+    partial void OnCostProposalIDChanged();
+    #endregion
+		
+		public CostProposalScope()
+		{
+			this._ScopeDeliverables = new EntitySet<ScopeDeliverable>(new Action<ScopeDeliverable>(this.attach_ScopeDeliverables), new Action<ScopeDeliverable>(this.detach_ScopeDeliverables));
+			this._CostProposal = default(EntityRef<CostProposal>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScopeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ScopeID
+		{
+			get
+			{
+				return this._ScopeID;
+			}
+			set
+			{
+				if ((this._ScopeID != value))
+				{
+					this.OnScopeIDChanging(value);
+					this.SendPropertyChanging();
+					this._ScopeID = value;
+					this.SendPropertyChanged("ScopeID");
+					this.OnScopeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScopeName", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string ScopeName
+		{
+			get
+			{
+				return this._ScopeName;
+			}
+			set
+			{
+				if ((this._ScopeName != value))
+				{
+					this.OnScopeNameChanging(value);
+					this.SendPropertyChanging();
+					this._ScopeName = value;
+					this.SendPropertyChanged("ScopeName");
+					this.OnScopeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CostProposalID", DbType="Int NOT NULL")]
+		public int CostProposalID
+		{
+			get
+			{
+				return this._CostProposalID;
+			}
+			set
+			{
+				if ((this._CostProposalID != value))
+				{
+					if (this._CostProposal.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCostProposalIDChanging(value);
+					this.SendPropertyChanging();
+					this._CostProposalID = value;
+					this.SendPropertyChanged("CostProposalID");
+					this.OnCostProposalIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CostProposalScope_ScopeDeliverable", Storage="_ScopeDeliverables", ThisKey="ScopeID", OtherKey="ScopeID")]
+		public EntitySet<ScopeDeliverable> ScopeDeliverables
+		{
+			get
+			{
+				return this._ScopeDeliverables;
+			}
+			set
+			{
+				this._ScopeDeliverables.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CostProposal_CostProposalScope", Storage="_CostProposal", ThisKey="CostProposalID", OtherKey="CostProposalID", IsForeignKey=true)]
+		public CostProposal CostProposal
+		{
+			get
+			{
+				return this._CostProposal.Entity;
+			}
+			set
+			{
+				CostProposal previousValue = this._CostProposal.Entity;
+				if (((previousValue != value) 
+							|| (this._CostProposal.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CostProposal.Entity = null;
+						previousValue.CostProposalScopes.Remove(this);
+					}
+					this._CostProposal.Entity = value;
+					if ((value != null))
+					{
+						value.CostProposalScopes.Add(this);
+						this._CostProposalID = value.CostProposalID;
+					}
+					else
+					{
+						this._CostProposalID = default(int);
+					}
+					this.SendPropertyChanged("CostProposal");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ScopeDeliverables(ScopeDeliverable entity)
+		{
+			this.SendPropertyChanging();
+			entity.CostProposalScope = this;
+		}
+		
+		private void detach_ScopeDeliverables(ScopeDeliverable entity)
+		{
+			this.SendPropertyChanging();
+			entity.CostProposalScope = null;
 		}
 	}
 	
@@ -1582,15 +1838,13 @@ namespace TaurusCapstone
 		
 		private int _DOID;
 		
-		private EntitySet<CostProposalCreation> _CostProposalCreations;
-		
 		private EntitySet<DLAssignment> _DLAssignments;
+		
+		private EntitySet<Project> _Projects;
 		
 		private EntitySet<Task> _Tasks;
 		
 		private EntitySet<Task> _Tasks1;
-		
-		private EntitySet<Project> _Projects;
 		
 		private EntityRef<Employee> _Employee;
 		
@@ -1604,11 +1858,10 @@ namespace TaurusCapstone
 		
 		public DesignOfficer()
 		{
-			this._CostProposalCreations = new EntitySet<CostProposalCreation>(new Action<CostProposalCreation>(this.attach_CostProposalCreations), new Action<CostProposalCreation>(this.detach_CostProposalCreations));
 			this._DLAssignments = new EntitySet<DLAssignment>(new Action<DLAssignment>(this.attach_DLAssignments), new Action<DLAssignment>(this.detach_DLAssignments));
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			this._Tasks = new EntitySet<Task>(new Action<Task>(this.attach_Tasks), new Action<Task>(this.detach_Tasks));
 			this._Tasks1 = new EntitySet<Task>(new Action<Task>(this.attach_Tasks1), new Action<Task>(this.detach_Tasks1));
-			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			this._Employee = default(EntityRef<Employee>);
 			OnCreated();
 		}
@@ -1637,19 +1890,6 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DesignOfficer_CostProposalCreation", Storage="_CostProposalCreations", ThisKey="DOID", OtherKey="DOID")]
-		public EntitySet<CostProposalCreation> CostProposalCreations
-		{
-			get
-			{
-				return this._CostProposalCreations;
-			}
-			set
-			{
-				this._CostProposalCreations.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DesignOfficer_DLAssignment", Storage="_DLAssignments", ThisKey="DOID", OtherKey="DOID")]
 		public EntitySet<DLAssignment> DLAssignments
 		{
@@ -1660,6 +1900,19 @@ namespace TaurusCapstone
 			set
 			{
 				this._DLAssignments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DesignOfficer_Project", Storage="_Projects", ThisKey="DOID", OtherKey="DOID")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
 			}
 		}
 		
@@ -1686,19 +1939,6 @@ namespace TaurusCapstone
 			set
 			{
 				this._Tasks1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DesignOfficer_Project", Storage="_Projects", ThisKey="DOID", OtherKey="DOID")]
-		public EntitySet<Project> Projects
-		{
-			get
-			{
-				return this._Projects;
-			}
-			set
-			{
-				this._Projects.Assign(value);
 			}
 		}
 		
@@ -1756,18 +1996,6 @@ namespace TaurusCapstone
 			}
 		}
 		
-		private void attach_CostProposalCreations(CostProposalCreation entity)
-		{
-			this.SendPropertyChanging();
-			entity.DesignOfficer = this;
-		}
-		
-		private void detach_CostProposalCreations(CostProposalCreation entity)
-		{
-			this.SendPropertyChanging();
-			entity.DesignOfficer = null;
-		}
-		
 		private void attach_DLAssignments(DLAssignment entity)
 		{
 			this.SendPropertyChanging();
@@ -1775,6 +2003,18 @@ namespace TaurusCapstone
 		}
 		
 		private void detach_DLAssignments(DLAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.DesignOfficer = null;
+		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.DesignOfficer = this;
+		}
+		
+		private void detach_Projects(Project entity)
 		{
 			this.SendPropertyChanging();
 			entity.DesignOfficer = null;
@@ -1802,18 +2042,6 @@ namespace TaurusCapstone
 		{
 			this.SendPropertyChanging();
 			entity.DesignOfficer1 = null;
-		}
-		
-		private void attach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.DesignOfficer = this;
-		}
-		
-		private void detach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.DesignOfficer = null;
 		}
 	}
 	
@@ -2025,6 +2253,332 @@ namespace TaurusCapstone
 						this._ProjectID = default(int);
 					}
 					this.SendPropertyChanged("Project");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employee")]
+	public partial class Employee : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EmployeeID;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private string _JobTitle;
+		
+		private string _Mobile;
+		
+		private string _Password;
+		
+		private string _Email;
+		
+		private string _EmployeeType;
+		
+		private EntityRef<DesignLead> _DesignLead;
+		
+		private EntityRef<DesignOfficer> _DesignOfficer;
+		
+		private EntityRef<TaskLead> _TaskLead;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnJobTitleChanging(string value);
+    partial void OnJobTitleChanged();
+    partial void OnMobileChanging(string value);
+    partial void OnMobileChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnEmployeeTypeChanging(string value);
+    partial void OnEmployeeTypeChanged();
+    #endregion
+		
+		public Employee()
+		{
+			this._DesignLead = default(EntityRef<DesignLead>);
+			this._DesignOfficer = default(EntityRef<DesignOfficer>);
+			this._TaskLead = default(EntityRef<TaskLead>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this.OnFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._FirstName = value;
+					this.SendPropertyChanged("FirstName");
+					this.OnFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JobTitle", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string JobTitle
+		{
+			get
+			{
+				return this._JobTitle;
+			}
+			set
+			{
+				if ((this._JobTitle != value))
+				{
+					this.OnJobTitleChanging(value);
+					this.SendPropertyChanging();
+					this._JobTitle = value;
+					this.SendPropertyChanged("JobTitle");
+					this.OnJobTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this.OnMobileChanging(value);
+					this.SendPropertyChanging();
+					this._Mobile = value;
+					this.SendPropertyChanged("Mobile");
+					this.OnMobileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeType", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string EmployeeType
+		{
+			get
+			{
+				return this._EmployeeType;
+			}
+			set
+			{
+				if ((this._EmployeeType != value))
+				{
+					this.OnEmployeeTypeChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeType = value;
+					this.SendPropertyChanged("EmployeeType");
+					this.OnEmployeeTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_DesignLead", Storage="_DesignLead", ThisKey="EmployeeID", OtherKey="DLID", IsUnique=true, IsForeignKey=false)]
+		public DesignLead DesignLead
+		{
+			get
+			{
+				return this._DesignLead.Entity;
+			}
+			set
+			{
+				DesignLead previousValue = this._DesignLead.Entity;
+				if (((previousValue != value) 
+							|| (this._DesignLead.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DesignLead.Entity = null;
+						previousValue.Employee = null;
+					}
+					this._DesignLead.Entity = value;
+					if ((value != null))
+					{
+						value.Employee = this;
+					}
+					this.SendPropertyChanged("DesignLead");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_DesignOfficer", Storage="_DesignOfficer", ThisKey="EmployeeID", OtherKey="DOID", IsUnique=true, IsForeignKey=false)]
+		public DesignOfficer DesignOfficer
+		{
+			get
+			{
+				return this._DesignOfficer.Entity;
+			}
+			set
+			{
+				DesignOfficer previousValue = this._DesignOfficer.Entity;
+				if (((previousValue != value) 
+							|| (this._DesignOfficer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DesignOfficer.Entity = null;
+						previousValue.Employee = null;
+					}
+					this._DesignOfficer.Entity = value;
+					if ((value != null))
+					{
+						value.Employee = this;
+					}
+					this.SendPropertyChanged("DesignOfficer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_TaskLead", Storage="_TaskLead", ThisKey="EmployeeID", OtherKey="TLID", IsUnique=true, IsForeignKey=false)]
+		public TaskLead TaskLead
+		{
+			get
+			{
+				return this._TaskLead.Entity;
+			}
+			set
+			{
+				TaskLead previousValue = this._TaskLead.Entity;
+				if (((previousValue != value) 
+							|| (this._TaskLead.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TaskLead.Entity = null;
+						previousValue.Employee = null;
+					}
+					this._TaskLead.Entity = value;
+					if ((value != null))
+					{
+						value.Employee = this;
+					}
+					this.SendPropertyChanged("TaskLead");
 				}
 			}
 		}
@@ -2735,6 +3289,554 @@ namespace TaurusCapstone
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Project")]
+	public partial class Project : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProjectID;
+		
+		private string _ProjectName;
+		
+		private string _Status;
+		
+		private System.DateTime _StartDate;
+		
+		private string _ProjectType;
+		
+		private System.DateTime _ExpectedEndDate;
+		
+		private System.Nullable<System.DateTime> _ActualEndDate;
+		
+		private string _Description;
+		
+		private string _ClientCommentEvaluation;
+		
+		private System.Nullable<int> _ClientID;
+		
+		private System.Nullable<int> _DOID;
+		
+		private string _DOComments;
+		
+		private EntitySet<CostProposal> _CostProposals;
+		
+		private EntitySet<DLAssignment> _DLAssignments;
+		
+		private EntitySet<ImpactAnalysisUpload> _ImpactAnalysisUploads;
+		
+		private EntitySet<ProjectCharterSubmission> _ProjectCharterSubmissions;
+		
+		private EntitySet<TaskCreation> _TaskCreations;
+		
+		private EntityRef<Client> _Client;
+		
+		private EntityRef<DesignOfficer> _DesignOfficer;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProjectIDChanging(int value);
+    partial void OnProjectIDChanged();
+    partial void OnProjectNameChanging(string value);
+    partial void OnProjectNameChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnStartDateChanging(System.DateTime value);
+    partial void OnStartDateChanged();
+    partial void OnProjectTypeChanging(string value);
+    partial void OnProjectTypeChanged();
+    partial void OnExpectedEndDateChanging(System.DateTime value);
+    partial void OnExpectedEndDateChanged();
+    partial void OnActualEndDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnActualEndDateChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnClientCommentEvaluationChanging(string value);
+    partial void OnClientCommentEvaluationChanged();
+    partial void OnClientIDChanging(System.Nullable<int> value);
+    partial void OnClientIDChanged();
+    partial void OnDOIDChanging(System.Nullable<int> value);
+    partial void OnDOIDChanged();
+    partial void OnDOCommentsChanging(string value);
+    partial void OnDOCommentsChanged();
+    #endregion
+		
+		public Project()
+		{
+			this._CostProposals = new EntitySet<CostProposal>(new Action<CostProposal>(this.attach_CostProposals), new Action<CostProposal>(this.detach_CostProposals));
+			this._DLAssignments = new EntitySet<DLAssignment>(new Action<DLAssignment>(this.attach_DLAssignments), new Action<DLAssignment>(this.detach_DLAssignments));
+			this._ImpactAnalysisUploads = new EntitySet<ImpactAnalysisUpload>(new Action<ImpactAnalysisUpload>(this.attach_ImpactAnalysisUploads), new Action<ImpactAnalysisUpload>(this.detach_ImpactAnalysisUploads));
+			this._ProjectCharterSubmissions = new EntitySet<ProjectCharterSubmission>(new Action<ProjectCharterSubmission>(this.attach_ProjectCharterSubmissions), new Action<ProjectCharterSubmission>(this.detach_ProjectCharterSubmissions));
+			this._TaskCreations = new EntitySet<TaskCreation>(new Action<TaskCreation>(this.attach_TaskCreations), new Action<TaskCreation>(this.detach_TaskCreations));
+			this._Client = default(EntityRef<Client>);
+			this._DesignOfficer = default(EntityRef<DesignOfficer>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ProjectID
+		{
+			get
+			{
+				return this._ProjectID;
+			}
+			set
+			{
+				if ((this._ProjectID != value))
+				{
+					this.OnProjectIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectID = value;
+					this.SendPropertyChanged("ProjectID");
+					this.OnProjectIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string ProjectName
+		{
+			get
+			{
+				return this._ProjectName;
+			}
+			set
+			{
+				if ((this._ProjectName != value))
+				{
+					this.OnProjectNameChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectName = value;
+					this.SendPropertyChanged("ProjectName");
+					this.OnProjectNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date NOT NULL")]
+		public System.DateTime StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this.OnStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._StartDate = value;
+					this.SendPropertyChanged("StartDate");
+					this.OnStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectType", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string ProjectType
+		{
+			get
+			{
+				return this._ProjectType;
+			}
+			set
+			{
+				if ((this._ProjectType != value))
+				{
+					this.OnProjectTypeChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectType = value;
+					this.SendPropertyChanged("ProjectType");
+					this.OnProjectTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpectedEndDate", DbType="Date NOT NULL")]
+		public System.DateTime ExpectedEndDate
+		{
+			get
+			{
+				return this._ExpectedEndDate;
+			}
+			set
+			{
+				if ((this._ExpectedEndDate != value))
+				{
+					this.OnExpectedEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._ExpectedEndDate = value;
+					this.SendPropertyChanged("ExpectedEndDate");
+					this.OnExpectedEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualEndDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ActualEndDate
+		{
+			get
+			{
+				return this._ActualEndDate;
+			}
+			set
+			{
+				if ((this._ActualEndDate != value))
+				{
+					this.OnActualEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._ActualEndDate = value;
+					this.SendPropertyChanged("ActualEndDate");
+					this.OnActualEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientCommentEvaluation", DbType="VarChar(50)")]
+		public string ClientCommentEvaluation
+		{
+			get
+			{
+				return this._ClientCommentEvaluation;
+			}
+			set
+			{
+				if ((this._ClientCommentEvaluation != value))
+				{
+					this.OnClientCommentEvaluationChanging(value);
+					this.SendPropertyChanging();
+					this._ClientCommentEvaluation = value;
+					this.SendPropertyChanged("ClientCommentEvaluation");
+					this.OnClientCommentEvaluationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientID", DbType="Int")]
+		public System.Nullable<int> ClientID
+		{
+			get
+			{
+				return this._ClientID;
+			}
+			set
+			{
+				if ((this._ClientID != value))
+				{
+					if (this._Client.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnClientIDChanging(value);
+					this.SendPropertyChanging();
+					this._ClientID = value;
+					this.SendPropertyChanged("ClientID");
+					this.OnClientIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOID", DbType="Int")]
+		public System.Nullable<int> DOID
+		{
+			get
+			{
+				return this._DOID;
+			}
+			set
+			{
+				if ((this._DOID != value))
+				{
+					if (this._DesignOfficer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDOIDChanging(value);
+					this.SendPropertyChanging();
+					this._DOID = value;
+					this.SendPropertyChanged("DOID");
+					this.OnDOIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOComments", DbType="VarChar(50)")]
+		public string DOComments
+		{
+			get
+			{
+				return this._DOComments;
+			}
+			set
+			{
+				if ((this._DOComments != value))
+				{
+					this.OnDOCommentsChanging(value);
+					this.SendPropertyChanging();
+					this._DOComments = value;
+					this.SendPropertyChanged("DOComments");
+					this.OnDOCommentsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_CostProposal", Storage="_CostProposals", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<CostProposal> CostProposals
+		{
+			get
+			{
+				return this._CostProposals;
+			}
+			set
+			{
+				this._CostProposals.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_DLAssignment", Storage="_DLAssignments", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<DLAssignment> DLAssignments
+		{
+			get
+			{
+				return this._DLAssignments;
+			}
+			set
+			{
+				this._DLAssignments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ImpactAnalysisUpload", Storage="_ImpactAnalysisUploads", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<ImpactAnalysisUpload> ImpactAnalysisUploads
+		{
+			get
+			{
+				return this._ImpactAnalysisUploads;
+			}
+			set
+			{
+				this._ImpactAnalysisUploads.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectCharterSubmission", Storage="_ProjectCharterSubmissions", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<ProjectCharterSubmission> ProjectCharterSubmissions
+		{
+			get
+			{
+				return this._ProjectCharterSubmissions;
+			}
+			set
+			{
+				this._ProjectCharterSubmissions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_TaskCreation", Storage="_TaskCreations", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<TaskCreation> TaskCreations
+		{
+			get
+			{
+				return this._TaskCreations;
+			}
+			set
+			{
+				this._TaskCreations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Client_Project", Storage="_Client", ThisKey="ClientID", OtherKey="ClientID", IsForeignKey=true)]
+		public Client Client
+		{
+			get
+			{
+				return this._Client.Entity;
+			}
+			set
+			{
+				Client previousValue = this._Client.Entity;
+				if (((previousValue != value) 
+							|| (this._Client.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Client.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._Client.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._ClientID = value.ClientID;
+					}
+					else
+					{
+						this._ClientID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Client");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DesignOfficer_Project", Storage="_DesignOfficer", ThisKey="DOID", OtherKey="DOID", IsForeignKey=true)]
+		public DesignOfficer DesignOfficer
+		{
+			get
+			{
+				return this._DesignOfficer.Entity;
+			}
+			set
+			{
+				DesignOfficer previousValue = this._DesignOfficer.Entity;
+				if (((previousValue != value) 
+							|| (this._DesignOfficer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DesignOfficer.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._DesignOfficer.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._DOID = value.DOID;
+					}
+					else
+					{
+						this._DOID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("DesignOfficer");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CostProposals(CostProposal entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_CostProposals(CostProposal entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_DLAssignments(DLAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_DLAssignments(DLAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_ImpactAnalysisUploads(ImpactAnalysisUpload entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_ImpactAnalysisUploads(ImpactAnalysisUpload entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_ProjectCharterSubmissions(ProjectCharterSubmission entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_ProjectCharterSubmissions(ProjectCharterSubmission entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_TaskCreations(TaskCreation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_TaskCreations(TaskCreation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProjectCharter")]
 	public partial class ProjectCharter : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2889,9 +3991,9 @@ namespace TaurusCapstone
 		
 		private EntityRef<DesignLead> _DesignLead;
 		
-		private EntityRef<ProjectCharter> _ProjectCharter;
-		
 		private EntityRef<Project> _Project;
+		
+		private EntityRef<ProjectCharter> _ProjectCharter;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2910,8 +4012,8 @@ namespace TaurusCapstone
 		public ProjectCharterSubmission()
 		{
 			this._DesignLead = default(EntityRef<DesignLead>);
-			this._ProjectCharter = default(EntityRef<ProjectCharter>);
 			this._Project = default(EntityRef<Project>);
+			this._ProjectCharter = default(EntityRef<ProjectCharter>);
 			OnCreated();
 		}
 		
@@ -3041,40 +4143,6 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectCharter_ProjectCharterSubmission", Storage="_ProjectCharter", ThisKey="CharterID", OtherKey="CharterID", IsForeignKey=true)]
-		public ProjectCharter ProjectCharter
-		{
-			get
-			{
-				return this._ProjectCharter.Entity;
-			}
-			set
-			{
-				ProjectCharter previousValue = this._ProjectCharter.Entity;
-				if (((previousValue != value) 
-							|| (this._ProjectCharter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ProjectCharter.Entity = null;
-						previousValue.ProjectCharterSubmissions.Remove(this);
-					}
-					this._ProjectCharter.Entity = value;
-					if ((value != null))
-					{
-						value.ProjectCharterSubmissions.Add(this);
-						this._CharterID = value.CharterID;
-					}
-					else
-					{
-						this._CharterID = default(int);
-					}
-					this.SendPropertyChanged("ProjectCharter");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectCharterSubmission", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
 		public Project Project
 		{
@@ -3105,6 +4173,40 @@ namespace TaurusCapstone
 						this._ProjectID = default(int);
 					}
 					this.SendPropertyChanged("Project");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectCharter_ProjectCharterSubmission", Storage="_ProjectCharter", ThisKey="CharterID", OtherKey="CharterID", IsForeignKey=true)]
+		public ProjectCharter ProjectCharter
+		{
+			get
+			{
+				return this._ProjectCharter.Entity;
+			}
+			set
+			{
+				ProjectCharter previousValue = this._ProjectCharter.Entity;
+				if (((previousValue != value) 
+							|| (this._ProjectCharter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProjectCharter.Entity = null;
+						previousValue.ProjectCharterSubmissions.Remove(this);
+					}
+					this._ProjectCharter.Entity = value;
+					if ((value != null))
+					{
+						value.ProjectCharterSubmissions.Add(this);
+						this._CharterID = value.CharterID;
+					}
+					else
+					{
+						this._CharterID = default(int);
+					}
+					this.SendPropertyChanged("ProjectCharter");
 				}
 			}
 		}
@@ -3280,6 +4382,133 @@ namespace TaurusCapstone
 						this._CostProposalID = default(int);
 					}
 					this.SendPropertyChanged("CostProposal");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ScopeDeliverable")]
+	public partial class ScopeDeliverable : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ScopeID;
+		
+		private string _Deliverable;
+		
+		private EntityRef<CostProposalScope> _CostProposalScope;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnScopeIDChanging(int value);
+    partial void OnScopeIDChanged();
+    partial void OnDeliverableChanging(string value);
+    partial void OnDeliverableChanged();
+    #endregion
+		
+		public ScopeDeliverable()
+		{
+			this._CostProposalScope = default(EntityRef<CostProposalScope>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScopeID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ScopeID
+		{
+			get
+			{
+				return this._ScopeID;
+			}
+			set
+			{
+				if ((this._ScopeID != value))
+				{
+					if (this._CostProposalScope.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnScopeIDChanging(value);
+					this.SendPropertyChanging();
+					this._ScopeID = value;
+					this.SendPropertyChanged("ScopeID");
+					this.OnScopeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deliverable", DbType="VarChar(200) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Deliverable
+		{
+			get
+			{
+				return this._Deliverable;
+			}
+			set
+			{
+				if ((this._Deliverable != value))
+				{
+					this.OnDeliverableChanging(value);
+					this.SendPropertyChanging();
+					this._Deliverable = value;
+					this.SendPropertyChanged("Deliverable");
+					this.OnDeliverableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CostProposalScope_ScopeDeliverable", Storage="_CostProposalScope", ThisKey="ScopeID", OtherKey="ScopeID", IsForeignKey=true)]
+		public CostProposalScope CostProposalScope
+		{
+			get
+			{
+				return this._CostProposalScope.Entity;
+			}
+			set
+			{
+				CostProposalScope previousValue = this._CostProposalScope.Entity;
+				if (((previousValue != value) 
+							|| (this._CostProposalScope.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CostProposalScope.Entity = null;
+						previousValue.ScopeDeliverables.Remove(this);
+					}
+					this._CostProposalScope.Entity = value;
+					if ((value != null))
+					{
+						value.ScopeDeliverables.Add(this);
+						this._ScopeID = value.ScopeID;
+					}
+					else
+					{
+						this._ScopeID = default(int);
+					}
+					this.SendPropertyChanged("CostProposalScope");
 				}
 			}
 		}
@@ -3543,7 +4772,7 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONotes", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONotes", DbType="VarChar(50)")]
 		public string DONotes
 		{
 			get
@@ -3791,9 +5020,9 @@ namespace TaurusCapstone
 		
 		private EntityRef<DesignLead> _DesignLead;
 		
-		private EntityRef<Task> _Task;
-		
 		private EntityRef<Project> _Project;
+		
+		private EntityRef<Task> _Task;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3810,8 +5039,8 @@ namespace TaurusCapstone
 		public TaskCreation()
 		{
 			this._DesignLead = default(EntityRef<DesignLead>);
-			this._Task = default(EntityRef<Task>);
 			this._Project = default(EntityRef<Project>);
+			this._Task = default(EntityRef<Task>);
 			OnCreated();
 		}
 		
@@ -3921,40 +5150,6 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskCreation", Storage="_Task", ThisKey="TaskID", OtherKey="TaskID", IsForeignKey=true)]
-		public Task Task
-		{
-			get
-			{
-				return this._Task.Entity;
-			}
-			set
-			{
-				Task previousValue = this._Task.Entity;
-				if (((previousValue != value) 
-							|| (this._Task.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Task.Entity = null;
-						previousValue.TaskCreations.Remove(this);
-					}
-					this._Task.Entity = value;
-					if ((value != null))
-					{
-						value.TaskCreations.Add(this);
-						this._TaskID = value.TaskID;
-					}
-					else
-					{
-						this._TaskID = default(int);
-					}
-					this.SendPropertyChanged("Task");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_TaskCreation", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
 		public Project Project
 		{
@@ -3985,6 +5180,40 @@ namespace TaurusCapstone
 						this._ProjectID = default(int);
 					}
 					this.SendPropertyChanged("Project");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskCreation", Storage="_Task", ThisKey="TaskID", OtherKey="TaskID", IsForeignKey=true)]
+		public Task Task
+		{
+			get
+			{
+				return this._Task.Entity;
+			}
+			set
+			{
+				Task previousValue = this._Task.Entity;
+				if (((previousValue != value) 
+							|| (this._Task.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Task.Entity = null;
+						previousValue.TaskCreations.Remove(this);
+					}
+					this._Task.Entity = value;
+					if ((value != null))
+					{
+						value.TaskCreations.Add(this);
+						this._TaskID = value.TaskID;
+					}
+					else
+					{
+						this._TaskID = default(int);
+					}
+					this.SendPropertyChanged("Task");
 				}
 			}
 		}
@@ -4567,1090 +5796,6 @@ namespace TaurusCapstone
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employee")]
-	public partial class Employee : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _EmployeeID;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private string _JobTitle;
-		
-		private string _Mobile;
-		
-		private string _Password;
-		
-		private string _Email;
-		
-		private string _EmployeeType;
-		
-		private EntityRef<DesignLead> _DesignLead;
-		
-		private EntityRef<DesignOfficer> _DesignOfficer;
-		
-		private EntityRef<TaskLead> _TaskLead;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEmployeeIDChanging(int value);
-    partial void OnEmployeeIDChanged();
-    partial void OnFirstNameChanging(string value);
-    partial void OnFirstNameChanged();
-    partial void OnLastNameChanging(string value);
-    partial void OnLastNameChanged();
-    partial void OnJobTitleChanging(string value);
-    partial void OnJobTitleChanged();
-    partial void OnMobileChanging(string value);
-    partial void OnMobileChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnEmployeeTypeChanging(string value);
-    partial void OnEmployeeTypeChanged();
-    #endregion
-		
-		public Employee()
-		{
-			this._DesignLead = default(EntityRef<DesignLead>);
-			this._DesignOfficer = default(EntityRef<DesignOfficer>);
-			this._TaskLead = default(EntityRef<TaskLead>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					this.OnEmployeeIDChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this.OnFirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._FirstName = value;
-					this.SendPropertyChanged("FirstName");
-					this.OnFirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this.OnLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._LastName = value;
-					this.SendPropertyChanged("LastName");
-					this.OnLastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JobTitle", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string JobTitle
-		{
-			get
-			{
-				return this._JobTitle;
-			}
-			set
-			{
-				if ((this._JobTitle != value))
-				{
-					this.OnJobTitleChanging(value);
-					this.SendPropertyChanging();
-					this._JobTitle = value;
-					this.SendPropertyChanged("JobTitle");
-					this.OnJobTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="NChar(10) NOT NULL", CanBeNull=false)]
-		public string Mobile
-		{
-			get
-			{
-				return this._Mobile;
-			}
-			set
-			{
-				if ((this._Mobile != value))
-				{
-					this.OnMobileChanging(value);
-					this.SendPropertyChanging();
-					this._Mobile = value;
-					this.SendPropertyChanged("Mobile");
-					this.OnMobileChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeType", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
-		public string EmployeeType
-		{
-			get
-			{
-				return this._EmployeeType;
-			}
-			set
-			{
-				if ((this._EmployeeType != value))
-				{
-					this.OnEmployeeTypeChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeType = value;
-					this.SendPropertyChanged("EmployeeType");
-					this.OnEmployeeTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_DesignLead", Storage="_DesignLead", ThisKey="EmployeeID", OtherKey="DLID", IsUnique=true, IsForeignKey=false)]
-		public DesignLead DesignLead
-		{
-			get
-			{
-				return this._DesignLead.Entity;
-			}
-			set
-			{
-				DesignLead previousValue = this._DesignLead.Entity;
-				if (((previousValue != value) 
-							|| (this._DesignLead.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DesignLead.Entity = null;
-						previousValue.Employee = null;
-					}
-					this._DesignLead.Entity = value;
-					if ((value != null))
-					{
-						value.Employee = this;
-					}
-					this.SendPropertyChanged("DesignLead");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_DesignOfficer", Storage="_DesignOfficer", ThisKey="EmployeeID", OtherKey="DOID", IsUnique=true, IsForeignKey=false)]
-		public DesignOfficer DesignOfficer
-		{
-			get
-			{
-				return this._DesignOfficer.Entity;
-			}
-			set
-			{
-				DesignOfficer previousValue = this._DesignOfficer.Entity;
-				if (((previousValue != value) 
-							|| (this._DesignOfficer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DesignOfficer.Entity = null;
-						previousValue.Employee = null;
-					}
-					this._DesignOfficer.Entity = value;
-					if ((value != null))
-					{
-						value.Employee = this;
-					}
-					this.SendPropertyChanged("DesignOfficer");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_TaskLead", Storage="_TaskLead", ThisKey="EmployeeID", OtherKey="TLID", IsUnique=true, IsForeignKey=false)]
-		public TaskLead TaskLead
-		{
-			get
-			{
-				return this._TaskLead.Entity;
-			}
-			set
-			{
-				TaskLead previousValue = this._TaskLead.Entity;
-				if (((previousValue != value) 
-							|| (this._TaskLead.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TaskLead.Entity = null;
-						previousValue.Employee = null;
-					}
-					this._TaskLead.Entity = value;
-					if ((value != null))
-					{
-						value.Employee = this;
-					}
-					this.SendPropertyChanged("TaskLead");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Client")]
-	public partial class Client : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ClientID;
-		
-		private string _ClientName;
-		
-		private string _ClientMobileNumber;
-		
-		private string _ClientNumber;
-		
-		private string _ClientEmail;
-		
-		private string _Password;
-		
-		private EntitySet<Project> _Projects;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnClientIDChanging(int value);
-    partial void OnClientIDChanged();
-    partial void OnClientNameChanging(string value);
-    partial void OnClientNameChanged();
-    partial void OnClientMobileNumberChanging(string value);
-    partial void OnClientMobileNumberChanged();
-    partial void OnClientNumberChanging(string value);
-    partial void OnClientNumberChanged();
-    partial void OnClientEmailChanging(string value);
-    partial void OnClientEmailChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    #endregion
-		
-		public Client()
-		{
-			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ClientID
-		{
-			get
-			{
-				return this._ClientID;
-			}
-			set
-			{
-				if ((this._ClientID != value))
-				{
-					this.OnClientIDChanging(value);
-					this.SendPropertyChanging();
-					this._ClientID = value;
-					this.SendPropertyChanged("ClientID");
-					this.OnClientIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientName", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string ClientName
-		{
-			get
-			{
-				return this._ClientName;
-			}
-			set
-			{
-				if ((this._ClientName != value))
-				{
-					this.OnClientNameChanging(value);
-					this.SendPropertyChanging();
-					this._ClientName = value;
-					this.SendPropertyChanged("ClientName");
-					this.OnClientNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientMobileNumber", DbType="NChar(10) NOT NULL", CanBeNull=false)]
-		public string ClientMobileNumber
-		{
-			get
-			{
-				return this._ClientMobileNumber;
-			}
-			set
-			{
-				if ((this._ClientMobileNumber != value))
-				{
-					this.OnClientMobileNumberChanging(value);
-					this.SendPropertyChanging();
-					this._ClientMobileNumber = value;
-					this.SendPropertyChanged("ClientMobileNumber");
-					this.OnClientMobileNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientNumber", DbType="NChar(10) NOT NULL", CanBeNull=false)]
-		public string ClientNumber
-		{
-			get
-			{
-				return this._ClientNumber;
-			}
-			set
-			{
-				if ((this._ClientNumber != value))
-				{
-					this.OnClientNumberChanging(value);
-					this.SendPropertyChanging();
-					this._ClientNumber = value;
-					this.SendPropertyChanged("ClientNumber");
-					this.OnClientNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientEmail", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ClientEmail
-		{
-			get
-			{
-				return this._ClientEmail;
-			}
-			set
-			{
-				if ((this._ClientEmail != value))
-				{
-					this.OnClientEmailChanging(value);
-					this.SendPropertyChanging();
-					this._ClientEmail = value;
-					this.SendPropertyChanged("ClientEmail");
-					this.OnClientEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Client_Project", Storage="_Projects", ThisKey="ClientID", OtherKey="ClientID")]
-		public EntitySet<Project> Projects
-		{
-			get
-			{
-				return this._Projects;
-			}
-			set
-			{
-				this._Projects.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.Client = this;
-		}
-		
-		private void detach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.Client = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Project")]
-	public partial class Project : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ProjectID;
-		
-		private string _ProjectName;
-		
-		private string _Status;
-		
-		private System.DateTime _StartDate;
-		
-		private string _ProjectType;
-		
-		private System.DateTime _ExpectedEndDate;
-		
-		private System.Nullable<System.DateTime> _ActualEndDate;
-		
-		private string _Description;
-		
-		private string _ClientCommentEvaluation;
-		
-		private System.Nullable<int> _ClientID;
-		
-		private System.Nullable<int> _DOID;
-		
-		private string _DOComments;
-		
-		private EntitySet<CostProposalCreation> _CostProposalCreations;
-		
-		private EntitySet<DLAssignment> _DLAssignments;
-		
-		private EntitySet<ImpactAnalysisUpload> _ImpactAnalysisUploads;
-		
-		private EntitySet<ProjectCharterSubmission> _ProjectCharterSubmissions;
-		
-		private EntitySet<TaskCreation> _TaskCreations;
-		
-		private EntityRef<Client> _Client;
-		
-		private EntityRef<DesignOfficer> _DesignOfficer;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnProjectIDChanging(int value);
-    partial void OnProjectIDChanged();
-    partial void OnProjectNameChanging(string value);
-    partial void OnProjectNameChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
-    partial void OnStartDateChanging(System.DateTime value);
-    partial void OnStartDateChanged();
-    partial void OnProjectTypeChanging(string value);
-    partial void OnProjectTypeChanged();
-    partial void OnExpectedEndDateChanging(System.DateTime value);
-    partial void OnExpectedEndDateChanged();
-    partial void OnActualEndDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnActualEndDateChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnClientCommentEvaluationChanging(string value);
-    partial void OnClientCommentEvaluationChanged();
-    partial void OnClientIDChanging(System.Nullable<int> value);
-    partial void OnClientIDChanged();
-    partial void OnDOIDChanging(System.Nullable<int> value);
-    partial void OnDOIDChanged();
-    partial void OnDOCommentsChanging(string value);
-    partial void OnDOCommentsChanged();
-    #endregion
-		
-		public Project()
-		{
-			this._CostProposalCreations = new EntitySet<CostProposalCreation>(new Action<CostProposalCreation>(this.attach_CostProposalCreations), new Action<CostProposalCreation>(this.detach_CostProposalCreations));
-			this._DLAssignments = new EntitySet<DLAssignment>(new Action<DLAssignment>(this.attach_DLAssignments), new Action<DLAssignment>(this.detach_DLAssignments));
-			this._ImpactAnalysisUploads = new EntitySet<ImpactAnalysisUpload>(new Action<ImpactAnalysisUpload>(this.attach_ImpactAnalysisUploads), new Action<ImpactAnalysisUpload>(this.detach_ImpactAnalysisUploads));
-			this._ProjectCharterSubmissions = new EntitySet<ProjectCharterSubmission>(new Action<ProjectCharterSubmission>(this.attach_ProjectCharterSubmissions), new Action<ProjectCharterSubmission>(this.detach_ProjectCharterSubmissions));
-			this._TaskCreations = new EntitySet<TaskCreation>(new Action<TaskCreation>(this.attach_TaskCreations), new Action<TaskCreation>(this.detach_TaskCreations));
-			this._Client = default(EntityRef<Client>);
-			this._DesignOfficer = default(EntityRef<DesignOfficer>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ProjectID
-		{
-			get
-			{
-				return this._ProjectID;
-			}
-			set
-			{
-				if ((this._ProjectID != value))
-				{
-					this.OnProjectIDChanging(value);
-					this.SendPropertyChanging();
-					this._ProjectID = value;
-					this.SendPropertyChanged("ProjectID");
-					this.OnProjectIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string ProjectName
-		{
-			get
-			{
-				return this._ProjectName;
-			}
-			set
-			{
-				if ((this._ProjectName != value))
-				{
-					this.OnProjectNameChanging(value);
-					this.SendPropertyChanging();
-					this._ProjectName = value;
-					this.SendPropertyChanged("ProjectName");
-					this.OnProjectNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NChar(10) NOT NULL", CanBeNull=false)]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date NOT NULL")]
-		public System.DateTime StartDate
-		{
-			get
-			{
-				return this._StartDate;
-			}
-			set
-			{
-				if ((this._StartDate != value))
-				{
-					this.OnStartDateChanging(value);
-					this.SendPropertyChanging();
-					this._StartDate = value;
-					this.SendPropertyChanged("StartDate");
-					this.OnStartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectType", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string ProjectType
-		{
-			get
-			{
-				return this._ProjectType;
-			}
-			set
-			{
-				if ((this._ProjectType != value))
-				{
-					this.OnProjectTypeChanging(value);
-					this.SendPropertyChanging();
-					this._ProjectType = value;
-					this.SendPropertyChanged("ProjectType");
-					this.OnProjectTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpectedEndDate", DbType="Date NOT NULL")]
-		public System.DateTime ExpectedEndDate
-		{
-			get
-			{
-				return this._ExpectedEndDate;
-			}
-			set
-			{
-				if ((this._ExpectedEndDate != value))
-				{
-					this.OnExpectedEndDateChanging(value);
-					this.SendPropertyChanging();
-					this._ExpectedEndDate = value;
-					this.SendPropertyChanged("ExpectedEndDate");
-					this.OnExpectedEndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualEndDate", DbType="Date")]
-		public System.Nullable<System.DateTime> ActualEndDate
-		{
-			get
-			{
-				return this._ActualEndDate;
-			}
-			set
-			{
-				if ((this._ActualEndDate != value))
-				{
-					this.OnActualEndDateChanging(value);
-					this.SendPropertyChanging();
-					this._ActualEndDate = value;
-					this.SendPropertyChanged("ActualEndDate");
-					this.OnActualEndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientCommentEvaluation", DbType="VarChar(50)")]
-		public string ClientCommentEvaluation
-		{
-			get
-			{
-				return this._ClientCommentEvaluation;
-			}
-			set
-			{
-				if ((this._ClientCommentEvaluation != value))
-				{
-					this.OnClientCommentEvaluationChanging(value);
-					this.SendPropertyChanging();
-					this._ClientCommentEvaluation = value;
-					this.SendPropertyChanged("ClientCommentEvaluation");
-					this.OnClientCommentEvaluationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientID", DbType="Int")]
-		public System.Nullable<int> ClientID
-		{
-			get
-			{
-				return this._ClientID;
-			}
-			set
-			{
-				if ((this._ClientID != value))
-				{
-					if (this._Client.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnClientIDChanging(value);
-					this.SendPropertyChanging();
-					this._ClientID = value;
-					this.SendPropertyChanged("ClientID");
-					this.OnClientIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOID", DbType="Int")]
-		public System.Nullable<int> DOID
-		{
-			get
-			{
-				return this._DOID;
-			}
-			set
-			{
-				if ((this._DOID != value))
-				{
-					if (this._DesignOfficer.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDOIDChanging(value);
-					this.SendPropertyChanging();
-					this._DOID = value;
-					this.SendPropertyChanged("DOID");
-					this.OnDOIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOComments", DbType="VarChar(50)")]
-		public string DOComments
-		{
-			get
-			{
-				return this._DOComments;
-			}
-			set
-			{
-				if ((this._DOComments != value))
-				{
-					this.OnDOCommentsChanging(value);
-					this.SendPropertyChanging();
-					this._DOComments = value;
-					this.SendPropertyChanged("DOComments");
-					this.OnDOCommentsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_CostProposalCreation", Storage="_CostProposalCreations", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<CostProposalCreation> CostProposalCreations
-		{
-			get
-			{
-				return this._CostProposalCreations;
-			}
-			set
-			{
-				this._CostProposalCreations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_DLAssignment", Storage="_DLAssignments", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<DLAssignment> DLAssignments
-		{
-			get
-			{
-				return this._DLAssignments;
-			}
-			set
-			{
-				this._DLAssignments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ImpactAnalysisUpload", Storage="_ImpactAnalysisUploads", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<ImpactAnalysisUpload> ImpactAnalysisUploads
-		{
-			get
-			{
-				return this._ImpactAnalysisUploads;
-			}
-			set
-			{
-				this._ImpactAnalysisUploads.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectCharterSubmission", Storage="_ProjectCharterSubmissions", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<ProjectCharterSubmission> ProjectCharterSubmissions
-		{
-			get
-			{
-				return this._ProjectCharterSubmissions;
-			}
-			set
-			{
-				this._ProjectCharterSubmissions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_TaskCreation", Storage="_TaskCreations", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<TaskCreation> TaskCreations
-		{
-			get
-			{
-				return this._TaskCreations;
-			}
-			set
-			{
-				this._TaskCreations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Client_Project", Storage="_Client", ThisKey="ClientID", OtherKey="ClientID", IsForeignKey=true)]
-		public Client Client
-		{
-			get
-			{
-				return this._Client.Entity;
-			}
-			set
-			{
-				Client previousValue = this._Client.Entity;
-				if (((previousValue != value) 
-							|| (this._Client.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Client.Entity = null;
-						previousValue.Projects.Remove(this);
-					}
-					this._Client.Entity = value;
-					if ((value != null))
-					{
-						value.Projects.Add(this);
-						this._ClientID = value.ClientID;
-					}
-					else
-					{
-						this._ClientID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Client");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DesignOfficer_Project", Storage="_DesignOfficer", ThisKey="DOID", OtherKey="DOID", IsForeignKey=true)]
-		public DesignOfficer DesignOfficer
-		{
-			get
-			{
-				return this._DesignOfficer.Entity;
-			}
-			set
-			{
-				DesignOfficer previousValue = this._DesignOfficer.Entity;
-				if (((previousValue != value) 
-							|| (this._DesignOfficer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DesignOfficer.Entity = null;
-						previousValue.Projects.Remove(this);
-					}
-					this._DesignOfficer.Entity = value;
-					if ((value != null))
-					{
-						value.Projects.Add(this);
-						this._DOID = value.DOID;
-					}
-					else
-					{
-						this._DOID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("DesignOfficer");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CostProposalCreations(CostProposalCreation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_CostProposalCreations(CostProposalCreation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
-		private void attach_DLAssignments(DLAssignment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_DLAssignments(DLAssignment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
-		private void attach_ImpactAnalysisUploads(ImpactAnalysisUpload entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_ImpactAnalysisUploads(ImpactAnalysisUpload entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
-		private void attach_ProjectCharterSubmissions(ProjectCharterSubmission entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_ProjectCharterSubmissions(ProjectCharterSubmission entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
-		private void attach_TaskCreations(TaskCreation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_TaskCreations(TaskCreation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
 		}
 	}
 }

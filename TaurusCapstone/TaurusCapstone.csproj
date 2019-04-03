@@ -138,11 +138,6 @@
     <Content Include="PMS.Master" />
     <Content Include="Login.aspx" />
     <Content Include="AdminHomePage.aspx" />
-    <Content Include="PMSDataClasses.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>PMSDataClasses.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="DO.Master" />
     <Content Include="DL.Master" />
     <Content Include="Client.Master" />
@@ -169,7 +164,6 @@
     <Content Include="ClientViewFindings.aspx" />
     <Content Include="DOCreateAProject.aspx" />
     <Content Include="DOViewProjects.aspx" />
-    <Content Include="DOCreateACostProposal.aspx" />
     <Content Include="DOViewClients.aspx" />
     <Content Include="DOViewEmployees.aspx" />
     <Content Include="DOHomePage.aspx" />
@@ -186,6 +180,14 @@
     <Content Include="TLTaskDetails.aspx" />
     <Content Include="TLViewFindings.aspx" />
     <Content Include="TLFindingDetails.aspx" />
+    <Content Include="PMSDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>PMSDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="DOCreateACostProposal.aspx" />
+    <Content Include="DLViewProjectDetails.aspx" />
+    <Content Include="DLViewTasksDetails.aspx" />
     <None Include="PMSDataClasses.dbml.layout">
       <DependentUpon>PMSDataClasses.dbml</DependentUpon>
     </None>
@@ -466,13 +468,6 @@
     <Compile Include="DOViewProjects.aspx.designer.cs">
       <DependentUpon>DOViewProjects.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DOCreateACostProposal.aspx.cs">
-      <DependentUpon>DOCreateACostProposal.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DOCreateACostProposal.aspx.designer.cs">
-      <DependentUpon>DOCreateACostProposal.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DOViewClients.aspx.cs">
       <DependentUpon>DOViewClients.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -584,6 +579,27 @@
     </Compile>
     <Compile Include="TLFindingDetails.aspx.designer.cs">
       <DependentUpon>TLFindingDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DLViewProjectDetails.aspx.cs">
+      <DependentUpon>DLViewProjectDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DLViewProjectDetails.aspx.designer.cs">
+      <DependentUpon>DLViewProjectDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOCreateACostProposal.aspx.cs">
+      <DependentUpon>DOCreateACostProposal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOCreateACostProposal.aspx.designer.cs">
+      <DependentUpon>DOCreateACostProposal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DLViewTasksDetails.aspx.cs">
+      <DependentUpon>DLViewTasksDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DLViewTasksDetails.aspx.designer.cs">
+      <DependentUpon>DLViewTasksDetails.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

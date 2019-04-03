@@ -7,17 +7,28 @@ using System.Web.UI.WebControls;
 
 namespace TaurusCapstone
 {
-    public partial class WebForm25 : System.Web.UI.Page
+    public partial class WebForm26 : System.Web.UI.Page
     {
         PMSDataClassesDataContext db = new PMSDataClassesDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-            var ele = from a in db.Projects
+            if (Session.Count != 0)
+            {
+                foreach (string name in Session.Keys)
+                {
+                    if (name == "ProjectDetails")
+                    {
+                        pNameLabel.Text = (string)Session[name];
+                    }
+
+                }
+            }
+
+            var ele = from a in db.Tasks
                       from b in db.Employees
-                      from c in db.DLAssignments
-                      where a.ProjectID==c.ProjectID && b.EmployeeID==c.DLID
-                      select new { a.ProjectName, a.ProjectType, a.ExpectedEndDate, a.Status, name = b.FirstName + " " + b.LastName };
-            if(ele.Count()!=0)
+                      where b.EmployeeType == "0"
+                      select new { a.TaskName, a.Description, a.ExpectedEndDate };
+            if (ele.Count() != 0)
             {
                 viewProjects.DataSource = ele;
                 BoundField bf = (BoundField)viewProjects.Columns[0];
@@ -31,17 +42,6 @@ namespace TaurusCapstone
                 BoundField bf4 = (BoundField)viewProjects.Columns[4];
                 bf4.DataField = "name";
                 viewProjects.DataBind();
-            }
-        }
-
-        protected void viewProjects_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if(e.CommandName.Equals("View"))
-            {
-                int RowIndex = ((GridViewRow)((Control)e.CommandSource).NamingContainer).RowIndex;
-                string s = viewProjects.Rows[RowIndex].Cells[0].Text;
-                Session.Add("ProjectDetails", s);
-                Response.Redirect("~/DLViewProjectDetails.aspx");
             }
         }
     }
