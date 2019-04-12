@@ -35,13 +35,17 @@
             Status: <asp:Label ID="cpStatusLabel" runat="server" Text=""></asp:Label>
         </div>
         <div class="panel-body">
-            Scope: <asp:Label ID="scopeLabel" runat="server" Text=""></asp:Label>
-        </div>
-        <div class="panel-body">
-            Category: <asp:Label ID="categoryLabel" runat="server" Text=""></asp:Label>
-        </div>
-        <div class="panel-body">
-            Deliverables: <asp:Label ID="deliverablesLabel" runat="server" Text=""></asp:Label>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Width="1006px">
+                <AlternatingRowStyle BackColor="#CCCCCC" />
+                <FooterStyle BackColor="#CCCCCC" />
+                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#808080" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#383838" />
+            </asp:GridView>
         </div>
         <div class="panel-body">
             Decision: <asp:DropDownList ID="clientDecision" runat="server">

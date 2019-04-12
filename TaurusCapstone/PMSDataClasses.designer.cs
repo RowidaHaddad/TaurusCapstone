@@ -81,9 +81,6 @@ namespace TaurusCapstone
     partial void InsertScopeDeliverable(ScopeDeliverable instance);
     partial void UpdateScopeDeliverable(ScopeDeliverable instance);
     partial void DeleteScopeDeliverable(ScopeDeliverable instance);
-    partial void InsertTask(Task instance);
-    partial void UpdateTask(Task instance);
-    partial void DeleteTask(Task instance);
     partial void InsertTaskCreation(TaskCreation instance);
     partial void UpdateTaskCreation(TaskCreation instance);
     partial void DeleteTaskCreation(TaskCreation instance);
@@ -96,6 +93,9 @@ namespace TaurusCapstone
     partial void InsertTaskLeadAssignment(TaskLeadAssignment instance);
     partial void UpdateTaskLeadAssignment(TaskLeadAssignment instance);
     partial void DeleteTaskLeadAssignment(TaskLeadAssignment instance);
+    partial void InsertTask(Task instance);
+    partial void UpdateTask(Task instance);
+    partial void DeleteTask(Task instance);
     #endregion
 		
 		public PMSDataClassesDataContext() : 
@@ -264,14 +264,6 @@ namespace TaurusCapstone
 			}
 		}
 		
-		public System.Data.Linq.Table<Task> Tasks
-		{
-			get
-			{
-				return this.GetTable<Task>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TaskCreation> TaskCreations
 		{
 			get
@@ -301,6 +293,14 @@ namespace TaurusCapstone
 			get
 			{
 				return this.GetTable<TaskLeadAssignment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Task> Tasks
+		{
+			get
+			{
+				return this.GetTable<Task>();
 			}
 		}
 	}
@@ -531,9 +531,9 @@ namespace TaurusCapstone
 		
 		private EntityRef<Finding> _Finding;
 		
-		private EntityRef<Task> _Task;
-		
 		private EntityRef<TaskLead> _TaskLead;
+		
+		private EntityRef<Task> _Task;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -552,8 +552,8 @@ namespace TaurusCapstone
 		public TaskLeadFindingSubmission()
 		{
 			this._Finding = default(EntityRef<Finding>);
-			this._Task = default(EntityRef<Task>);
 			this._TaskLead = default(EntityRef<TaskLead>);
+			this._Task = default(EntityRef<Task>);
 			OnCreated();
 		}
 		
@@ -683,40 +683,6 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskLeadFindingSubmission", Storage="_Task", ThisKey="TaskID", OtherKey="TaskID", IsForeignKey=true)]
-		public Task Task
-		{
-			get
-			{
-				return this._Task.Entity;
-			}
-			set
-			{
-				Task previousValue = this._Task.Entity;
-				if (((previousValue != value) 
-							|| (this._Task.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Task.Entity = null;
-						previousValue.TaskLeadFindingSubmissions.Remove(this);
-					}
-					this._Task.Entity = value;
-					if ((value != null))
-					{
-						value.TaskLeadFindingSubmissions.Add(this);
-						this._TaskID = value.TaskID;
-					}
-					else
-					{
-						this._TaskID = default(int);
-					}
-					this.SendPropertyChanged("Task");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TaskLead_TaskLeadFindingSubmission", Storage="_TaskLead", ThisKey="TLID", OtherKey="TLID", IsForeignKey=true)]
 		public TaskLead TaskLead
 		{
@@ -747,6 +713,40 @@ namespace TaurusCapstone
 						this._TLID = default(int);
 					}
 					this.SendPropertyChanged("TaskLead");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskLeadFindingSubmission", Storage="_Task", ThisKey="TaskID", OtherKey="TaskID", IsForeignKey=true)]
+		public Task Task
+		{
+			get
+			{
+				return this._Task.Entity;
+			}
+			set
+			{
+				Task previousValue = this._Task.Entity;
+				if (((previousValue != value) 
+							|| (this._Task.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Task.Entity = null;
+						previousValue.TaskLeadFindingSubmissions.Remove(this);
+					}
+					this._Task.Entity = value;
+					if ((value != null))
+					{
+						value.TaskLeadFindingSubmissions.Add(this);
+						this._TaskID = value.TaskID;
+					}
+					else
+					{
+						this._TaskID = default(int);
+					}
+					this.SendPropertyChanged("Task");
 				}
 			}
 		}
@@ -4534,478 +4534,6 @@ namespace TaurusCapstone
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Task")]
-	public partial class Task : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _TaskID;
-		
-		private string _TaskName;
-		
-		private string _Description;
-		
-		private System.DateTime _StartDate;
-		
-		private System.DateTime _ExpectedEndDate;
-		
-		private System.DateTime _ActualEndDate;
-		
-		private int _Cost;
-		
-		private System.Nullable<int> _DOID;
-		
-		private string _DONotes;
-		
-		private EntitySet<TaskLeadFindingSubmission> _TaskLeadFindingSubmissions;
-		
-		private EntitySet<DesignLeadFindingSubmission> _DesignLeadFindingSubmissions;
-		
-		private EntitySet<TaskCreation> _TaskCreations;
-		
-		private EntitySet<TaskFinding> _TaskFindings;
-		
-		private EntitySet<TaskLeadAssignment> _TaskLeadAssignments;
-		
-		private EntityRef<DesignOfficer> _DesignOfficer;
-		
-		private EntityRef<DesignOfficer> _DesignOfficer1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTaskIDChanging(int value);
-    partial void OnTaskIDChanged();
-    partial void OnTaskNameChanging(string value);
-    partial void OnTaskNameChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnStartDateChanging(System.DateTime value);
-    partial void OnStartDateChanged();
-    partial void OnExpectedEndDateChanging(System.DateTime value);
-    partial void OnExpectedEndDateChanged();
-    partial void OnActualEndDateChanging(System.DateTime value);
-    partial void OnActualEndDateChanged();
-    partial void OnCostChanging(int value);
-    partial void OnCostChanged();
-    partial void OnDOIDChanging(System.Nullable<int> value);
-    partial void OnDOIDChanged();
-    partial void OnDONotesChanging(string value);
-    partial void OnDONotesChanged();
-    #endregion
-		
-		public Task()
-		{
-			this._TaskLeadFindingSubmissions = new EntitySet<TaskLeadFindingSubmission>(new Action<TaskLeadFindingSubmission>(this.attach_TaskLeadFindingSubmissions), new Action<TaskLeadFindingSubmission>(this.detach_TaskLeadFindingSubmissions));
-			this._DesignLeadFindingSubmissions = new EntitySet<DesignLeadFindingSubmission>(new Action<DesignLeadFindingSubmission>(this.attach_DesignLeadFindingSubmissions), new Action<DesignLeadFindingSubmission>(this.detach_DesignLeadFindingSubmissions));
-			this._TaskCreations = new EntitySet<TaskCreation>(new Action<TaskCreation>(this.attach_TaskCreations), new Action<TaskCreation>(this.detach_TaskCreations));
-			this._TaskFindings = new EntitySet<TaskFinding>(new Action<TaskFinding>(this.attach_TaskFindings), new Action<TaskFinding>(this.detach_TaskFindings));
-			this._TaskLeadAssignments = new EntitySet<TaskLeadAssignment>(new Action<TaskLeadAssignment>(this.attach_TaskLeadAssignments), new Action<TaskLeadAssignment>(this.detach_TaskLeadAssignments));
-			this._DesignOfficer = default(EntityRef<DesignOfficer>);
-			this._DesignOfficer1 = default(EntityRef<DesignOfficer>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TaskID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int TaskID
-		{
-			get
-			{
-				return this._TaskID;
-			}
-			set
-			{
-				if ((this._TaskID != value))
-				{
-					this.OnTaskIDChanging(value);
-					this.SendPropertyChanging();
-					this._TaskID = value;
-					this.SendPropertyChanged("TaskID");
-					this.OnTaskIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TaskName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string TaskName
-		{
-			get
-			{
-				return this._TaskName;
-			}
-			set
-			{
-				if ((this._TaskName != value))
-				{
-					this.OnTaskNameChanging(value);
-					this.SendPropertyChanging();
-					this._TaskName = value;
-					this.SendPropertyChanged("TaskName");
-					this.OnTaskNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date NOT NULL")]
-		public System.DateTime StartDate
-		{
-			get
-			{
-				return this._StartDate;
-			}
-			set
-			{
-				if ((this._StartDate != value))
-				{
-					this.OnStartDateChanging(value);
-					this.SendPropertyChanging();
-					this._StartDate = value;
-					this.SendPropertyChanged("StartDate");
-					this.OnStartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpectedEndDate", DbType="Date NOT NULL")]
-		public System.DateTime ExpectedEndDate
-		{
-			get
-			{
-				return this._ExpectedEndDate;
-			}
-			set
-			{
-				if ((this._ExpectedEndDate != value))
-				{
-					this.OnExpectedEndDateChanging(value);
-					this.SendPropertyChanging();
-					this._ExpectedEndDate = value;
-					this.SendPropertyChanged("ExpectedEndDate");
-					this.OnExpectedEndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualEndDate", DbType="Date NOT NULL")]
-		public System.DateTime ActualEndDate
-		{
-			get
-			{
-				return this._ActualEndDate;
-			}
-			set
-			{
-				if ((this._ActualEndDate != value))
-				{
-					this.OnActualEndDateChanging(value);
-					this.SendPropertyChanging();
-					this._ActualEndDate = value;
-					this.SendPropertyChanged("ActualEndDate");
-					this.OnActualEndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Int NOT NULL")]
-		public int Cost
-		{
-			get
-			{
-				return this._Cost;
-			}
-			set
-			{
-				if ((this._Cost != value))
-				{
-					this.OnCostChanging(value);
-					this.SendPropertyChanging();
-					this._Cost = value;
-					this.SendPropertyChanged("Cost");
-					this.OnCostChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOID", DbType="Int")]
-		public System.Nullable<int> DOID
-		{
-			get
-			{
-				return this._DOID;
-			}
-			set
-			{
-				if ((this._DOID != value))
-				{
-					if ((this._DesignOfficer.HasLoadedOrAssignedValue || this._DesignOfficer1.HasLoadedOrAssignedValue))
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDOIDChanging(value);
-					this.SendPropertyChanging();
-					this._DOID = value;
-					this.SendPropertyChanged("DOID");
-					this.OnDOIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONotes", DbType="VarChar(50)")]
-		public string DONotes
-		{
-			get
-			{
-				return this._DONotes;
-			}
-			set
-			{
-				if ((this._DONotes != value))
-				{
-					this.OnDONotesChanging(value);
-					this.SendPropertyChanging();
-					this._DONotes = value;
-					this.SendPropertyChanged("DONotes");
-					this.OnDONotesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskLeadFindingSubmission", Storage="_TaskLeadFindingSubmissions", ThisKey="TaskID", OtherKey="TaskID")]
-		public EntitySet<TaskLeadFindingSubmission> TaskLeadFindingSubmissions
-		{
-			get
-			{
-				return this._TaskLeadFindingSubmissions;
-			}
-			set
-			{
-				this._TaskLeadFindingSubmissions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_DesignLeadFindingSubmission", Storage="_DesignLeadFindingSubmissions", ThisKey="TaskID", OtherKey="TaskID")]
-		public EntitySet<DesignLeadFindingSubmission> DesignLeadFindingSubmissions
-		{
-			get
-			{
-				return this._DesignLeadFindingSubmissions;
-			}
-			set
-			{
-				this._DesignLeadFindingSubmissions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskCreation", Storage="_TaskCreations", ThisKey="TaskID", OtherKey="TaskID")]
-		public EntitySet<TaskCreation> TaskCreations
-		{
-			get
-			{
-				return this._TaskCreations;
-			}
-			set
-			{
-				this._TaskCreations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskFinding", Storage="_TaskFindings", ThisKey="TaskID", OtherKey="TaskID")]
-		public EntitySet<TaskFinding> TaskFindings
-		{
-			get
-			{
-				return this._TaskFindings;
-			}
-			set
-			{
-				this._TaskFindings.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskLeadAssignment", Storage="_TaskLeadAssignments", ThisKey="TaskID", OtherKey="TaskID")]
-		public EntitySet<TaskLeadAssignment> TaskLeadAssignments
-		{
-			get
-			{
-				return this._TaskLeadAssignments;
-			}
-			set
-			{
-				this._TaskLeadAssignments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DesignOfficer_Task", Storage="_DesignOfficer", ThisKey="DOID", OtherKey="DOID", IsForeignKey=true)]
-		public DesignOfficer DesignOfficer
-		{
-			get
-			{
-				return this._DesignOfficer.Entity;
-			}
-			set
-			{
-				DesignOfficer previousValue = this._DesignOfficer.Entity;
-				if (((previousValue != value) 
-							|| (this._DesignOfficer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DesignOfficer.Entity = null;
-						previousValue.Tasks.Remove(this);
-					}
-					this._DesignOfficer.Entity = value;
-					if ((value != null))
-					{
-						value.Tasks.Add(this);
-						this._DOID = value.DOID;
-					}
-					else
-					{
-						this._DOID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("DesignOfficer");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DesignOfficer_Task1", Storage="_DesignOfficer1", ThisKey="DOID", OtherKey="DOID", IsForeignKey=true)]
-		public DesignOfficer DesignOfficer1
-		{
-			get
-			{
-				return this._DesignOfficer1.Entity;
-			}
-			set
-			{
-				DesignOfficer previousValue = this._DesignOfficer1.Entity;
-				if (((previousValue != value) 
-							|| (this._DesignOfficer1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DesignOfficer1.Entity = null;
-						previousValue.Tasks1.Remove(this);
-					}
-					this._DesignOfficer1.Entity = value;
-					if ((value != null))
-					{
-						value.Tasks1.Add(this);
-						this._DOID = value.DOID;
-					}
-					else
-					{
-						this._DOID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("DesignOfficer1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TaskLeadFindingSubmissions(TaskLeadFindingSubmission entity)
-		{
-			this.SendPropertyChanging();
-			entity.Task = this;
-		}
-		
-		private void detach_TaskLeadFindingSubmissions(TaskLeadFindingSubmission entity)
-		{
-			this.SendPropertyChanging();
-			entity.Task = null;
-		}
-		
-		private void attach_DesignLeadFindingSubmissions(DesignLeadFindingSubmission entity)
-		{
-			this.SendPropertyChanging();
-			entity.Task = this;
-		}
-		
-		private void detach_DesignLeadFindingSubmissions(DesignLeadFindingSubmission entity)
-		{
-			this.SendPropertyChanging();
-			entity.Task = null;
-		}
-		
-		private void attach_TaskCreations(TaskCreation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Task = this;
-		}
-		
-		private void detach_TaskCreations(TaskCreation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Task = null;
-		}
-		
-		private void attach_TaskFindings(TaskFinding entity)
-		{
-			this.SendPropertyChanging();
-			entity.Task = this;
-		}
-		
-		private void detach_TaskFindings(TaskFinding entity)
-		{
-			this.SendPropertyChanging();
-			entity.Task = null;
-		}
-		
-		private void attach_TaskLeadAssignments(TaskLeadAssignment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Task = this;
-		}
-		
-		private void detach_TaskLeadAssignments(TaskLeadAssignment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Task = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TaskCreation")]
 	public partial class TaskCreation : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -5580,9 +5108,9 @@ namespace TaurusCapstone
 		
 		private EntityRef<DesignLead> _DesignLead;
 		
-		private EntityRef<Task> _Task;
-		
 		private EntityRef<TaskLead> _TaskLead;
+		
+		private EntityRef<Task> _Task;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5599,8 +5127,8 @@ namespace TaurusCapstone
 		public TaskLeadAssignment()
 		{
 			this._DesignLead = default(EntityRef<DesignLead>);
-			this._Task = default(EntityRef<Task>);
 			this._TaskLead = default(EntityRef<TaskLead>);
+			this._Task = default(EntityRef<Task>);
 			OnCreated();
 		}
 		
@@ -5710,40 +5238,6 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskLeadAssignment", Storage="_Task", ThisKey="TaskID", OtherKey="TaskID", IsForeignKey=true)]
-		public Task Task
-		{
-			get
-			{
-				return this._Task.Entity;
-			}
-			set
-			{
-				Task previousValue = this._Task.Entity;
-				if (((previousValue != value) 
-							|| (this._Task.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Task.Entity = null;
-						previousValue.TaskLeadAssignments.Remove(this);
-					}
-					this._Task.Entity = value;
-					if ((value != null))
-					{
-						value.TaskLeadAssignments.Add(this);
-						this._TaskID = value.TaskID;
-					}
-					else
-					{
-						this._TaskID = default(int);
-					}
-					this.SendPropertyChanged("Task");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TaskLead_TaskLeadAssignment", Storage="_TaskLead", ThisKey="TLID", OtherKey="TLID", IsForeignKey=true)]
 		public TaskLead TaskLead
 		{
@@ -5778,6 +5272,40 @@ namespace TaurusCapstone
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskLeadAssignment", Storage="_Task", ThisKey="TaskID", OtherKey="TaskID", IsForeignKey=true)]
+		public Task Task
+		{
+			get
+			{
+				return this._Task.Entity;
+			}
+			set
+			{
+				Task previousValue = this._Task.Entity;
+				if (((previousValue != value) 
+							|| (this._Task.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Task.Entity = null;
+						previousValue.TaskLeadAssignments.Remove(this);
+					}
+					this._Task.Entity = value;
+					if ((value != null))
+					{
+						value.TaskLeadAssignments.Add(this);
+						this._TaskID = value.TaskID;
+					}
+					else
+					{
+						this._TaskID = default(int);
+					}
+					this.SendPropertyChanged("Task");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -5796,6 +5324,478 @@ namespace TaurusCapstone
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Task")]
+	public partial class Task : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _TaskID;
+		
+		private string _TaskName;
+		
+		private string _Description;
+		
+		private System.Nullable<System.DateTime> _StartDate;
+		
+		private System.DateTime _ExpectedEndDate;
+		
+		private System.Nullable<System.DateTime> _ActualEndDate;
+		
+		private System.Nullable<int> _DOID;
+		
+		private string _DONotes;
+		
+		private string _Status;
+		
+		private EntitySet<TaskLeadFindingSubmission> _TaskLeadFindingSubmissions;
+		
+		private EntitySet<DesignLeadFindingSubmission> _DesignLeadFindingSubmissions;
+		
+		private EntitySet<TaskCreation> _TaskCreations;
+		
+		private EntitySet<TaskFinding> _TaskFindings;
+		
+		private EntitySet<TaskLeadAssignment> _TaskLeadAssignments;
+		
+		private EntityRef<DesignOfficer> _DesignOfficer;
+		
+		private EntityRef<DesignOfficer> _DesignOfficer1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTaskIDChanging(int value);
+    partial void OnTaskIDChanged();
+    partial void OnTaskNameChanging(string value);
+    partial void OnTaskNameChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnStartDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartDateChanged();
+    partial void OnExpectedEndDateChanging(System.DateTime value);
+    partial void OnExpectedEndDateChanged();
+    partial void OnActualEndDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnActualEndDateChanged();
+    partial void OnDOIDChanging(System.Nullable<int> value);
+    partial void OnDOIDChanged();
+    partial void OnDONotesChanging(string value);
+    partial void OnDONotesChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public Task()
+		{
+			this._TaskLeadFindingSubmissions = new EntitySet<TaskLeadFindingSubmission>(new Action<TaskLeadFindingSubmission>(this.attach_TaskLeadFindingSubmissions), new Action<TaskLeadFindingSubmission>(this.detach_TaskLeadFindingSubmissions));
+			this._DesignLeadFindingSubmissions = new EntitySet<DesignLeadFindingSubmission>(new Action<DesignLeadFindingSubmission>(this.attach_DesignLeadFindingSubmissions), new Action<DesignLeadFindingSubmission>(this.detach_DesignLeadFindingSubmissions));
+			this._TaskCreations = new EntitySet<TaskCreation>(new Action<TaskCreation>(this.attach_TaskCreations), new Action<TaskCreation>(this.detach_TaskCreations));
+			this._TaskFindings = new EntitySet<TaskFinding>(new Action<TaskFinding>(this.attach_TaskFindings), new Action<TaskFinding>(this.detach_TaskFindings));
+			this._TaskLeadAssignments = new EntitySet<TaskLeadAssignment>(new Action<TaskLeadAssignment>(this.attach_TaskLeadAssignments), new Action<TaskLeadAssignment>(this.detach_TaskLeadAssignments));
+			this._DesignOfficer = default(EntityRef<DesignOfficer>);
+			this._DesignOfficer1 = default(EntityRef<DesignOfficer>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TaskID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TaskID
+		{
+			get
+			{
+				return this._TaskID;
+			}
+			set
+			{
+				if ((this._TaskID != value))
+				{
+					this.OnTaskIDChanging(value);
+					this.SendPropertyChanging();
+					this._TaskID = value;
+					this.SendPropertyChanged("TaskID");
+					this.OnTaskIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TaskName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string TaskName
+		{
+			get
+			{
+				return this._TaskName;
+			}
+			set
+			{
+				if ((this._TaskName != value))
+				{
+					this.OnTaskNameChanging(value);
+					this.SendPropertyChanging();
+					this._TaskName = value;
+					this.SendPropertyChanged("TaskName");
+					this.OnTaskNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date")]
+		public System.Nullable<System.DateTime> StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this.OnStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._StartDate = value;
+					this.SendPropertyChanged("StartDate");
+					this.OnStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpectedEndDate", DbType="Date NOT NULL")]
+		public System.DateTime ExpectedEndDate
+		{
+			get
+			{
+				return this._ExpectedEndDate;
+			}
+			set
+			{
+				if ((this._ExpectedEndDate != value))
+				{
+					this.OnExpectedEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._ExpectedEndDate = value;
+					this.SendPropertyChanged("ExpectedEndDate");
+					this.OnExpectedEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualEndDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ActualEndDate
+		{
+			get
+			{
+				return this._ActualEndDate;
+			}
+			set
+			{
+				if ((this._ActualEndDate != value))
+				{
+					this.OnActualEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._ActualEndDate = value;
+					this.SendPropertyChanged("ActualEndDate");
+					this.OnActualEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOID", DbType="Int")]
+		public System.Nullable<int> DOID
+		{
+			get
+			{
+				return this._DOID;
+			}
+			set
+			{
+				if ((this._DOID != value))
+				{
+					if ((this._DesignOfficer.HasLoadedOrAssignedValue || this._DesignOfficer1.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDOIDChanging(value);
+					this.SendPropertyChanging();
+					this._DOID = value;
+					this.SendPropertyChanged("DOID");
+					this.OnDOIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONotes", DbType="VarChar(50)")]
+		public string DONotes
+		{
+			get
+			{
+				return this._DONotes;
+			}
+			set
+			{
+				if ((this._DONotes != value))
+				{
+					this.OnDONotesChanging(value);
+					this.SendPropertyChanging();
+					this._DONotes = value;
+					this.SendPropertyChanged("DONotes");
+					this.OnDONotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskLeadFindingSubmission", Storage="_TaskLeadFindingSubmissions", ThisKey="TaskID", OtherKey="TaskID")]
+		public EntitySet<TaskLeadFindingSubmission> TaskLeadFindingSubmissions
+		{
+			get
+			{
+				return this._TaskLeadFindingSubmissions;
+			}
+			set
+			{
+				this._TaskLeadFindingSubmissions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_DesignLeadFindingSubmission", Storage="_DesignLeadFindingSubmissions", ThisKey="TaskID", OtherKey="TaskID")]
+		public EntitySet<DesignLeadFindingSubmission> DesignLeadFindingSubmissions
+		{
+			get
+			{
+				return this._DesignLeadFindingSubmissions;
+			}
+			set
+			{
+				this._DesignLeadFindingSubmissions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskCreation", Storage="_TaskCreations", ThisKey="TaskID", OtherKey="TaskID")]
+		public EntitySet<TaskCreation> TaskCreations
+		{
+			get
+			{
+				return this._TaskCreations;
+			}
+			set
+			{
+				this._TaskCreations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskFinding", Storage="_TaskFindings", ThisKey="TaskID", OtherKey="TaskID")]
+		public EntitySet<TaskFinding> TaskFindings
+		{
+			get
+			{
+				return this._TaskFindings;
+			}
+			set
+			{
+				this._TaskFindings.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskLeadAssignment", Storage="_TaskLeadAssignments", ThisKey="TaskID", OtherKey="TaskID")]
+		public EntitySet<TaskLeadAssignment> TaskLeadAssignments
+		{
+			get
+			{
+				return this._TaskLeadAssignments;
+			}
+			set
+			{
+				this._TaskLeadAssignments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DesignOfficer_Task", Storage="_DesignOfficer", ThisKey="DOID", OtherKey="DOID", IsForeignKey=true)]
+		public DesignOfficer DesignOfficer
+		{
+			get
+			{
+				return this._DesignOfficer.Entity;
+			}
+			set
+			{
+				DesignOfficer previousValue = this._DesignOfficer.Entity;
+				if (((previousValue != value) 
+							|| (this._DesignOfficer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DesignOfficer.Entity = null;
+						previousValue.Tasks.Remove(this);
+					}
+					this._DesignOfficer.Entity = value;
+					if ((value != null))
+					{
+						value.Tasks.Add(this);
+						this._DOID = value.DOID;
+					}
+					else
+					{
+						this._DOID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("DesignOfficer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DesignOfficer_Task1", Storage="_DesignOfficer1", ThisKey="DOID", OtherKey="DOID", IsForeignKey=true)]
+		public DesignOfficer DesignOfficer1
+		{
+			get
+			{
+				return this._DesignOfficer1.Entity;
+			}
+			set
+			{
+				DesignOfficer previousValue = this._DesignOfficer1.Entity;
+				if (((previousValue != value) 
+							|| (this._DesignOfficer1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DesignOfficer1.Entity = null;
+						previousValue.Tasks1.Remove(this);
+					}
+					this._DesignOfficer1.Entity = value;
+					if ((value != null))
+					{
+						value.Tasks1.Add(this);
+						this._DOID = value.DOID;
+					}
+					else
+					{
+						this._DOID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("DesignOfficer1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TaskLeadFindingSubmissions(TaskLeadFindingSubmission entity)
+		{
+			this.SendPropertyChanging();
+			entity.Task = this;
+		}
+		
+		private void detach_TaskLeadFindingSubmissions(TaskLeadFindingSubmission entity)
+		{
+			this.SendPropertyChanging();
+			entity.Task = null;
+		}
+		
+		private void attach_DesignLeadFindingSubmissions(DesignLeadFindingSubmission entity)
+		{
+			this.SendPropertyChanging();
+			entity.Task = this;
+		}
+		
+		private void detach_DesignLeadFindingSubmissions(DesignLeadFindingSubmission entity)
+		{
+			this.SendPropertyChanging();
+			entity.Task = null;
+		}
+		
+		private void attach_TaskCreations(TaskCreation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Task = this;
+		}
+		
+		private void detach_TaskCreations(TaskCreation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Task = null;
+		}
+		
+		private void attach_TaskFindings(TaskFinding entity)
+		{
+			this.SendPropertyChanging();
+			entity.Task = this;
+		}
+		
+		private void detach_TaskFindings(TaskFinding entity)
+		{
+			this.SendPropertyChanging();
+			entity.Task = null;
+		}
+		
+		private void attach_TaskLeadAssignments(TaskLeadAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Task = this;
+		}
+		
+		private void detach_TaskLeadAssignments(TaskLeadAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Task = null;
 		}
 	}
 }

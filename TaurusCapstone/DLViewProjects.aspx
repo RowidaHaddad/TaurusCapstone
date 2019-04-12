@@ -3,18 +3,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <br />
+    <div class="well">
     <asp:GridView ID="viewProjects" runat="server" Width="1020px" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" OnRowCommand="viewProjects_RowCommand">
         <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
             <asp:BoundField HeaderText="Project Name" />
             <asp:BoundField HeaderText="Status" />
             <asp:BoundField HeaderText="Project Type" />
-            <asp:BoundField HeaderText="Expected End Date" />
+            <asp:BoundField HeaderText="Expected End Date" DataFormatString="{0:d}" />
             <asp:BoundField HeaderText="Status" />
             <asp:BoundField HeaderText="Client Name" />
             <asp:TemplateField HeaderText="View Details">
                 <ItemTemplate>
-                    <asp:LinkButton ID="viewDetails" runat="server">View</asp:LinkButton>
+                    <asp:LinkButton ID="viewDetails" runat="server" CommandName="View">View</asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -28,4 +29,5 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
     <br />
+        </div>
 </asp:Content>

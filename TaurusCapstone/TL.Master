@@ -63,9 +63,11 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="~/AdminHomePage.aspx" runat="server"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li><a href="~/AdminProfile.aspx" runat="server"> <span class="glyphicon glyphicon-user"></span> Profile </a></li>
-          <li><a href="~/AdminEmployees.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> My Projects</a></li>
+        <li><a href="~/TLHomePage.aspx" runat="server"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a href="~/TLProfile.aspx" runat="server"> <span class="glyphicon glyphicon-user"></span> Profile </a></li>
+          <li><a href="~/TLViewTasks.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Tasks</a></li>
+          
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="~/Login.aspx" runat="server" CausesValidation="false"> <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>

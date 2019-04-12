@@ -40,31 +40,13 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.WebControls.Label cpStatusLabel;
         
         /// <summary>
-        /// scopeLabel control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label scopeLabel;
-        
-        /// <summary>
-        /// categoryLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label categoryLabel;
-        
-        /// <summary>
-        /// deliverablesLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label deliverablesLabel;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
         /// clientDecision control.

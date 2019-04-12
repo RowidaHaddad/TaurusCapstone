@@ -16,8 +16,8 @@ namespace TaurusCapstone
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            errorInput.Visible = false;
-            missingField.Visible = false;
+            alert.Visible = false;
+            success.Visible = false;
         }
 
         protected void loginButton_ServerClick(object sender, EventArgs e)
@@ -36,6 +36,9 @@ namespace TaurusCapstone
 
                 if (myEmp.EmployeeType == "3")
                 {
+
+                    //success.Visible = true;
+                    
                     Response.Redirect("~/AdminHomePage.aspx");
                 }
                 else if (myEmp.EmployeeType == "2")
@@ -68,7 +71,10 @@ namespace TaurusCapstone
 
             else
             {
-                errorInput.Visible = true;
+                alert.Visible = true;
+                usrTB.Value = string.Empty;
+                pswTB.Value = string.Empty;
+
                
             }
 

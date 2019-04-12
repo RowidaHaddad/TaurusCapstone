@@ -18,15 +18,13 @@ namespace TaurusCapstone
             {
                 viewEmployees.DataSource = ele;
                 BoundField bf = (BoundField)viewEmployees.Columns[0];
-                bf.DataField = "FirstName";
+                bf.DataField = ("FirstName" + "LastName");
                 BoundField bf1 = (BoundField)viewEmployees.Columns[1];
-                bf1.DataField = "LastName";
+                bf1.DataField = "JobTitle";
                 BoundField bf2 = (BoundField)viewEmployees.Columns[2];
-                bf2.DataField = "JobTitle";
+                bf2.DataField = "Mobile";
                 BoundField bf3 = (BoundField)viewEmployees.Columns[3];
-                bf3.DataField = "Mobile";
-                BoundField bf4 = (BoundField)viewEmployees.Columns[4];
-                bf4.DataField = "Email";
+                bf3.DataField = "Email";
                 viewEmployees.DataBind();
             }
         }

@@ -66,10 +66,10 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="~/AdminHomePage.aspx" runat="server"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li><a href="~/AdminProfile.aspx" runat="server"> <span class="glyphicon glyphicon-user"></span> Profile </a></li>
-          <li><a href="~/AdminEmployees.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Employees</a></li>
-          <li><a href="~/AdminClients.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Clients </a></li>
+        <li><a href="~/DLHomePage.aspx" runat="server"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a href="~/DLProfile.aspx" runat="server"> <span class="glyphicon glyphicon-user"></span> Profile </a></li>
+          <li><a href="~/DLViewProjects.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Projects</a></li>
+          <li><a href="~/DLAddTask.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Tasks </a></li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">

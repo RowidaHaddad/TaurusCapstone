@@ -25,7 +25,7 @@
             text-align: center;
             font-size: small;
         }
-   </style>
+        </style>
     <div class="well">
 <div class="panel panel-default">
   <div class="panel-heading"><strong>Project Details</strong></div>
@@ -48,30 +48,50 @@
     Project Type: <asp:Label ID="pTypeLabel" runat="server" Text=""></asp:Label>
   </div>
     <div class="panel-body" runat="server">
-    Task Leads: <asp:LinkButton ID="TLProfile" runat="server">
-        <asp:Label ID="TLName" runat="server" Text=""></asp:Label></asp:LinkButton>
-  </div>
-    <div class="panel-body" runat="server">
     Current status: <asp:Label ID="currentStatusLabel" runat="server" Text=""></asp:Label>
   </div>
 </div>
         <div class ="panel panel-default">
             <div class="panel-heading">
                 <strong>Tasks</strong>
+                <p>Add a number of expected tasks (e.g. 2): </p>
+                <asp:TextBox ID="TextBox1" runat="server" Font-Size="Medium" Height="27px" Width="25px"></asp:TextBox>
+                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/images/add.png" Width="21px" OnClick="ImageButton2_Click1" />
             </div>
             <div class="auto-style6">
-                <asp:GridView ID="viewTasks" runat="server" class="gridview" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Width="1014px">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="277px" Width="966px">
                     <AlternatingRowStyle BackColor="#CCCCCC" />
                     <Columns>
-                        <asp:BoundField HeaderText="Task Name" />
-                        <asp:BoundField HeaderText="Expected End Date" />
-                        <asp:BoundField HeaderText="Design Officer Comments" />
-                        <asp:TemplateField HeaderText="View More">
+                        <asp:TemplateField HeaderText="No.">
                             <ItemTemplate>
-                                <asp:LinkButton ID="viewMore" runat="server">View</asp:LinkButton>
+                                <asp:Label ID="number" runat="server" Text=""></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Task Name">
+                            <ItemTemplate>
+                                <asp:TextBox ID="taskName" runat="server"></asp:TextBox>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Description">
+                            <ItemTemplate>
+                                <asp:TextBox ID="taskDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Expected End Date">
+                            <ItemTemplate>
+                                <asp:TextBox ID="taskDate" runat="server" TextMode="Date"></asp:TextBox>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Assign To">
+                            <ItemTemplate>
+                                <asp:DropDownList ID="taskLeadName" runat="server">
+                                </asp:DropDownList>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
+                    <EmptyDataTemplate>
+                        <asp:TextBox ID="taskName" runat="server"></asp:TextBox>
+                    </EmptyDataTemplate>
                     <FooterStyle BackColor="#CCCCCC" />
                     <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
@@ -82,6 +102,9 @@
                     <SortedDescendingHeaderStyle BackColor="#383838" />
                 </asp:GridView>
             </div>
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click3" Text="Add" BackColor="Black" Font-Names="Avenir LT Std 45 Book" ForeColor="White" Width="50px" />
+            <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
   </div>
     </div>
 </asp:Content>

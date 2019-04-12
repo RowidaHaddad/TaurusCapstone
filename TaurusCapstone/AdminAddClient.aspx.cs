@@ -15,7 +15,8 @@ namespace TaurusCapstone
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            requiredField.Visible = false;
+            alert.Visible = false;
+            fields.Visible = false;
 
         }
 
@@ -24,7 +25,7 @@ namespace TaurusCapstone
             Client newClient = new Client();
             newClient.ClientName = clientName.Value;
             newClient.ClientMobileNumber = clientNumber.Value;
-            newClient.ClientNumber = clientNumber.Value;
+            newClient.ClientNumber = compNumber.Value;
             newClient.ClientEmail = clientEmail.Value;
             newClient.Password = clientPassword.Value;
 
@@ -32,11 +33,18 @@ namespace TaurusCapstone
             {
                 db.Clients.InsertOnSubmit(newClient);
                 db.SubmitChanges();
-                Response.Redirect("~/AdminClientConfirmationPage.aspx");
+                alert.Visible = true;
+                clientName.Value = string.Empty;
+                clientNumber.Value = string.Empty;
+                compNumber.Value = string.Empty;
+                clientEmail.Value = string.Empty;
+                clientPassword.Value = string.Empty;
+
+                //Response.Redirect("~/AdminClientConfirmationPage.aspx");
             }
             else
             {
-                requiredField.Visible = true;
+                fields.Visible = true;
             }
         }
         protected void cancelButton_ServerClick(object sender, EventArgs e)

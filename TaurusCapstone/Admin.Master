@@ -64,8 +64,8 @@
       <ul class="nav navbar-nav">
         <li><a href="~/AdminHomePage.aspx" runat="server"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
         <li><a href="~/AdminProfile.aspx" runat="server"> <span class="glyphicon glyphicon-user"></span> Profile </a></li>
-          <li><a href="~/AdminEmployees.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Employees</a></li>
-          <li><a href="~/AdminClients.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Clients </a></li>
+          <li><a href="~/AdminViewEmployees.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Employees</a></li>
+          <li><a href="~/AdminViewClients.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Clients </a></li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">

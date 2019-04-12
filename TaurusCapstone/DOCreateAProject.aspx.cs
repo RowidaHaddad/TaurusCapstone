@@ -34,7 +34,7 @@ namespace TaurusCapstone
 
 
             myProject.ProjectName = projectName.Value;
-            DateTime d = Convert.ToDateTime(month.SelectedValue + "/" + day.SelectedValue + "/" + year.SelectedValue);
+            DateTime d = Convert.ToDateTime(date.Text);
             myProject.ExpectedEndDate = Convert.ToDateTime(d.ToString("MM/dd/yyyy"));
             myProject.StartDate = DateTime.Now;
             myProject.Status = "Pending";

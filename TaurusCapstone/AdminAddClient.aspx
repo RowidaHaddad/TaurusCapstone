@@ -85,6 +85,16 @@
     <div class="tab-pane fade active in" id="addEmployee"> 
   </div>
     <div class="well">
+        <div class="alert alert-dismissible alert-success" runat="server" id="alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4>Success!</h4>
+  <p>Client is successfully added! <a href="~/AdminViewClients.aspx" class="alert-link">View here</a>.</p>
+</div>
+        <div class="alert alert-dismissible alert-danger" runat="server" id="fields">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4>Oh snap!</h4>
+  <p>Something is wrong, try again!</p>
+</div>
     <form class="form-horizontal">
   <fieldset>
     <h3 style="font-family: Avenir LT Std 65 Medium; text-align: center">Add a New Client</h3>
@@ -126,9 +136,6 @@
           &nbsp;</div>
         </div>
       <br />
-      <div>
-         <span class="label label-danger" id="requiredField" runat="server" style="font-family: Avenir LT Std 65 Medium; font-size: small; text-align: center">Missing Required Fields!</span>
-      </div>
     <div class="form-group">
       <div class="col-xs-4 col-lg-offset-2">
         <button type="submit" class="btn btn-default" style="color: white; background-color: black" runat="server" id="addClient" onserverclick="addClient_ServerClick">Add</button>

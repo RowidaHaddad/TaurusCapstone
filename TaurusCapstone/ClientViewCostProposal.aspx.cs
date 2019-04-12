@@ -12,16 +12,28 @@ namespace TaurusCapstone
         PMSDataClassesDataContext db = new PMSDataClassesDataContext();
         CostProposal myCP = new CostProposal();
         Project myProject = new Project();
-        //CostProposalCreation newCP = new CostProposalCreation();
-        ProjectDefinition projectDef = new ProjectDefinition();
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             //display details
             projectName.Text = myProject.ProjectName;
             dateUploadedLabel.Text = myCP.date.ToString();
             cpStatusLabel.Text = myCP.Status;
-            scopeLabel.Text = projectDef.Scope;
-            deliverablesLabel.Text = projectDef.Deliverable;
+
+            //extract  data from CostProposalScope and ScopeDeliverable
+            var ele = from a in db.CostProposalScopes
+                      from b in db.ScopeDeliverables
+                      from c in db.Projects
+                      from d in db.CostProposals
+                      where c.ProjectID == d.ProjectID && a.CostProposalID == d.CostProposalID
+                      select new { a.ScopeName, b.Deliverable };
+
+            GridView1.DataSource = ele;
+            BoundField bf = (BoundField)GridView1.Columns[0];
+            bf.DataField = "ScopeName";
+            BoundField bf1 = (BoundField)GridView1.Columns[1];
+            bf1.DataField = "Deliverable";
+
         }
 
         protected void submitCP_Click (object sender, EventArgs e)

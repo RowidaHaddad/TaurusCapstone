@@ -18,8 +18,8 @@
       <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Association Name="Finding_TaskLeadFindingSubmission" Member="Finding" ThisKey="FindingID" OtherKey="FindingID" Type="Finding" IsForeignKey="true" />
-      <Association Name="Task_TaskLeadFindingSubmission" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
       <Association Name="TaskLead_TaskLeadFindingSubmission" Member="TaskLead" ThisKey="TLID" OtherKey="TLID" Type="TaskLead" IsForeignKey="true" />
+      <Association Name="Task_TaskLeadFindingSubmission" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CostProposal" Member="CostProposals">
@@ -196,26 +196,6 @@
       <Association Name="CostProposalScope_ScopeDeliverable" Member="CostProposalScope" ThisKey="ScopeID" OtherKey="ScopeID" Type="CostProposalScope" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Task" Member="Tasks">
-    <Type Name="Task">
-      <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TaskName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ExpectedEndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ActualEndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Cost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DOID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DONotes" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Task_TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions" ThisKey="TaskID" OtherKey="TaskID" Type="TaskLeadFindingSubmission" />
-      <Association Name="Task_DesignLeadFindingSubmission" Member="DesignLeadFindingSubmissions" ThisKey="TaskID" OtherKey="TaskID" Type="DesignLeadFindingSubmission" />
-      <Association Name="Task_TaskCreation" Member="TaskCreations" ThisKey="TaskID" OtherKey="TaskID" Type="TaskCreation" />
-      <Association Name="Task_TaskFinding" Member="TaskFindings" ThisKey="TaskID" OtherKey="TaskID" Type="TaskFinding" />
-      <Association Name="Task_TaskLeadAssignment" Member="TaskLeadAssignments" ThisKey="TaskID" OtherKey="TaskID" Type="TaskLeadAssignment" />
-      <Association Name="DesignOfficer_Task" Member="DesignOfficer" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
-      <Association Name="DesignOfficer_Task1" Member="DesignOfficer1" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TaskCreation" Member="TaskCreations">
     <Type Name="TaskCreation">
       <Column Name="DLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -248,8 +228,28 @@
       <Column Name="TLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="DesignLead_TaskLeadAssignment" Member="DesignLead" ThisKey="DLID" OtherKey="DLID" Type="DesignLead" IsForeignKey="true" />
-      <Association Name="Task_TaskLeadAssignment" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
       <Association Name="TaskLead_TaskLeadAssignment" Member="TaskLead" ThisKey="TLID" OtherKey="TLID" Type="TaskLead" IsForeignKey="true" />
+      <Association Name="Task_TaskLeadAssignment" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Task" Member="Tasks">
+    <Type Name="Task">
+      <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TaskName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ExpectedEndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ActualEndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DOID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DONotes" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Task_TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions" ThisKey="TaskID" OtherKey="TaskID" Type="TaskLeadFindingSubmission" />
+      <Association Name="Task_DesignLeadFindingSubmission" Member="DesignLeadFindingSubmissions" ThisKey="TaskID" OtherKey="TaskID" Type="DesignLeadFindingSubmission" />
+      <Association Name="Task_TaskCreation" Member="TaskCreations" ThisKey="TaskID" OtherKey="TaskID" Type="TaskCreation" />
+      <Association Name="Task_TaskFinding" Member="TaskFindings" ThisKey="TaskID" OtherKey="TaskID" Type="TaskFinding" />
+      <Association Name="Task_TaskLeadAssignment" Member="TaskLeadAssignments" ThisKey="TaskID" OtherKey="TaskID" Type="TaskLeadAssignment" />
+      <Association Name="DesignOfficer_Task" Member="DesignOfficer" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
+      <Association Name="DesignOfficer_Task1" Member="DesignOfficer1" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

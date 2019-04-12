@@ -56,10 +56,19 @@
       </div>
       </div>
       <div class ="col-md-5">
-          <span class="label label-danger" id="errorInput" runat="server" style="font-family: Avenir LT Std 65 Medium; font-size: small; text-align: center">Incorrect username and/or password!</span>
-           <span class="label label-danger" id="missingField" runat="server" style="font-family: Avenir LT Std 65 Medium; font-size: small; text-align: center">Missing required fields!</span>
+          <div class="alert alert-dismissible alert-success" runat="server" id="success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Oh snap!</strong> Something is wrong, try again.
+</div>
 
       </div>
+          
+          <div class="alert alert-dismissible alert-danger" runat ="server" id="alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Oh snap!</strong> Something is wrong, try again.
+</div>
+
+      <%--</div>--%>
       <br />
     
 

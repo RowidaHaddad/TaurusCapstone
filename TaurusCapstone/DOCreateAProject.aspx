@@ -41,17 +41,6 @@
             padding-left: 15px;
             padding-right: 15px;
         }
-        .auto-style18 {
-            position: relative;
-            min-height: 1px;
-            float: left;
-            width: 10%;
-            text-align: right;
-            left: 61px;
-            top: 13px;
-            padding-left: 15px;
-            padding-right: 15px;
-        }
         .date{
             color: black;
             text-align:left;
@@ -68,38 +57,33 @@
             padding-right: 15px;
             height: 20px;
         }
-        .auto-style22 {
-            margin-bottom: 15px;
-            text-align: center;
-            align-items:center;
-            
+        .auto-style25 {
+            margin-left: 0;
         }
-        .auto-style23 {
+        .auto-style26 {
             position: relative;
             min-height: 1px;
             float: left;
-            width: 10%;
+            width: 21%;
             text-align: right;
-            left: 144px;
-            top: 18px;
-            padding-left: 15px;
-            padding-right: 15px;
-            height: 20px;
-        }
-        .auto-style24 {
-            position: relative;
-            min-height: 1px;
-            float: left;
-            width: 10%;
-            text-align: right;
-            left: 148px;
-            top: 22px;
+            left: -387px;
+            top: 9px;
             padding-left: 15px;
             padding-right: 15px;
         }
         </style>
 
     <div class="well">
+         <div class="alert alert-dismissible alert-success" runat="server" id="alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4>Success!</h4>
+  <p>Project is successfully created! <a href="~/DOCreateAProject.aspx" class="alert-link">View here</a>.</p>
+</div>
+        <div class="alert alert-dismissible alert-danger" runat="server" id="fields">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4>Oh snap!</h4>
+  <p>Something is wrong, try again!</p>
+</div>
     <form class="form-horizontal">
  
     <h3 style="font-family: Avenir LT Std 65 Medium; text-align: center">Create a New Project</h3>
@@ -119,72 +103,15 @@
           &nbsp;</div>
         </div>
       <br />
-      <div class="auto-style22">
-          <label for="select" class="col-lg-2 control-label" style="left: -1512px; top: -5px">Date: </label>
-      <label for="inputPassword" class="auto-style18">Day  <asp:DropDownList ID="day" runat="server" Height="36px" Width="66px" CssClass="date">
-              <asp:ListItem>01</asp:ListItem>
-              <asp:ListItem>02</asp:ListItem>
-              <asp:ListItem>03</asp:ListItem>
-              <asp:ListItem>04</asp:ListItem>
-              <asp:ListItem>05</asp:ListItem>
-              <asp:ListItem>06</asp:ListItem>
-              <asp:ListItem>07</asp:ListItem>
-              <asp:ListItem>08</asp:ListItem>
-              <asp:ListItem>09</asp:ListItem>
-              <asp:ListItem>10</asp:ListItem>
-              <asp:ListItem>11</asp:ListItem>
-              <asp:ListItem>12</asp:ListItem>
-              <asp:ListItem>13</asp:ListItem>
-              <asp:ListItem>14</asp:ListItem>
-              <asp:ListItem>15</asp:ListItem>
-              <asp:ListItem>16</asp:ListItem>
-              <asp:ListItem>17</asp:ListItem>
-              <asp:ListItem>18</asp:ListItem>
-              <asp:ListItem>19</asp:ListItem>
-              <asp:ListItem>20</asp:ListItem>
-              <asp:ListItem>21</asp:ListItem>
-              <asp:ListItem>22</asp:ListItem>
-              <asp:ListItem>23</asp:ListItem>
-              <asp:ListItem>24</asp:ListItem>
-              <asp:ListItem>25</asp:ListItem>
-              <asp:ListItem>26</asp:ListItem>
-              <asp:ListItem>27</asp:ListItem>
-              <asp:ListItem>28</asp:ListItem>
-              <asp:ListItem>29</asp:ListItem>
-              <asp:ListItem>30</asp:ListItem>
-              <asp:ListItem>31</asp:ListItem>
-          </asp:DropDownList>
-          </label>
+      <div class="form-group">
+        <label for="inputPassword" class="auto-style6">Expected End Date</label>
           <br />
-          <label for="inputPassword" class="auto-style23">Month<asp:DropDownList ID="month" runat="server" Height="36px" Width="66px" CssClass="date">
-              <asp:ListItem Value="01">Jan</asp:ListItem>
-              <asp:ListItem Value="02">Feb</asp:ListItem>
-              <asp:ListItem Value="03">Mar</asp:ListItem>
-              <asp:ListItem Value="04">Apr</asp:ListItem>
-              <asp:ListItem Value="05">May</asp:ListItem>
-              <asp:ListItem Value="06">Jun</asp:ListItem>
-              <asp:ListItem Value="07">Jul</asp:ListItem>
-              <asp:ListItem Value="08">Aug</asp:ListItem>
-              <asp:ListItem Value="09">Sep</asp:ListItem>
-              <asp:ListItem Value="10">Oct</asp:ListItem>
-              <asp:ListItem Value="11">Nov</asp:ListItem>
-              <asp:ListItem Value="12">Dec</asp:ListItem>
-          </asp:DropDownList>
-          &nbsp;</label><br />
-          <label for="inputPassword" class="auto-style24">Year  <asp:DropDownList ID="year" runat="server" CssClass="date" Height="36px" Width="66px">
-              <asp:ListItem>2019</asp:ListItem>
-              <asp:ListItem>2020</asp:ListItem>
-              <asp:ListItem>2021</asp:ListItem>
-              <asp:ListItem>2022</asp:ListItem>
-              <asp:ListItem>2023</asp:ListItem>
-              <asp:ListItem>2024</asp:ListItem>
-          </asp:DropDownList>
+        <label for="inputPassword" class="auto-style6">
+          <asp:TextBox ID="date" runat="server" TextMode="Date" CssClass="auto-style25"></asp:TextBox>
           </label>
-          </div>
-          <br />
         <br />
           <div class="form-group">
-      <label for="nameLabel" class="auto-style5">Description</label>
+      <label for="nameLabel" class="auto-style26">Description</label>
         <div class="col-xs-4">
         <textarea class="form-control" rows="5" id="pDescription" runat="server"></textarea>
         </div>

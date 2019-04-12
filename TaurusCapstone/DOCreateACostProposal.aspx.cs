@@ -14,6 +14,9 @@ namespace TaurusCapstone
         int scoid;
         protected void Page_Load(object sender, EventArgs e)
         {
+            alert.Visible = false;
+            fields.Visible = false;
+
             if (!IsPostBack)
             {
                 var pro = from a in mydb.Projects
@@ -112,6 +115,7 @@ namespace TaurusCapstone
                     mydel.Deliverable = tbb.Text;
                     mydb.ScopeDeliverables.InsertOnSubmit(mydel);
                     mydb.SubmitChanges();
+                    alert.Visible = true;
                 }
             }
         }

@@ -9,6 +9,16 @@
         }
     </style>
     <div class="well">
+         <div class="alert alert-dismissible alert-success" runat="server" id="alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4>Success!</h4>
+  <p>Proposai is successfully created! <a href="~/DOViewCP.aspx" class="alert-link">View here</a>.</p>
+</div>
+        <div class="alert alert-dismissible alert-danger" runat="server" id="fields">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4>Oh snap!</h4>
+  <p>Something is wrong, try again!</p>
+</div>
        <div class="panel panel-default">
         <div class="panel-heading" style="color: #990000">
            <strong>Project Name</strong>
@@ -18,7 +28,7 @@
                     </asp:DropDownList>
         &nbsp;</div>
     <div class="panel-heading">
-       Cost Proposal Details:
+       <strong>Proposal Details</strong>
     </div>
     <div class="panel-body">
         <asp:Label ID="Label2" runat="server" Text="Description"></asp:Label>
@@ -80,7 +90,7 @@
         </asp:GridView>
             </div>
 
-<%--        <button class="btn btn-primary" id="Button1" runat="server" onserverclick="Button1_ServerClick">Submit</button>--%>
+        <button class="btn btn-primary" id="Button1" runat="server" onserverclick="Button1_ServerClick">Submit</button>
         
         </div>
         </div>

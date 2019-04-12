@@ -49,22 +49,22 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordRFV;
         
         /// <summary>
-        /// errorInput control.
+        /// success control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorInput;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl success;
         
         /// <summary>
-        /// missingField control.
+        /// alert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl missingField;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert;
         
         /// <summary>
         /// loginButton control.

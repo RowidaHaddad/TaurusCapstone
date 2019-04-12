@@ -13,6 +13,24 @@ namespace TaurusCapstone {
     public partial class WebForm24 {
         
         /// <summary>
+        /// alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert;
+        
+        /// <summary>
+        /// fields control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fields;
+        
+        /// <summary>
         /// projectName control.
         /// </summary>
         /// <remarks>
@@ -40,31 +58,13 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.WebControls.LinqDataSource clientNames;
         
         /// <summary>
-        /// day control.
+        /// date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList day;
-        
-        /// <summary>
-        /// month control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList month;
-        
-        /// <summary>
-        /// year control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList year;
+        protected global::System.Web.UI.WebControls.TextBox date;
         
         /// <summary>
         /// pDescription control.
