@@ -57,9 +57,6 @@ namespace TaurusCapstone
     partial void InsertEmployee(Employee instance);
     partial void UpdateEmployee(Employee instance);
     partial void DeleteEmployee(Employee instance);
-    partial void InsertFinding(Finding instance);
-    partial void UpdateFinding(Finding instance);
-    partial void DeleteFinding(Finding instance);
     partial void InsertImpactAnalysi(ImpactAnalysi instance);
     partial void UpdateImpactAnalysi(ImpactAnalysi instance);
     partial void DeleteImpactAnalysi(ImpactAnalysi instance);
@@ -96,6 +93,9 @@ namespace TaurusCapstone
     partial void InsertTask(Task instance);
     partial void UpdateTask(Task instance);
     partial void DeleteTask(Task instance);
+    partial void InsertFinding(Finding instance);
+    partial void UpdateFinding(Finding instance);
+    partial void DeleteFinding(Finding instance);
     #endregion
 		
 		public PMSDataClassesDataContext() : 
@@ -200,14 +200,6 @@ namespace TaurusCapstone
 			}
 		}
 		
-		public System.Data.Linq.Table<Finding> Findings
-		{
-			get
-			{
-				return this.GetTable<Finding>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ImpactAnalysi> ImpactAnalysis
 		{
 			get
@@ -301,6 +293,14 @@ namespace TaurusCapstone
 			get
 			{
 				return this.GetTable<Task>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Finding> Findings
+		{
+			get
+			{
+				return this.GetTable<Finding>();
 			}
 		}
 	}
@@ -529,11 +529,11 @@ namespace TaurusCapstone
 		
 		private System.DateTime _date;
 		
-		private EntityRef<Finding> _Finding;
-		
 		private EntityRef<TaskLead> _TaskLead;
 		
 		private EntityRef<Task> _Task;
+		
+		private EntityRef<Finding> _Finding;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -551,9 +551,9 @@ namespace TaurusCapstone
 		
 		public TaskLeadFindingSubmission()
 		{
-			this._Finding = default(EntityRef<Finding>);
 			this._TaskLead = default(EntityRef<TaskLead>);
 			this._Task = default(EntityRef<Task>);
+			this._Finding = default(EntityRef<Finding>);
 			OnCreated();
 		}
 		
@@ -649,40 +649,6 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_TaskLeadFindingSubmission", Storage="_Finding", ThisKey="FindingID", OtherKey="FindingID", IsForeignKey=true)]
-		public Finding Finding
-		{
-			get
-			{
-				return this._Finding.Entity;
-			}
-			set
-			{
-				Finding previousValue = this._Finding.Entity;
-				if (((previousValue != value) 
-							|| (this._Finding.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Finding.Entity = null;
-						previousValue.TaskLeadFindingSubmissions.Remove(this);
-					}
-					this._Finding.Entity = value;
-					if ((value != null))
-					{
-						value.TaskLeadFindingSubmissions.Add(this);
-						this._FindingID = value.FindingID;
-					}
-					else
-					{
-						this._FindingID = default(int);
-					}
-					this.SendPropertyChanged("Finding");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TaskLead_TaskLeadFindingSubmission", Storage="_TaskLead", ThisKey="TLID", OtherKey="TLID", IsForeignKey=true)]
 		public TaskLead TaskLead
 		{
@@ -747,6 +713,40 @@ namespace TaurusCapstone
 						this._TaskID = default(int);
 					}
 					this.SendPropertyChanged("Task");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_TaskLeadFindingSubmission", Storage="_Finding", ThisKey="FindingID", OtherKey="FindingID", IsForeignKey=true)]
+		public Finding Finding
+		{
+			get
+			{
+				return this._Finding.Entity;
+			}
+			set
+			{
+				Finding previousValue = this._Finding.Entity;
+				if (((previousValue != value) 
+							|| (this._Finding.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Finding.Entity = null;
+						previousValue.TaskLeadFindingSubmissions.Remove(this);
+					}
+					this._Finding.Entity = value;
+					if ((value != null))
+					{
+						value.TaskLeadFindingSubmissions.Add(this);
+						this._FindingID = value.FindingID;
+					}
+					else
+					{
+						this._FindingID = default(int);
+					}
+					this.SendPropertyChanged("Finding");
 				}
 			}
 		}
@@ -1589,9 +1589,9 @@ namespace TaurusCapstone
 		
 		private EntityRef<DesignLead> _DesignLead;
 		
-		private EntityRef<Finding> _Finding;
-		
 		private EntityRef<Task> _Task;
+		
+		private EntityRef<Finding> _Finding;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1610,8 +1610,8 @@ namespace TaurusCapstone
 		public DesignLeadFindingSubmission()
 		{
 			this._DesignLead = default(EntityRef<DesignLead>);
-			this._Finding = default(EntityRef<Finding>);
 			this._Task = default(EntityRef<Task>);
+			this._Finding = default(EntityRef<Finding>);
 			OnCreated();
 		}
 		
@@ -1741,40 +1741,6 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_DesignLeadFindingSubmission", Storage="_Finding", ThisKey="FindingID", OtherKey="FindingID", IsForeignKey=true)]
-		public Finding Finding
-		{
-			get
-			{
-				return this._Finding.Entity;
-			}
-			set
-			{
-				Finding previousValue = this._Finding.Entity;
-				if (((previousValue != value) 
-							|| (this._Finding.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Finding.Entity = null;
-						previousValue.DesignLeadFindingSubmissions.Remove(this);
-					}
-					this._Finding.Entity = value;
-					if ((value != null))
-					{
-						value.DesignLeadFindingSubmissions.Add(this);
-						this._FindingID = value.FindingID;
-					}
-					else
-					{
-						this._FindingID = default(int);
-					}
-					this.SendPropertyChanged("Finding");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_DesignLeadFindingSubmission", Storage="_Task", ThisKey="TaskID", OtherKey="TaskID", IsForeignKey=true)]
 		public Task Task
 		{
@@ -1805,6 +1771,40 @@ namespace TaurusCapstone
 						this._TaskID = default(int);
 					}
 					this.SendPropertyChanged("Task");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_DesignLeadFindingSubmission", Storage="_Finding", ThisKey="FindingID", OtherKey="FindingID", IsForeignKey=true)]
+		public Finding Finding
+		{
+			get
+			{
+				return this._Finding.Entity;
+			}
+			set
+			{
+				Finding previousValue = this._Finding.Entity;
+				if (((previousValue != value) 
+							|| (this._Finding.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Finding.Entity = null;
+						previousValue.DesignLeadFindingSubmissions.Remove(this);
+					}
+					this._Finding.Entity = value;
+					if ((value != null))
+					{
+						value.DesignLeadFindingSubmissions.Add(this);
+						this._FindingID = value.FindingID;
+					}
+					else
+					{
+						this._FindingID = default(int);
+					}
+					this.SendPropertyChanged("Finding");
 				}
 			}
 		}
@@ -2601,344 +2601,6 @@ namespace TaurusCapstone
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Finding")]
-	public partial class Finding : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _FindingID;
-		
-		private string _FindingName;
-		
-		private string _FindingDescription;
-		
-		private System.DateTime _StartDate;
-		
-		private System.DateTime _EndDate;
-		
-		private string _FindingType;
-		
-		private string _FindingResult;
-		
-		private string _ClientNotes;
-		
-		private System.Nullable<int> _ClientID;
-		
-		private EntitySet<TaskLeadFindingSubmission> _TaskLeadFindingSubmissions;
-		
-		private EntitySet<DesignLeadFindingSubmission> _DesignLeadFindingSubmissions;
-		
-		private EntitySet<TaskFinding> _TaskFindings;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnFindingIDChanging(int value);
-    partial void OnFindingIDChanged();
-    partial void OnFindingNameChanging(string value);
-    partial void OnFindingNameChanged();
-    partial void OnFindingDescriptionChanging(string value);
-    partial void OnFindingDescriptionChanged();
-    partial void OnStartDateChanging(System.DateTime value);
-    partial void OnStartDateChanged();
-    partial void OnEndDateChanging(System.DateTime value);
-    partial void OnEndDateChanged();
-    partial void OnFindingTypeChanging(string value);
-    partial void OnFindingTypeChanged();
-    partial void OnFindingResultChanging(string value);
-    partial void OnFindingResultChanged();
-    partial void OnClientNotesChanging(string value);
-    partial void OnClientNotesChanged();
-    partial void OnClientIDChanging(System.Nullable<int> value);
-    partial void OnClientIDChanged();
-    #endregion
-		
-		public Finding()
-		{
-			this._TaskLeadFindingSubmissions = new EntitySet<TaskLeadFindingSubmission>(new Action<TaskLeadFindingSubmission>(this.attach_TaskLeadFindingSubmissions), new Action<TaskLeadFindingSubmission>(this.detach_TaskLeadFindingSubmissions));
-			this._DesignLeadFindingSubmissions = new EntitySet<DesignLeadFindingSubmission>(new Action<DesignLeadFindingSubmission>(this.attach_DesignLeadFindingSubmissions), new Action<DesignLeadFindingSubmission>(this.detach_DesignLeadFindingSubmissions));
-			this._TaskFindings = new EntitySet<TaskFinding>(new Action<TaskFinding>(this.attach_TaskFindings), new Action<TaskFinding>(this.detach_TaskFindings));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FindingID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int FindingID
-		{
-			get
-			{
-				return this._FindingID;
-			}
-			set
-			{
-				if ((this._FindingID != value))
-				{
-					this.OnFindingIDChanging(value);
-					this.SendPropertyChanging();
-					this._FindingID = value;
-					this.SendPropertyChanged("FindingID");
-					this.OnFindingIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FindingName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string FindingName
-		{
-			get
-			{
-				return this._FindingName;
-			}
-			set
-			{
-				if ((this._FindingName != value))
-				{
-					this.OnFindingNameChanging(value);
-					this.SendPropertyChanging();
-					this._FindingName = value;
-					this.SendPropertyChanged("FindingName");
-					this.OnFindingNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FindingDescription", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string FindingDescription
-		{
-			get
-			{
-				return this._FindingDescription;
-			}
-			set
-			{
-				if ((this._FindingDescription != value))
-				{
-					this.OnFindingDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._FindingDescription = value;
-					this.SendPropertyChanged("FindingDescription");
-					this.OnFindingDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date NOT NULL")]
-		public System.DateTime StartDate
-		{
-			get
-			{
-				return this._StartDate;
-			}
-			set
-			{
-				if ((this._StartDate != value))
-				{
-					this.OnStartDateChanging(value);
-					this.SendPropertyChanging();
-					this._StartDate = value;
-					this.SendPropertyChanged("StartDate");
-					this.OnStartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="Date NOT NULL")]
-		public System.DateTime EndDate
-		{
-			get
-			{
-				return this._EndDate;
-			}
-			set
-			{
-				if ((this._EndDate != value))
-				{
-					this.OnEndDateChanging(value);
-					this.SendPropertyChanging();
-					this._EndDate = value;
-					this.SendPropertyChanged("EndDate");
-					this.OnEndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FindingType", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string FindingType
-		{
-			get
-			{
-				return this._FindingType;
-			}
-			set
-			{
-				if ((this._FindingType != value))
-				{
-					this.OnFindingTypeChanging(value);
-					this.SendPropertyChanging();
-					this._FindingType = value;
-					this.SendPropertyChanged("FindingType");
-					this.OnFindingTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FindingResult", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string FindingResult
-		{
-			get
-			{
-				return this._FindingResult;
-			}
-			set
-			{
-				if ((this._FindingResult != value))
-				{
-					this.OnFindingResultChanging(value);
-					this.SendPropertyChanging();
-					this._FindingResult = value;
-					this.SendPropertyChanged("FindingResult");
-					this.OnFindingResultChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientNotes", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ClientNotes
-		{
-			get
-			{
-				return this._ClientNotes;
-			}
-			set
-			{
-				if ((this._ClientNotes != value))
-				{
-					this.OnClientNotesChanging(value);
-					this.SendPropertyChanging();
-					this._ClientNotes = value;
-					this.SendPropertyChanged("ClientNotes");
-					this.OnClientNotesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientID", DbType="Int")]
-		public System.Nullable<int> ClientID
-		{
-			get
-			{
-				return this._ClientID;
-			}
-			set
-			{
-				if ((this._ClientID != value))
-				{
-					this.OnClientIDChanging(value);
-					this.SendPropertyChanging();
-					this._ClientID = value;
-					this.SendPropertyChanged("ClientID");
-					this.OnClientIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_TaskLeadFindingSubmission", Storage="_TaskLeadFindingSubmissions", ThisKey="FindingID", OtherKey="FindingID")]
-		public EntitySet<TaskLeadFindingSubmission> TaskLeadFindingSubmissions
-		{
-			get
-			{
-				return this._TaskLeadFindingSubmissions;
-			}
-			set
-			{
-				this._TaskLeadFindingSubmissions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_DesignLeadFindingSubmission", Storage="_DesignLeadFindingSubmissions", ThisKey="FindingID", OtherKey="FindingID")]
-		public EntitySet<DesignLeadFindingSubmission> DesignLeadFindingSubmissions
-		{
-			get
-			{
-				return this._DesignLeadFindingSubmissions;
-			}
-			set
-			{
-				this._DesignLeadFindingSubmissions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_TaskFinding", Storage="_TaskFindings", ThisKey="FindingID", OtherKey="FindingID")]
-		public EntitySet<TaskFinding> TaskFindings
-		{
-			get
-			{
-				return this._TaskFindings;
-			}
-			set
-			{
-				this._TaskFindings.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TaskLeadFindingSubmissions(TaskLeadFindingSubmission entity)
-		{
-			this.SendPropertyChanging();
-			entity.Finding = this;
-		}
-		
-		private void detach_TaskLeadFindingSubmissions(TaskLeadFindingSubmission entity)
-		{
-			this.SendPropertyChanging();
-			entity.Finding = null;
-		}
-		
-		private void attach_DesignLeadFindingSubmissions(DesignLeadFindingSubmission entity)
-		{
-			this.SendPropertyChanging();
-			entity.Finding = this;
-		}
-		
-		private void detach_DesignLeadFindingSubmissions(DesignLeadFindingSubmission entity)
-		{
-			this.SendPropertyChanging();
-			entity.Finding = null;
-		}
-		
-		private void attach_TaskFindings(TaskFinding entity)
-		{
-			this.SendPropertyChanging();
-			entity.Finding = this;
-		}
-		
-		private void detach_TaskFindings(TaskFinding entity)
-		{
-			this.SendPropertyChanging();
-			entity.Finding = null;
 		}
 	}
 	
@@ -4777,9 +4439,9 @@ namespace TaurusCapstone
 		
 		private int _FindingID;
 		
-		private EntityRef<Finding> _Finding;
-		
 		private EntityRef<Task> _Task;
+		
+		private EntityRef<Finding> _Finding;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -4793,8 +4455,8 @@ namespace TaurusCapstone
 		
 		public TaskFinding()
 		{
-			this._Finding = default(EntityRef<Finding>);
 			this._Task = default(EntityRef<Task>);
+			this._Finding = default(EntityRef<Finding>);
 			OnCreated();
 		}
 		
@@ -4846,40 +4508,6 @@ namespace TaurusCapstone
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_TaskFinding", Storage="_Finding", ThisKey="FindingID", OtherKey="FindingID", IsForeignKey=true)]
-		public Finding Finding
-		{
-			get
-			{
-				return this._Finding.Entity;
-			}
-			set
-			{
-				Finding previousValue = this._Finding.Entity;
-				if (((previousValue != value) 
-							|| (this._Finding.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Finding.Entity = null;
-						previousValue.TaskFindings.Remove(this);
-					}
-					this._Finding.Entity = value;
-					if ((value != null))
-					{
-						value.TaskFindings.Add(this);
-						this._FindingID = value.FindingID;
-					}
-					else
-					{
-						this._FindingID = default(int);
-					}
-					this.SendPropertyChanged("Finding");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Task_TaskFinding", Storage="_Task", ThisKey="TaskID", OtherKey="TaskID", IsForeignKey=true)]
 		public Task Task
 		{
@@ -4910,6 +4538,40 @@ namespace TaurusCapstone
 						this._TaskID = default(int);
 					}
 					this.SendPropertyChanged("Task");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_TaskFinding", Storage="_Finding", ThisKey="FindingID", OtherKey="FindingID", IsForeignKey=true)]
+		public Finding Finding
+		{
+			get
+			{
+				return this._Finding.Entity;
+			}
+			set
+			{
+				Finding previousValue = this._Finding.Entity;
+				if (((previousValue != value) 
+							|| (this._Finding.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Finding.Entity = null;
+						previousValue.TaskFindings.Remove(this);
+					}
+					this._Finding.Entity = value;
+					if ((value != null))
+					{
+						value.TaskFindings.Add(this);
+						this._FindingID = value.FindingID;
+					}
+					else
+					{
+						this._FindingID = default(int);
+					}
+					this.SendPropertyChanged("Finding");
 				}
 			}
 		}
@@ -5796,6 +5458,344 @@ namespace TaurusCapstone
 		{
 			this.SendPropertyChanging();
 			entity.Task = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Finding")]
+	public partial class Finding : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _FindingID;
+		
+		private string _FindingName;
+		
+		private string _FindingDescription;
+		
+		private System.Nullable<System.DateTime> _StartDate;
+		
+		private System.Nullable<System.DateTime> _EndDate;
+		
+		private string _FindingType;
+		
+		private string _FindingResult;
+		
+		private string _ClientNotes;
+		
+		private System.Nullable<int> _ClientID;
+		
+		private EntitySet<TaskLeadFindingSubmission> _TaskLeadFindingSubmissions;
+		
+		private EntitySet<DesignLeadFindingSubmission> _DesignLeadFindingSubmissions;
+		
+		private EntitySet<TaskFinding> _TaskFindings;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFindingIDChanging(int value);
+    partial void OnFindingIDChanged();
+    partial void OnFindingNameChanging(string value);
+    partial void OnFindingNameChanged();
+    partial void OnFindingDescriptionChanging(string value);
+    partial void OnFindingDescriptionChanged();
+    partial void OnStartDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartDateChanged();
+    partial void OnEndDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndDateChanged();
+    partial void OnFindingTypeChanging(string value);
+    partial void OnFindingTypeChanged();
+    partial void OnFindingResultChanging(string value);
+    partial void OnFindingResultChanged();
+    partial void OnClientNotesChanging(string value);
+    partial void OnClientNotesChanged();
+    partial void OnClientIDChanging(System.Nullable<int> value);
+    partial void OnClientIDChanged();
+    #endregion
+		
+		public Finding()
+		{
+			this._TaskLeadFindingSubmissions = new EntitySet<TaskLeadFindingSubmission>(new Action<TaskLeadFindingSubmission>(this.attach_TaskLeadFindingSubmissions), new Action<TaskLeadFindingSubmission>(this.detach_TaskLeadFindingSubmissions));
+			this._DesignLeadFindingSubmissions = new EntitySet<DesignLeadFindingSubmission>(new Action<DesignLeadFindingSubmission>(this.attach_DesignLeadFindingSubmissions), new Action<DesignLeadFindingSubmission>(this.detach_DesignLeadFindingSubmissions));
+			this._TaskFindings = new EntitySet<TaskFinding>(new Action<TaskFinding>(this.attach_TaskFindings), new Action<TaskFinding>(this.detach_TaskFindings));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FindingID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int FindingID
+		{
+			get
+			{
+				return this._FindingID;
+			}
+			set
+			{
+				if ((this._FindingID != value))
+				{
+					this.OnFindingIDChanging(value);
+					this.SendPropertyChanging();
+					this._FindingID = value;
+					this.SendPropertyChanged("FindingID");
+					this.OnFindingIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FindingName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string FindingName
+		{
+			get
+			{
+				return this._FindingName;
+			}
+			set
+			{
+				if ((this._FindingName != value))
+				{
+					this.OnFindingNameChanging(value);
+					this.SendPropertyChanging();
+					this._FindingName = value;
+					this.SendPropertyChanged("FindingName");
+					this.OnFindingNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FindingDescription", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FindingDescription
+		{
+			get
+			{
+				return this._FindingDescription;
+			}
+			set
+			{
+				if ((this._FindingDescription != value))
+				{
+					this.OnFindingDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._FindingDescription = value;
+					this.SendPropertyChanged("FindingDescription");
+					this.OnFindingDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date")]
+		public System.Nullable<System.DateTime> StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this.OnStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._StartDate = value;
+					this.SendPropertyChanged("StartDate");
+					this.OnStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="Date")]
+		public System.Nullable<System.DateTime> EndDate
+		{
+			get
+			{
+				return this._EndDate;
+			}
+			set
+			{
+				if ((this._EndDate != value))
+				{
+					this.OnEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._EndDate = value;
+					this.SendPropertyChanged("EndDate");
+					this.OnEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FindingType", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string FindingType
+		{
+			get
+			{
+				return this._FindingType;
+			}
+			set
+			{
+				if ((this._FindingType != value))
+				{
+					this.OnFindingTypeChanging(value);
+					this.SendPropertyChanging();
+					this._FindingType = value;
+					this.SendPropertyChanged("FindingType");
+					this.OnFindingTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FindingResult", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FindingResult
+		{
+			get
+			{
+				return this._FindingResult;
+			}
+			set
+			{
+				if ((this._FindingResult != value))
+				{
+					this.OnFindingResultChanging(value);
+					this.SendPropertyChanging();
+					this._FindingResult = value;
+					this.SendPropertyChanged("FindingResult");
+					this.OnFindingResultChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientNotes", DbType="VarChar(50)")]
+		public string ClientNotes
+		{
+			get
+			{
+				return this._ClientNotes;
+			}
+			set
+			{
+				if ((this._ClientNotes != value))
+				{
+					this.OnClientNotesChanging(value);
+					this.SendPropertyChanging();
+					this._ClientNotes = value;
+					this.SendPropertyChanged("ClientNotes");
+					this.OnClientNotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientID", DbType="Int")]
+		public System.Nullable<int> ClientID
+		{
+			get
+			{
+				return this._ClientID;
+			}
+			set
+			{
+				if ((this._ClientID != value))
+				{
+					this.OnClientIDChanging(value);
+					this.SendPropertyChanging();
+					this._ClientID = value;
+					this.SendPropertyChanged("ClientID");
+					this.OnClientIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_TaskLeadFindingSubmission", Storage="_TaskLeadFindingSubmissions", ThisKey="FindingID", OtherKey="FindingID")]
+		public EntitySet<TaskLeadFindingSubmission> TaskLeadFindingSubmissions
+		{
+			get
+			{
+				return this._TaskLeadFindingSubmissions;
+			}
+			set
+			{
+				this._TaskLeadFindingSubmissions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_DesignLeadFindingSubmission", Storage="_DesignLeadFindingSubmissions", ThisKey="FindingID", OtherKey="FindingID")]
+		public EntitySet<DesignLeadFindingSubmission> DesignLeadFindingSubmissions
+		{
+			get
+			{
+				return this._DesignLeadFindingSubmissions;
+			}
+			set
+			{
+				this._DesignLeadFindingSubmissions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Finding_TaskFinding", Storage="_TaskFindings", ThisKey="FindingID", OtherKey="FindingID")]
+		public EntitySet<TaskFinding> TaskFindings
+		{
+			get
+			{
+				return this._TaskFindings;
+			}
+			set
+			{
+				this._TaskFindings.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TaskLeadFindingSubmissions(TaskLeadFindingSubmission entity)
+		{
+			this.SendPropertyChanging();
+			entity.Finding = this;
+		}
+		
+		private void detach_TaskLeadFindingSubmissions(TaskLeadFindingSubmission entity)
+		{
+			this.SendPropertyChanging();
+			entity.Finding = null;
+		}
+		
+		private void attach_DesignLeadFindingSubmissions(DesignLeadFindingSubmission entity)
+		{
+			this.SendPropertyChanging();
+			entity.Finding = this;
+		}
+		
+		private void detach_DesignLeadFindingSubmissions(DesignLeadFindingSubmission entity)
+		{
+			this.SendPropertyChanging();
+			entity.Finding = null;
+		}
+		
+		private void attach_TaskFindings(TaskFinding entity)
+		{
+			this.SendPropertyChanging();
+			entity.Finding = this;
+		}
+		
+		private void detach_TaskFindings(TaskFinding entity)
+		{
+			this.SendPropertyChanging();
+			entity.Finding = null;
 		}
 	}
 }

@@ -44,10 +44,10 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
 
             </asp:ContentPlaceHolder>
-    <p class="auto-style1">
-        <div>
-        <span class="label label-default" style="font-family: Avenir LT Std 65 Medium; background-color:#c0c0c0">© Copyrights 2019</span></p>
-        </div>
+    
+        <footer><span class="label label-default" style="font-family: Avenir LT Std 65 Medium; background-color:#c0c0c0">© Copyrights <%:DateTime.Now.Year %> </span>
+</footer>
+        
                     </form>
 </body>
 </html>

@@ -150,7 +150,6 @@
     <Content Include="AdminViewClients.aspx" />
     <Content Include="AdminViewEmployees.aspx" />
     <Content Include="ClientProfile.aspx" />
-    <Content Include="ClientPendigProjects.aspx" />
     <Content Include="ClientCompletedProjects.aspx" />
     <Content Include="DLHomePage.aspx" />
     <Content Include="DLProfile.aspx" />
@@ -164,13 +163,11 @@
     <Content Include="DOViewEmployees.aspx" />
     <Content Include="DOHomePage.aspx" />
     <Content Include="DOProfile.aspx" />
-    <Content Include="DOProjectCreationConfirmation.aspx" />
     <Content Include="DOViewCP.aspx" />
     <Content Include="DOProjectDetails.aspx" />
     <Content Include="DOEditsCP.aspx" />
     <Content Include="TLHomePage.aspx" />
     <Content Include="TLProfile.aspx" />
-    <Content Include="TLViewProjectDetails.aspx" />
     <Content Include="TLViewTasks.aspx" />
     <Content Include="TLTaskDetails.aspx" />
     <Content Include="TLFindingDetails.aspx" />
@@ -182,6 +179,9 @@
     <Content Include="DOCreateACostProposal.aspx" />
     <Content Include="DLViewProjectDetails.aspx" />
     <Content Include="DLViewTasksDetails.aspx" />
+    <Content Include="DLCreateImpactAnalysis.aspx" />
+    <Content Include="ClientSubmitSurvey.aspx" />
+    <Content Include="WebForm32.aspx" />
     <None Include="PMSDataClasses.dbml.layout">
       <DependentUpon>PMSDataClasses.dbml</DependentUpon>
     </None>
@@ -357,13 +357,6 @@
     <Compile Include="ClientProfile.aspx.designer.cs">
       <DependentUpon>ClientProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ClientPendigProjects.aspx.cs">
-      <DependentUpon>ClientPendigProjects.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ClientPendigProjects.aspx.designer.cs">
-      <DependentUpon>ClientPendigProjects.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ClientCompletedProjects.aspx.cs">
       <DependentUpon>ClientCompletedProjects.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -455,13 +448,6 @@
     <Compile Include="DOProfile.aspx.designer.cs">
       <DependentUpon>DOProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DOProjectCreationConfirmation.aspx.cs">
-      <DependentUpon>DOProjectCreationConfirmation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DOProjectCreationConfirmation.aspx.designer.cs">
-      <DependentUpon>DOProjectCreationConfirmation.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DOViewCP.aspx.cs">
       <DependentUpon>DOViewCP.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -496,13 +482,6 @@
     </Compile>
     <Compile Include="TLProfile.aspx.designer.cs">
       <DependentUpon>TLProfile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TLViewProjectDetails.aspx.cs">
-      <DependentUpon>TLViewProjectDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TLViewProjectDetails.aspx.designer.cs">
-      <DependentUpon>TLViewProjectDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="TLViewTasks.aspx.cs">
       <DependentUpon>TLViewTasks.aspx</DependentUpon>
@@ -546,9 +525,31 @@
     <Compile Include="DLViewTasksDetails.aspx.designer.cs">
       <DependentUpon>DLViewTasksDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DLCreateImpactAnalysis.aspx.cs">
+      <DependentUpon>DLCreateImpactAnalysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DLCreateImpactAnalysis.aspx.designer.cs">
+      <DependentUpon>DLCreateImpactAnalysis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientSubmitSurvey.aspx.cs">
+      <DependentUpon>ClientSubmitSurvey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientSubmitSurvey.aspx.designer.cs">
+      <DependentUpon>ClientSubmitSurvey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm32.aspx.cs">
+      <DependentUpon>WebForm32.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm32.aspx.designer.cs">
+      <DependentUpon>WebForm32.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="documents\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

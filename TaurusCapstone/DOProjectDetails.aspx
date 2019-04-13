@@ -17,13 +17,10 @@
            color: blue;
        }
         .auto-style5 {
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
-            font-family: "Avenir LT Std 45 Book";
-            border-bottom: 1px solid transparent;
-            padding: 10px 15px;
+            padding: 15px;
+            text-align: right;
         }
-   </style>
+        </style>
     <div class="well">
 <div class="panel panel-default">
   <div class="panel-heading"><strong>Project Details</strong></div>
@@ -46,19 +43,11 @@
     <div class="panel-body" runat="server">
     Project Type: <asp:Label ID="pTypeLabel" runat="server" Text=""></asp:Label>
   </div>
-    <div class="panel-body" runat="server">
-    Task Leads: <a href=""<asp:Label ID="tlLabel" runat="server" Text=""></asp:Label></a>
-  </div>
-    <div class="panel-body" runat="server">
-    Phase: <asp:Label ID="phaseLabel" runat="server" Text=""></asp:Label>
-  </div>
-    <div class="panel-body" runat="server">
-    Current status: <asp:Label ID="currentStatusLabel" runat="server" Text=""></asp:Label>
-  </div>
+    
 </div>
         
     <div class="panel panel-default" runat="server" id="costProposal">
-  <div class="panel-heading"><strong>Cost Proposal</strong></div>
+  <div class="panel-heading"><strong>Proposal Details</strong></div>
   <div class="panel-body">
    Date uploaded: <asp:Label ID="dateUploadedLabel" runat="server" Text=""></asp:Label>
 </div>
@@ -73,9 +62,44 @@
             <asp:LinkButton ID="moreButton" runat="server" CssClass="more" OnClick="moreButton_Click">More...</asp:LinkButton>
         </div>
         <div class="panel-body" id="noCP" runat="server">
-            <p>You have not created a cost proposal yet.</p>
-            <a href="~/DOCreateACostProposal.aspx" class="btn btn-default" id="noCPButton" runat="server">Create a Cost Proposal</a>
+            <p>You have not created a proposal yet.</p>
+            <a href="~/DOCreateACostProposal.aspx" class="btn btn-default" id="noCPButton" runat="server">Create a Proposal</a>
         </div>
   </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>Projects Findings</strong>
+            </div>
+            <div class="auto-style5">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Width="1053px">
+                    <AlternatingRowStyle BackColor="#CCCCCC" />
+                    <Columns>
+                        <asp:BoundField HeaderText="Finding Name" />
+                        <asp:BoundField HeaderText="Finding Type" />
+                        <asp:BoundField DataFormatString="{0:d}" HeaderText="Expected End Date" />
+                        <asp:BoundField HeaderText="Finding Description" />
+                        <asp:TemplateField HeaderText="Finding Result"></asp:TemplateField>
+                        <asp:TemplateField HeaderText="Add Comments">
+                            <ItemTemplate>
+                                <asp:TextBox ID="findingComments" runat="server" TextMode="MultiLine"></asp:TextBox>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    <EmptyDataTemplate>
+                        <asp:TextBox ID="doComments" runat="server" TextMode="MultiLine"></asp:TextBox>
+                    </EmptyDataTemplate>
+                    <FooterStyle BackColor="#CCCCCC" />
+                    <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                    <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                    <SortedAscendingHeaderStyle BackColor="#808080" />
+                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                    <SortedDescendingHeaderStyle BackColor="#383838" />
+                </asp:GridView>
+                <br />
+                <asp:Button ID="submitComments" runat="server" Text="Submit" BackColor="Black" ForeColor="White" Width="70px" />
+            </div>
+        </div>
     </div>
 </asp:Content>

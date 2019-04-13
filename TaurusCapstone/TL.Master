@@ -66,6 +66,7 @@
         <li><a href="~/TLHomePage.aspx" runat="server"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
         <li><a href="~/TLProfile.aspx" runat="server"> <span class="glyphicon glyphicon-user"></span> Profile </a></li>
           <li><a href="~/TLViewTasks.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Tasks</a></li>
+<li><a href="~/TLFindingDetails.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Findings</a></li>
           
 
       </ul>

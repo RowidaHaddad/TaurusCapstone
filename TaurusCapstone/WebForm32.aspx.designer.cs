@@ -11,7 +11,7 @@ namespace TaurusCapstone
 {
 
 
-    public partial class WebForm38
+    public partial class WebForm32
     {
     }
 }

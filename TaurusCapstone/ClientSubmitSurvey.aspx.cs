@@ -13,13 +13,11 @@ namespace TaurusCapstone
         {
 
         }
-        protected void createProject_ServerClick(object sender, EventArgs e)
+        protected void submit_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/DOCreateAProject.aspx");
+            Label3.Text = "this works!!!!!";
         }
-        protected void createCP_ServerClick(object sender, EventArgs e)
-        {
-            Response.Redirect("");
-        }
+
+
     }
 }

@@ -9,6 +9,7 @@
         }
     </style>
     <div class="well">
+        <div class="panel panel-default">
         <div class="panel-heading">
             
             <p><strong>Cost Proposal For: </strong><asp:Label ID="projectName" runat="server" Text=""></asp:Label></p>
@@ -33,4 +34,5 @@
         </div>
         <asp:LinkButton ID="editButton" runat="server" class="edit" OnClick="editButton_Click">Edit</asp:LinkButton>
     </div>
+        </div>
 </asp:Content>

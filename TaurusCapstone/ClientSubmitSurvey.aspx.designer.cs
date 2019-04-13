@@ -10,7 +10,25 @@
 namespace TaurusCapstone {
     
     
-    public partial class WebForm36 {
+    public partial class WebForm31 {
+        
+        /// <summary>
+        /// question1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList question1;
+        
+        /// <summary>
+        /// question2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList question2;
         
         /// <summary>
         /// Label1 control.
@@ -22,13 +40,22 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// userName control.
+        /// question3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userName;
+        protected global::System.Web.UI.WebControls.RadioButtonList question3;
+        
+        /// <summary>
+        /// question4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList question4;
         
         /// <summary>
         /// Label2 control.
@@ -40,21 +67,30 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// newProject control.
+        /// submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton newProject;
+        protected global::System.Web.UI.HtmlControls.HtmlButton submit;
         
         /// <summary>
-        /// newCP control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton newCP;
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
     }
 }

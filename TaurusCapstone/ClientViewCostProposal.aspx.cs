@@ -39,10 +39,8 @@ namespace TaurusCapstone
         protected void submitCP_Click (object sender, EventArgs e)
         {
             //it will go to DO with decision and remarks
-            
             clientDecision.SelectedValue = myCP.ClientDecision.ToString();
            // clientRemarks.Value = myCP.ClientNotes;
-
             db.CostProposals.InsertOnSubmit(myCP);
             db.SubmitChanges();
             Response.Redirect("~/ClientViewProjects.aspx");
