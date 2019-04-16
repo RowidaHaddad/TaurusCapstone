@@ -76,24 +76,6 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// completeMark control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox completeMark;
-        
-        /// <summary>
-        /// completedTask control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button completedTask;
-        
-        /// <summary>
         /// projectDetails control.
         /// </summary>
         /// <remarks>
@@ -209,5 +191,14 @@ namespace TaurusCapstone {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// Label9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label9;
     }
 }

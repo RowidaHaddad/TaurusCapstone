@@ -67,60 +67,6 @@ namespace TaurusCapstone
 
         }
 
-        //private void NewRowGridview()
-        //{
-        //    //DataTable dt = new DataTable();
-        //    //DataRow dr = null;
-
-        //    //dt.Columns.Add(new DataColumn("number", typeof(string)));
-        //    //dt.Columns.Add(new DataColumn("taskName", typeof(string)));
-        //    //dt.Columns.Add(new DataColumn("taskDescription", typeof(string)));
-        //    //dt.Columns.Add(new DataColumn("taskDate", typeof(DateTime)));
-        //    //dt.Columns.Add(new DataColumn("taskLeadName", typeof(string)));
-        //    //dr["number"] = 1;
-        //    //dr["taskName"] = string.Empty;
-        //    //dr["taskDescription"] = string.Empty;
-        //    //dt.Rows.Add(dr);
-        //    //ViewState["datatable"] = dt;
-
-        //    //GridView1.DataSource = dt;
-        //    //GridView1.DataBind();
-        //}
-
-        //protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
-        //{
-
-        //        //if (ViewState["datatable"]!= null)
-        //        //{
-        //        //    DataTable dtable = (DataTable)ViewState["datatable"];
-        //        //    DataRow dr = null;
-
-        //        //    if (dtable.Rows.Count>0)
-        //        //    {
-        //        //        dr = dtable.NewRow();
-        //        //        dr["number"] = dtable.Rows.Count + 1;
-        //        //        dtable.Rows.Add(dr);
-        //        //        ViewState["datatable"] = dtable;
-        //        //        for (int i = 0; i < dtable.Rows.Count; i++)
-        //        //        {
-        //        //            TextBox tb = (TextBox)GridView1.Rows[i].Cells[1].FindControl("taskName");
-        //        //            TextBox tb1 = (TextBox)GridView1.Rows[i].Cells[2].FindControl("taskDescription");
-        //        //            TextBox tb2 = (TextBox)GridView1.Rows[i].Cells[3].FindControl("taskDate");
-        //        //            DropDownList dp = (DropDownList)GridView1.Rows[i].Cells[4].FindControl("taskLeadName");
-        //        //            dtable.Rows[i]["taskName"] = tb.Text;
-        //        //            dtable.Rows[i]["taskDescription"] = tb.Text;
-
-        //        //            GridView1.DataSource = dtable;
-        //        //            GridView1.DataBind();
-
-
-        //        //        }
-        //        //    }
-        //    }
-
-
-
-
         protected void ImageButton2_Click1(object sender, ImageClickEventArgs e)
         {
             ArrayList mylist = new ArrayList();

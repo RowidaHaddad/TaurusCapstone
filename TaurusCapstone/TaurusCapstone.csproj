@@ -155,7 +155,7 @@
     <Content Include="DLProfile.aspx" />
     <Content Include="ClientViewCostProposal.aspx" />
     <Content Include="DLViewProjects.aspx" />
-    <Content Include="AdminEditProfile.aspx" />
+    <Content Include="AdminEditUser.aspx" />
     <Content Include="ClientViewFindings.aspx" />
     <Content Include="DOCreateAProject.aspx" />
     <Content Include="DOViewProjects.aspx" />
@@ -181,7 +181,15 @@
     <Content Include="DLViewTasksDetails.aspx" />
     <Content Include="DLCreateImpactAnalysis.aspx" />
     <Content Include="ClientSubmitSurvey.aspx" />
+    <Content Include="WebForm11.aspx" />
+    <Content Include="WebForm13.aspx" />
+    <Content Include="WebForm19.aspx" />
+    <Content Include="WebForm20.aspx" />
+    <Content Include="WebForm21.aspx" />
     <Content Include="WebForm32.aspx" />
+    <Content Include="DLCloseProject.aspx" />
+    <Content Include="DLCreateProjectCharter.aspx" />
+    <Content Include="ClientAddFindingComment.aspx" />
     <None Include="PMSDataClasses.dbml.layout">
       <DependentUpon>PMSDataClasses.dbml</DependentUpon>
     </None>
@@ -392,12 +400,12 @@
     <Compile Include="DLViewProjects.aspx.designer.cs">
       <DependentUpon>DLViewProjects.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminEditProfile.aspx.cs">
-      <DependentUpon>AdminEditProfile.aspx</DependentUpon>
+    <Compile Include="AdminEditUser.aspx.cs">
+      <DependentUpon>AdminEditUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminEditProfile.aspx.designer.cs">
-      <DependentUpon>AdminEditProfile.aspx</DependentUpon>
+    <Compile Include="AdminEditUser.aspx.designer.cs">
+      <DependentUpon>AdminEditUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClientViewFindings.aspx.cs">
       <DependentUpon>ClientViewFindings.aspx</DependentUpon>
@@ -539,12 +547,68 @@
     <Compile Include="ClientSubmitSurvey.aspx.designer.cs">
       <DependentUpon>ClientSubmitSurvey.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm11.aspx.cs">
+      <DependentUpon>WebForm11.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm11.aspx.designer.cs">
+      <DependentUpon>WebForm11.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm13.aspx.cs">
+      <DependentUpon>WebForm13.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm13.aspx.designer.cs">
+      <DependentUpon>WebForm13.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm19.aspx.cs">
+      <DependentUpon>WebForm19.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm19.aspx.designer.cs">
+      <DependentUpon>WebForm19.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm20.aspx.cs">
+      <DependentUpon>WebForm20.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm20.aspx.designer.cs">
+      <DependentUpon>WebForm20.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm21.aspx.cs">
+      <DependentUpon>WebForm21.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm21.aspx.designer.cs">
+      <DependentUpon>WebForm21.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm32.aspx.cs">
       <DependentUpon>WebForm32.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebForm32.aspx.designer.cs">
       <DependentUpon>WebForm32.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DLCloseProject.aspx.cs">
+      <DependentUpon>DLCloseProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DLCloseProject.aspx.designer.cs">
+      <DependentUpon>DLCloseProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DLCreateProjectCharter.aspx.cs">
+      <DependentUpon>DLCreateProjectCharter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DLCreateProjectCharter.aspx.designer.cs">
+      <DependentUpon>DLCreateProjectCharter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientAddFindingComment.aspx.cs">
+      <DependentUpon>ClientAddFindingComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientAddFindingComment.aspx.designer.cs">
+      <DependentUpon>ClientAddFindingComment.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

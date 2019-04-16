@@ -9,18 +9,18 @@
                     View Projects
                 </strong>
                 <div class="panel-body">
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" OnRowCommand="GridView1_RowCommand">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
                             <asp:BoundField HeaderText="Project Name" />
                             <asp:BoundField DataFormatString="{0:d}" HeaderText="Expected End Date" />
                             <asp:TemplateField HeaderText="Quick Actions">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">View Proposal</asp:LinkButton>
+                                    <asp:LinkButton ID="viewProposal" runat="server" CommandName="ViewProposal">View Proposal</asp:LinkButton>
                                     &nbsp;|
-                                    <asp:LinkButton ID="LinkButton2" runat="server">View Findings</asp:LinkButton>
+                                    <asp:LinkButton ID="viewFinding" runat="server" CommandName="ViewFindings">View Findings</asp:LinkButton>
                                     &nbsp;|
-                                    <asp:LinkButton ID="LinkButton3" runat="server">Submit Survey</asp:LinkButton>
+                                    <asp:LinkButton ID="submitSurvey" runat="server" CommandName="SubmitSurvey">Submit Survey</asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -34,6 +34,7 @@
                         <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
                 </div>
+                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             </div>
         </div>
     </div>

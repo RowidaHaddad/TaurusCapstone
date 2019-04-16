@@ -11,17 +11,6 @@
       <Association Name="Client_Project" Member="Projects" ThisKey="ClientID" OtherKey="ClientID" Type="Project" />
     </Type>
   </Table>
-  <Table Name="dbo.TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions">
-    <Type Name="TaskLeadFindingSubmission">
-      <Column Name="TLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="FindingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="TaskLead_TaskLeadFindingSubmission" Member="TaskLead" ThisKey="TLID" OtherKey="TLID" Type="TaskLead" IsForeignKey="true" />
-      <Association Name="Task_TaskLeadFindingSubmission" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
-      <Association Name="Finding_TaskLeadFindingSubmission" Member="Finding" ThisKey="FindingID" OtherKey="FindingID" Type="Finding" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.CostProposal" Member="CostProposals">
     <Type Name="CostProposal">
       <Column Name="CostProposalID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -201,8 +190,8 @@
   <Table Name="dbo.TaskLead" Member="TaskLeads">
     <Type Name="TaskLead">
       <Column Name="TLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="TaskLead_TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions" ThisKey="TLID" OtherKey="TLID" Type="TaskLeadFindingSubmission" />
       <Association Name="TaskLead_TaskLeadAssignment" Member="TaskLeadAssignments" ThisKey="TLID" OtherKey="TLID" Type="TaskLeadAssignment" />
+      <Association Name="TaskLead_TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions" ThisKey="TLID" OtherKey="TLID" Type="TaskLeadFindingSubmission" />
       <Association Name="Employee_TaskLead" Member="Employee" ThisKey="TLID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
     </Type>
   </Table>
@@ -227,11 +216,11 @@
       <Column Name="DOID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DONotes" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Task_TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions" ThisKey="TaskID" OtherKey="TaskID" Type="TaskLeadFindingSubmission" />
       <Association Name="Task_DesignLeadFindingSubmission" Member="DesignLeadFindingSubmissions" ThisKey="TaskID" OtherKey="TaskID" Type="DesignLeadFindingSubmission" />
       <Association Name="Task_TaskCreation" Member="TaskCreations" ThisKey="TaskID" OtherKey="TaskID" Type="TaskCreation" />
       <Association Name="Task_TaskFinding" Member="TaskFindings" ThisKey="TaskID" OtherKey="TaskID" Type="TaskFinding" />
       <Association Name="Task_TaskLeadAssignment" Member="TaskLeadAssignments" ThisKey="TaskID" OtherKey="TaskID" Type="TaskLeadAssignment" />
+      <Association Name="Task_TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions" ThisKey="TaskID" OtherKey="TaskID" Type="TaskLeadFindingSubmission" />
       <Association Name="DesignOfficer_Task" Member="DesignOfficer" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
       <Association Name="DesignOfficer_Task1" Member="DesignOfficer1" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
     </Type>
@@ -247,9 +236,19 @@
       <Column Name="FindingResult" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ClientNotes" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="ClientID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Finding_TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions" ThisKey="FindingID" OtherKey="FindingID" Type="TaskLeadFindingSubmission" />
       <Association Name="Finding_DesignLeadFindingSubmission" Member="DesignLeadFindingSubmissions" ThisKey="FindingID" OtherKey="FindingID" Type="DesignLeadFindingSubmission" />
       <Association Name="Finding_TaskFinding" Member="TaskFindings" ThisKey="FindingID" OtherKey="FindingID" Type="TaskFinding" />
+      <Association Name="Finding_TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions" ThisKey="FindingID" OtherKey="FindingID" Type="TaskLeadFindingSubmission" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaskLeadFindingSubmission" Member="TaskLeadFindingSubmissions">
+    <Type Name="TaskLeadFindingSubmission">
+      <Column Name="TLID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FindingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Finding_TaskLeadFindingSubmission" Member="Finding" ThisKey="FindingID" OtherKey="FindingID" Type="Finding" IsForeignKey="true" />
+      <Association Name="Task_TaskLeadFindingSubmission" Member="Task" ThisKey="TaskID" OtherKey="TaskID" Type="Task" IsForeignKey="true" />
+      <Association Name="TaskLead_TaskLeadFindingSubmission" Member="TaskLead" ThisKey="TLID" OtherKey="TLID" Type="TaskLead" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -56,11 +56,7 @@
             Status:
             <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
         </div>
-                 <div>
-                     <p style="font-style:italic" class="text-right">Mark this task as completed?
-              <asp:CheckBox ID="completeMark" runat="server" OnCheckedChanged="completedMark_CheckedChanged" Text="Completed" /> 
-               </p> <asp:Button ID="completedTask" runat="server" Text="Submit" BackColor="Black" ForeColor="White" Width="67px" />
-                </div>
+                 
               </div>
     
        
@@ -157,6 +153,7 @@
            <br />
             <asp:Button ID="Button1" runat="server" Text="Add" BackColor="Black" Font-Names="Avenir LT Std 45 Book" ForeColor="White" Width="67px" OnClick="Button1_Click" />
             <asp:Label ID="Label2" runat="server" Visible="False"></asp:Label>
+           <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
        </div>
            </div>
 

@@ -16,8 +16,12 @@ namespace TaurusCapstone
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             alert.Visible = false;
             success.Visible = false;
+            if (!IsPostBack)
+            {
+            }
         }
 
         protected void loginButton_ServerClick(object sender, EventArgs e)
@@ -38,7 +42,7 @@ namespace TaurusCapstone
                 {
 
                     //success.Visible = true;
-                    
+
                     Response.Redirect("~/AdminHomePage.aspx");
                 }
                 else if (myEmp.EmployeeType == "2")
@@ -54,36 +58,35 @@ namespace TaurusCapstone
                     Response.Redirect("~/TLHomePage.aspx");
                 }
 
-
-                //anothe query
-                var clientLogin =
-                    from item in db.Clients
-                    where item.ClientID.ToString() == usrTB.Value && item.Password == pswTB.Value
-                    select item;
-
-                if (clientLogin.Count() != 0)
-                {
-                    Client myClient = clientLogin.First();
-                    Session.Add("FirstClient", myClient.ClientName);
-                    Response.Redirect("~/ClientHomePage.aspx");
-                }
             }
+            //anothe query
+            var clientLogin =
+                from item in db.Clients
+                where item.ClientID == Convert.ToInt16(usrTB.Value) && item.Password == pswTB.Value
+                select item;
 
-            else
+            if (clientLogin.Count() != 0)
             {
-                alert.Visible = true;
-                usrTB.Value = string.Empty;
-                pswTB.Value = string.Empty;
-
-               
+                var myClient = clientLogin.First();
+                Session.Add("FirstClient", myClient);
+                Response.Redirect("~/ClientHomePage.aspx");
             }
-
-            //if (usrTB.Value || pswTB.Value) == empty)
-            //{
-            //    usernameRFV.Visible = true;
-            //    passwordRFV.Visible = true;
-            //    missingField.Visible = true;
-            //}
         }
+
+        //else
+        //{
+        //    alert.Visible = true;
+        //    usrTB.Value = string.Empty;
+        //    pswTB.Value = string.Empty;
+
+
+        //}
+
+        //if (usrTB.Value || pswTB.Value) == empty)
+        //{
+        //    usernameRFV.Visible = true;
+        //    passwordRFV.Visible = true;
+        //    missingField.Visible = true;
+        //}
     }
 }

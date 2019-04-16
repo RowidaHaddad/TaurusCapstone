@@ -1,9 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DO.Master" AutoEventWireup="true" CodeBehind="DOViewProjects.aspx.cs" Inherits="TaurusCapstone.WebForm25" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style5 {
-            margin-right: 196px;
-        }
         .gridview{
             text-align: center;
             font-size: small;
@@ -31,9 +28,11 @@
                 <asp:BoundField HeaderText="Design Lead Assigned" >
                 <HeaderStyle CssClass="gridview" />
                 </asp:BoundField>
-                <asp:TemplateField HeaderText="View Details">
+                <asp:TemplateField HeaderText="More">
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" runat="server" CommandName="View">View</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CommandName="View">View Proposal</asp:LinkButton>
+                        &nbsp;|
+                        <asp:LinkButton ID="LinkButton2" runat="server">View Details</asp:LinkButton>
                     </ItemTemplate>
                     <HeaderStyle CssClass="gridview" />
                 </asp:TemplateField>

@@ -64,7 +64,9 @@
       <ul class="nav navbar-nav">
         <li><a href="~/ClientHomePage.aspx" runat="server"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
         <li><a href="~/ClientProfile.aspx" runat="server"> <span class="glyphicon glyphicon-user"></span>Profile</a></li>
-          <li><a href="~/ClientViewProjects.aspx" runat="server"> <span class="glyphicon glyphicon-tasks"></span> Projects</a></li>
+          <li><a href="~/ClientViewProjects.aspx" runat="server"> <span class="glyphicon glyphicon-time"></span> Running Projects</a></li>
+           <li><a href="~/ClientCompletedProjects.aspx" runat="server"> <span class="glyphicon glyphicon-check"></span> Completed Projects</a></li>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="~/Login.aspx" runat="server" CausesValidation="false"> <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
