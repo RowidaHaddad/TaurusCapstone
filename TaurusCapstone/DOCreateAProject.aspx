@@ -91,23 +91,28 @@
     <div class="form-group">
       <label for="nameLabel" class="auto-style5">Project Name</label>
       <div class="col-xs-4">
-        <input type="text" class="form-control" id="projectName" runat="server">
+        <input type="text" class="form-control" id="projectName" runat="server"><asp:RequiredFieldValidator ID="pNameRFV" runat="server" ErrorMessage="**" ControlToValidate="projectName"></asp:RequiredFieldValidator>
 
-      &nbsp;</div>
+
+      &nbsp;&nbsp;</div>
     </div>
     <div class="form-group">
       <label for="inputPassword" class="auto-style6">Client Name</label>
       <div class="col-xs-4">
           <asp:DropDownList ID="clientNamesDL" runat="server" style="color: black;" DataSourceID="clientNames" DataTextField="ClientName" DataValueField="ClientID" Height="40px" Width="470px"></asp:DropDownList><asp:LinqDataSource ID="clientNames" runat="server" ContextTypeName="TaurusCapstone.PMSDataClassesDataContext" EntityTypeName="" Select="new (ClientName, ClientID)" TableName="Clients"></asp:LinqDataSource>
+<asp:RequiredFieldValidator ID="clientNameRFV" runat="server" ErrorMessage="**" ControlToValidate="clientNamesDL"></asp:RequiredFieldValidator>
+        </div>
 
-          &nbsp;</div>
         </div>
       <br />
       <div class="form-group">
         <label for="inputPassword" class="auto-style6">Expected End Date</label>
           <br />
         <label for="inputPassword" class="auto-style6">
-          <asp:TextBox ID="date" runat="server" TextMode="Date" CssClass="auto-style25"></asp:TextBox>
+            <div class="col-xs-4">
+          <asp:TextBox ID="date" runat="server" TextMode="Date"></asp:TextBox>
+                </div>
+          <asp:RequiredFieldValidator ID="endDateRFV" runat="server" ErrorMessage="**" ControlToValidate="date"></asp:RequiredFieldValidator>
           </label>
         <br />
           <div class="form-group">
@@ -122,12 +127,15 @@
       <div class="col-xs-4">
           <asp:DropDownList ID="dlNames" runat="server" style="color: black;" DataSourceID="dlname" DataTextField="FirstName" DataValueField="EmployeeID" Height="40px" Width="470px"></asp:DropDownList><asp:LinqDataSource ID="dlName" runat="server" ContextTypeName="TaurusCapstone.PMSDataClassesDataContext" EntityTypeName="" Select="new (FirstName, EmployeeID)" TableName="Employees"></asp:LinqDataSource>
 
+          <asp:RequiredFieldValidator ID="DLRFV" runat="server" ErrorMessage="**" ControlToValidate="dlNames"></asp:RequiredFieldValidator>
+
           &nbsp;</div>
         </div>
       <br />
         <div class="form-group">
       <label for="inputPassword" class="auto-style6">Project Type</label>
       <div class="col-xs-4">
+          <asp:RequiredFieldValidator ID="pTypeRFV" runat="server" ErrorMessage="**" ControlToValidate="projectType"></asp:RequiredFieldValidator>
           <asp:DropDownList ID="projectType" runat="server" style="color: black;" Height="40px" Width="470px">
               <asp:ListItem>Research Design</asp:ListItem>
               <asp:ListItem>Product Design</asp:ListItem>
@@ -137,8 +145,7 @@
         </div>
         <br />
       <div class="text-center">
-         <span class="label label-danger" id="requiredField" runat="server" style="font-family: Avenir LT Std 65 Medium; font-size: small; text-align: center">
-          Missing Required Fields!</span>
+        
       </div>
         <br />
         <br />

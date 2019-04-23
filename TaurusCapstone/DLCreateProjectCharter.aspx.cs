@@ -12,6 +12,16 @@ namespace TaurusCapstone
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (Session.Count != 0)
+            {
+                foreach (string item in Session.Keys)
+                {
+                    if (item == "ProjectDetails")
+                    {
+
+                    }
+                }
+            }
         }
     }
 }

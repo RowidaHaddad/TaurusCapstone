@@ -29,11 +29,11 @@
             <p><strong>Cost Proposal For: </strong><asp:Label ID="projectName" runat="server" Text=""></asp:Label></p>
         </div>
         <div class="panel-body">
-        Date uploaded: <asp:Label ID="dateUploadedLabel" runat="server" Text=""></asp:Label>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <strong>Date uploaded:</strong> <asp:Label ID="dateUploadedLabel" runat="server" Text=""></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
         </div>
         <div class="panel-body">
-            Status: <asp:Label ID="cpStatusLabel" runat="server" Text=""></asp:Label>
+            <strong>Status:</strong> <asp:Label ID="cpStatusLabel" runat="server" Text=""></asp:Label>
         </div>
         <div class="panel-body">
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Width="1006px">
@@ -47,8 +47,7 @@
                     <asp:BoundField HeaderText="Scope Description" />
                     <asp:TemplateField HeaderText="Deliverables">
                         <ItemTemplate>
-                            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
-                                <AlternatingRowStyle BackColor="#CCCCCC" />
+                            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Deliverable No.">
                                         <ItemTemplate>
@@ -57,14 +56,6 @@
                                     </asp:TemplateField>
                                     <asp:BoundField HeaderText="Deliverable Description" />
                                 </Columns>
-                                <FooterStyle BackColor="#CCCCCC" />
-                                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                <SortedAscendingHeaderStyle BackColor="#808080" />
-                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                <SortedDescendingHeaderStyle BackColor="#383838" />
                             </asp:GridView>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -89,7 +80,7 @@
                 <asp:ListItem Value="2">Rejected</asp:ListItem>
                 <asp:ListItem Value="3">Requires Modification</asp:ListItem>
             </asp:DropDownList>
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Label" Visible="False"></asp:Label>
         </div>
         <div class="panel-body">
             Remarks: <asp:TextBox ID="clientRemarks" runat="server" TextMode="MultiLine"></asp:TextBox>

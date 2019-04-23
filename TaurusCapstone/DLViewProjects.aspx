@@ -23,8 +23,11 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="viewDetails" runat="server" CommandName="View">View Details</asp:LinkButton>
                     &nbsp;|
-                    <asp:LinkButton ID="LinkButton1" runat="server">Create Project Charter</asp:LinkButton>
-                    &nbsp;| <a href="javascript:__doPostBack('ctl00$LinkButton2','')"><span class="auto-style5">Submit Findings</span></a> | <a href="javascript:__doPostBack('ctl00$LinkButton2','')"><span class="auto-style5">Close Project</span></a>
+                    <asp:LinkButton ID="LinkButton1" runat="server" CommandName="CreateProjectCharter">Create Project Charter</asp:LinkButton>
+                    &nbsp;| 
+                    <asp:LinkButton ID="LinkButton2" runat="server" CommandName="SubmitFindings" OnClick="LinkButton2_Click">Submit Findings</asp:LinkButton>
+                    &nbsp;|
+                    <asp:LinkButton ID="LinkButton3" runat="server" CommandName="CloseProject">Close Project</asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

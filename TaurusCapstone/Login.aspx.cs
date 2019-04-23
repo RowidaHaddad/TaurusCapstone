@@ -18,10 +18,7 @@ namespace TaurusCapstone
         {
 
             alert.Visible = false;
-            success.Visible = false;
-            if (!IsPostBack)
-            {
-            }
+       
         }
 
         protected void loginButton_ServerClick(object sender, EventArgs e)
@@ -32,7 +29,7 @@ namespace TaurusCapstone
                     select item;
 
             //add client login
-
+  
             if (enteredName.Count() != 0)
             {
                 Employee myEmp = enteredName.First();
@@ -40,12 +37,9 @@ namespace TaurusCapstone
 
                 if (myEmp.EmployeeType == "3")
                 {
-
-                    //success.Visible = true;
-
                     Response.Redirect("~/AdminHomePage.aspx");
                 }
-                else if (myEmp.EmployeeType == "2")
+                 else if (myEmp.EmployeeType == "2")
                 {
                     Response.Redirect("~/DLHomePage.aspx");
                 }
@@ -56,6 +50,16 @@ namespace TaurusCapstone
                 else if (myEmp.EmployeeType == "0")
                 {
                     Response.Redirect("~/TLHomePage.aspx");
+                }
+                else if (myEmp.EmployeeType == null)
+                {
+                    alert.Visible = true;
+                } 
+                else 
+                {
+                    alert.Visible = true;
+                    usrTB.Value = string.Empty;
+                    pswTB.Value = string.Empty;
                 }
 
             }
@@ -71,22 +75,15 @@ namespace TaurusCapstone
                 Session.Add("FirstClient", myClient);
                 Response.Redirect("~/ClientHomePage.aspx");
             }
+            else
+            {
+                alert.Visible = true;
+                usrTB.Value = string.Empty;
+                pswTB.Value = string.Empty;
+
+            }
         }
 
-        //else
-        //{
-        //    alert.Visible = true;
-        //    usrTB.Value = string.Empty;
-        //    pswTB.Value = string.Empty;
-
-
-        //}
-
-        //if (usrTB.Value || pswTB.Value) == empty)
-        //{
-        //    usernameRFV.Visible = true;
-        //    passwordRFV.Visible = true;
-        //    missingField.Visible = true;
-        //}
-    }
+        
+}
 }

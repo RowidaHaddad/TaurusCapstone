@@ -10,42 +10,42 @@
 namespace TaurusCapstone {
     
     
-    public partial class WebForm30 {
+    public partial class WebForm46 {
         
         /// <summary>
-        /// editProfile control.
+        /// alert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editProfile;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert;
         
         /// <summary>
-        /// usernameLabel control.
+        /// emailInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label usernameLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText emailInput;
         
         /// <summary>
-        /// emailLabel control.
+        /// passwordInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label emailLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText passwordInput;
         
         /// <summary>
-        /// numberLabel control.
+        /// update1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label numberLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlButton update1;
     }
 }

@@ -36,12 +36,19 @@ namespace TaurusCapstone
 
         protected void viewProjects_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if(e.CommandName.Equals("View"))
+            if(e.CommandName.Equals("ViewDetails"))
             {
                 int RowIndex = ((GridViewRow)((Control)e.CommandSource).NamingContainer).RowIndex;
                 string s = viewProjects.Rows[RowIndex].Cells[0].Text;
                 Session.Add("ProjectDetails", s);
-                Response.Redirect("~/DLViewProjectDetails.aspx");
+                Response.Redirect("~/DOProjectDetails.aspx");
+            }
+            if (e.CommandName.Equals("ViewProposal"))
+            {
+                int RowIndex = ((GridViewRow)((Control)e.CommandSource).NamingContainer).RowIndex;
+                string s = viewProjects.Rows[RowIndex].Cells[0].Text;
+                Session.Add("ProjectDetails", s);
+                Response.Redirect("~/DOViewCP.aspx");
             }
         }
     }

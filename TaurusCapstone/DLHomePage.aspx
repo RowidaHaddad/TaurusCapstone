@@ -19,8 +19,8 @@
 <asp:Label class= "label" ID="Label1" runat="server" Text="Welcome,"></asp:Label><asp:Label class="label" ID="userName" runat="server" Text=""></asp:Label>
         <asp:Label CssClass="label" ID="Label2" runat="server" Text="!"></asp:Label>
        <p>Quick actions:</p>
-<button type="submit" id="addClient" runat="server" class="btn btn-default" onserverclick="addClientButton_ServerClick" style="background-color: black; color:white; text-align: right" >Add a Client</button>
-<button type="submit" id="addEmployee" runat="server" class="btn btn-default" onserverclick="addEmployeeButton_ServerClick" style="background-color: black; color:white; text-align: right" >Add an Employee</button>
+<button type="submit" id="addClient" runat="server" class="btn btn-default" onserverclick="addClientButton_ServerClick" style="background-color: black; color:white; text-align: right" >Add a Task</button>
+<button type="submit" id="addEmployee" runat="server" class="btn btn-default" onserverclick="addEmployeeButton_ServerClick" style="background-color: black; color:white; text-align: right" >Submit a Finding</button>
 
 
 </div>

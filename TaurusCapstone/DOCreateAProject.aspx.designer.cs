@@ -40,6 +40,15 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.HtmlControls.HtmlInputText projectName;
         
         /// <summary>
+        /// pNameRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator pNameRFV;
+        
+        /// <summary>
         /// clientNamesDL control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.WebControls.LinqDataSource clientNames;
         
         /// <summary>
+        /// clientNameRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator clientNameRFV;
+        
+        /// <summary>
         /// date control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace TaurusCapstone {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox date;
+        
+        /// <summary>
+        /// endDateRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator endDateRFV;
         
         /// <summary>
         /// pDescription control.
@@ -94,6 +121,24 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.WebControls.LinqDataSource dlName;
         
         /// <summary>
+        /// DLRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DLRFV;
+        
+        /// <summary>
+        /// pTypeRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator pTypeRFV;
+        
+        /// <summary>
         /// projectType control.
         /// </summary>
         /// <remarks>
@@ -101,15 +146,6 @@ namespace TaurusCapstone {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList projectType;
-        
-        /// <summary>
-        /// requiredField control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl requiredField;
         
         /// <summary>
         /// addProject control.

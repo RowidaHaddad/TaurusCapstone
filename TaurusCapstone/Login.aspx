@@ -55,20 +55,13 @@
         <input type="password" class="form-control" id="pswTB" runat="server" placeholder="Password" style="font-family: Avenir LT Std 65 Medium"><asp:RequiredFieldValidator class="rfv" ID="passwordRFV" runat="server" ErrorMessage="*" ControlToValidate="pswTB" Font-Bold="True" Font-Names="Avenir LT Std 65 Medium" ForeColor="white"></asp:RequiredFieldValidator>
       </div>
       </div>
-      <div class ="col-md-5">
-          <div class="alert alert-dismissible alert-success" runat="server" id="success">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <strong>Oh snap!</strong> Something is wrong, try again.
-</div>
-
-      </div>
-          
+    
+         <div class="col-md-5">
           <div class="alert alert-dismissible alert-danger" runat ="server" id="alert">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
   <strong>Oh snap!</strong> Something is wrong, try again.
 </div>
+        </div>
 
-      <%--</div>--%>
       <br />
     
 

@@ -77,7 +77,7 @@
                Project Description: <asp:Label ID="pDescription" runat="server" Text=""></asp:Label>
            </div>
        </div>
-           <div class="panel panel-default">
+           <%--<div class="panel panel-default">
             <div class="panel-heading">
                 <strong>Please add a starting date for this task:</strong>
             </div>
@@ -85,7 +85,7 @@
                 <div class="panel-body">
             Start Date:
             <asp:TextBox ID="startDate" runat="server" TextMode="Date"></asp:TextBox>
-        </div>
+        </div>--%>
         </div>
         <div class="panel panel-default" runat="server" id="findings">
        <div class="panel-heading">
@@ -153,7 +153,7 @@
            <br />
             <asp:Button ID="Button1" runat="server" Text="Add" BackColor="Black" Font-Names="Avenir LT Std 45 Book" ForeColor="White" Width="67px" OnClick="Button1_Click" />
             <asp:Label ID="Label2" runat="server" Visible="False"></asp:Label>
-           <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
+           <asp:Label ID="Label9" runat="server" Text="Label" Visible="False"></asp:Label>
        </div>
            </div>
 

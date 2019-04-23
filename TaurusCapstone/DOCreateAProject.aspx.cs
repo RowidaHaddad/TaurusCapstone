@@ -14,7 +14,9 @@ namespace TaurusCapstone
         Employee myEmp = new Employee();
         protected void Page_Load(object sender, EventArgs e)
         {
-            requiredField.Visible = false;
+            alert.Visible = false;
+            fields.Visible = false;
+
             if (Session.Count!=0)
             {
                 foreach(string name in Session.Keys)
@@ -31,8 +33,6 @@ namespace TaurusCapstone
         protected void addProject_ServerClick(object sender, EventArgs e)
         {
             Project myProject = new Project();
-
-
             myProject.ProjectName = projectName.Value;
             DateTime d = Convert.ToDateTime(date.Text);
             myProject.ExpectedEndDate = Convert.ToDateTime(d.ToString("MM/dd/yyyy"));
@@ -40,7 +40,7 @@ namespace TaurusCapstone
             myProject.Status = "Pending";
             myProject.ProjectType = projectType.SelectedValue;
             myProject.Description = pDescription.Value;
-           myProject.ClientID = Convert.ToInt16(clientNamesDL.SelectedValue);
+            myProject.ClientID = Convert.ToInt16(clientNamesDL.SelectedValue);
             myProject.DOID = myEmp.EmployeeID;
             db.Projects.InsertOnSubmit(myProject);
             db.SubmitChanges();
@@ -58,9 +58,19 @@ namespace TaurusCapstone
                 mydl.ProjectID = ell.ProjectID;
                 db.DLAssignments.InsertOnSubmit(mydl);
                 db.SubmitChanges();
+
+                alert.Visible = true;
+                projectName.Value = string.Empty;
+                date.Text = string.Empty;
+                pDescription.Value = string.Empty;
+                
+
             }
-        
-            Response.Redirect("~/DOProjectCreationConfirmation.aspx");
+            else
+            {
+
+                fields.Visible = true;
+            }
         }
     }
 }

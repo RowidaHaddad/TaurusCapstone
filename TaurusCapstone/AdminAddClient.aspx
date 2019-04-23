@@ -108,7 +108,7 @@
     <div class="form-group">
       <label for="inputPassword" class="auto-style6">Client Phone Number</label>
       <div class="col-xs-4">
-        <input type="text" class="form-control" id="clientNumber" runat="server"><asp:RequiredFieldValidator ID="numberRFV" runat="server" ControlToValidate="clientNumber" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
+        <input type="text" class="form-control" id="clientNumber" runat="server" maxlength="10"><asp:RequiredFieldValidator ID="numberRFV" runat="server" ControlToValidate="clientNumber" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
 
           &nbsp;</div>
         </div>
@@ -116,7 +116,7 @@
       <div class="form-group">
       <label for="inputPassword" class="auto-style7">Company Number</label>
       <div class="col-xs-4">
-        <input type="text" class="form-control" id="compNumber" runat="server"><asp:RequiredFieldValidator ID="compRFV" runat="server" ControlToValidate="compNumber" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
+        <input type="text" class="form-control" id="compNumber" runat="server" maxlength="10"><asp:RequiredFieldValidator ID="compRFV" runat="server" ControlToValidate="compNumber" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
 
           &nbsp;</div>
         </div>

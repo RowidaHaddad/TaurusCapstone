@@ -64,6 +64,27 @@ namespace TaurusCapstone
                 Session.Add("ProjectDetails", s);
                 Response.Redirect("~/DLViewProjectDetails.aspx");
             }
+            else if (e.CommandName.Equals("CloseProject"))
+            {
+                int RowIndex = ((GridViewRow)((Control)e.CommandSource).NamingContainer).RowIndex;
+                string s = viewProjects.Rows[RowIndex].Cells[0].Text;
+                Session.Add("ProjectDetails", s);
+                Response.Redirect("~/DLCloseProject.aspx");
+            }
+            else if (e.CommandName.Equals("SubmitFindings"))
+            {
+                int RowIndex = ((GridViewRow)((Control)e.CommandSource).NamingContainer).RowIndex;
+                string s = viewProjects.Rows[RowIndex].Cells[0].Text;
+                Session.Add("ProjectDetails", s);
+                Response.Redirect("~/DLViewTasksDetails.aspx");
+            }
+            else if (e.CommandName.Equals("CreateProjectCharter"))
+            {
+                int RowIndex = ((GridViewRow)((Control)e.CommandSource).NamingContainer).RowIndex;
+                string s = viewProjects.Rows[RowIndex].Cells[0].Text;
+                Session.Add("ProjectDetails", s);
+                Response.Redirect("~/DLCreateProjectCharter.aspx");
+            }
         }
     }
 }

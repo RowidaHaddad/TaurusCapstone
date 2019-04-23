@@ -89,6 +89,12 @@ namespace TaurusCapstone
                 }
              
             }
+            if(e.CommandName.Equals("AddComment"))
+            {
+                int RowIndex = ((GridViewRow)((Control)e.CommandSource).NamingContainer).RowIndex;
+                string s = GridView1.Rows[RowIndex].Cells[0].Text;
+                Response.Redirect("~/ClientAddFindingComment.aspx");
+            }
         }
         
     protected void downloadFinding_Click(object sender, EventArgs e)

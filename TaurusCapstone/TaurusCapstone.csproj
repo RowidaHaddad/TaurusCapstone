@@ -190,6 +190,9 @@
     <Content Include="DLCloseProject.aspx" />
     <Content Include="DLCreateProjectCharter.aspx" />
     <Content Include="ClientAddFindingComment.aspx" />
+    <Content Include="DOEditProfile.aspx" />
+    <Content Include="DOViewCompletedProjects.aspx" />
+    <Content Include="DOViewCompletedProject.aspx" />
     <None Include="PMSDataClasses.dbml.layout">
       <DependentUpon>PMSDataClasses.dbml</DependentUpon>
     </None>
@@ -609,6 +612,27 @@
     </Compile>
     <Compile Include="ClientAddFindingComment.aspx.designer.cs">
       <DependentUpon>ClientAddFindingComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOEditProfile.aspx.cs">
+      <DependentUpon>DOEditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOEditProfile.aspx.designer.cs">
+      <DependentUpon>DOEditProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOViewCompletedProjects.aspx.cs">
+      <DependentUpon>DOViewCompletedProjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOViewCompletedProjects.aspx.designer.cs">
+      <DependentUpon>DOViewCompletedProjects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DOViewCompletedProject.aspx.cs">
+      <DependentUpon>DOViewCompletedProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DOViewCompletedProject.aspx.designer.cs">
+      <DependentUpon>DOViewCompletedProject.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

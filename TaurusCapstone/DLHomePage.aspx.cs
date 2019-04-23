@@ -30,11 +30,11 @@ namespace TaurusCapstone
         }
         protected void addClientButton_ServerClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/AdminAddClient.aspx");
+            Response.Redirect ("~/DLViewProjectDetails.aspx");
         }
         protected void addEmployeeButton_ServerClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/AdminAddEmployee.aspx");
+            Response.Redirect("~/DLViewTasksDetails.aspx");
 
         }
     }

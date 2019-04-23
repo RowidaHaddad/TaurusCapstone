@@ -28,7 +28,7 @@
                 Comments: 
             </div>
             <div class="panel-body">
-                 <input type="text" class="auto-style4" id="clientComment" placeholder="Email">
+                 <input type="text" class="auto-style4" id="clientComment">
       </div>
             </div>
         <div class="panel-body">

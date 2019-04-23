@@ -19,9 +19,10 @@ namespace TaurusCapstone
 
         protected void submitComment_Click(object sender, EventArgs e)
         {
-           //add comment to db
-           //
-           //redirect to gridview again
+            //add comment to db
+            //
+            //redirect to gridview again
+            Response.Redirect("");
         }
     }
 }

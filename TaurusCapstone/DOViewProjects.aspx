@@ -30,9 +30,9 @@
                 </asp:BoundField>
                 <asp:TemplateField HeaderText="More">
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" runat="server" CommandName="View">View Proposal</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CommandName="ViewProposal">View Proposal</asp:LinkButton>
                         &nbsp;|
-                        <asp:LinkButton ID="LinkButton2" runat="server">View Details</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton2" runat="server" CommandName="ViewDetails">View Details</asp:LinkButton>
                     </ItemTemplate>
                     <HeaderStyle CssClass="gridview" />
                 </asp:TemplateField>

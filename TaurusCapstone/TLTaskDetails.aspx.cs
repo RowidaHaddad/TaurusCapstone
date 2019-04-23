@@ -40,7 +40,7 @@ namespace TaurusCapstone
                     {
 
                         Employee myEmp = (Employee)Session[item];
-                        Label9.Text = myEmp.FirstName;
+                        Label9.Text = myEmp.EmployeeID.ToString();
                     }
                 }
             }

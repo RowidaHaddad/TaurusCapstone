@@ -2,18 +2,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <style>
+        .gridview{
+            text-align: center;
+            font-size: small;
+        }
+    </style>
     <div class="well">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <strong>
-                    View Projects
-                </strong>
+                        <p style="text-align: center; font-family: Avenir LT Std 45 Medium; font-size: large; ">View Projects</p>
                 <div class="panel-body">
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" OnRowCommand="GridView1_RowCommand">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" RowStyle-HorizontalAlign="Center" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" OnRowCommand="GridView1_RowCommand" HorizontalAlign="Center">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
-                            <asp:BoundField HeaderText="Project Name" />
-                            <asp:BoundField DataFormatString="{0:d}" HeaderText="Expected End Date" />
+                            <asp:BoundField HeaderText="Project Name" >
+                            <HeaderStyle CssClass="gridview" />
+                            </asp:BoundField>
+                            <asp:BoundField DataFormatString="{0:d}" HeaderText="Expected End Date" >
+                            <HeaderStyle CssClass="gridview" />
+                            </asp:BoundField>
                             <asp:TemplateField HeaderText="Quick Actions">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="viewProposal" runat="server" CommandName="ViewProposal">View Proposal</asp:LinkButton>
@@ -22,6 +30,7 @@
                                     &nbsp;|
                                     <asp:LinkButton ID="submitSurvey" runat="server" CommandName="SubmitSurvey">Submit Survey</asp:LinkButton>
                                 </ItemTemplate>
+                                <HeaderStyle CssClass="gridview" />
                             </asp:TemplateField>
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
@@ -34,7 +43,7 @@
                         <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
                 </div>
-                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
             </div>
         </div>
     </div>
