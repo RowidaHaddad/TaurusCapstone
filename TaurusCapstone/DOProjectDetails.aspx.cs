@@ -12,7 +12,7 @@ namespace TaurusCapstone
         PMSDataClassesDataContext db = new PMSDataClassesDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+  
             if (Session.Count != 0)
             {
                 foreach (string name in Session.Keys)
@@ -20,13 +20,15 @@ namespace TaurusCapstone
                     if (name == "ProjectDetails")
                     {
                         pNameLabel.Text = (string)Session[name];
-                        //clientLabel.Text = (string)Session[name];
+                        clientLabel.Text = (string)Session[name];
 
                     }
 
                 }
             }
-            var ele = from a in db.Projects
+            if (!IsPostBack)
+            {
+                var ele = from a in db.Projects
                       where a.ProjectName == pNameLabel.Text
                       select a;
 
@@ -34,7 +36,7 @@ namespace TaurusCapstone
             {
                 var el = ele.First();
                 pNameLabel.Text = el.ProjectName;
-                //clientLabel.Text = el.ClientID;
+                //clientLabel.Text = el.;
                 pStatusLabel.Text = el.Status;
                 dateLabel.Text = el.ExpectedEndDate.ToString();
                 //designLeadLabel.Text = el.DLAssignments;
@@ -45,42 +47,53 @@ namespace TaurusCapstone
 
             //PROPOSAL DETAILS
 
-            //var costproposal = from a in db.CostProposalCreations
-            //                   where a.ProjectID
-            //                   select a;
+            var costproposal = from a in db.CostProposals
+                               from b in db.Projects
+                               where a.ProjectID == b.ProjectID && b.ProjectName==pNameLabel.Text
+                               select a;
 
-            //if (costProposal)
-            //{
-            //    costProposal.Visible = true;
-            //}
-            //else
-            //{
-            //    noCP.Visible = true;
-            //}
+            if(costproposal.Count()!=0)
+            {
+                var cp = costproposal.First();
+                dateLabel.Text = cp.date.ToString("dd/MM/yyyy");
+                cpStatusLabel.Text = cp.Status;
+                decisionLabel.Text = cp.ClientDecision.ToString();
+                    noCP.Visible = false;
+
+                }
+                else
+            {
+                    dateLabel.Visible = false;
+                    cpStatusLabel.Visible = false;
+                    decisionLabel.Visible = false;
+
+                    noCP.Visible = true;
+            }
 
             //PROJECT FINDINGS
-            var finding = from a in db.Findings
-                          from b in db.Projects
-                          from c in db.Employees
-                          from d in db.CostProposals
-                          from g in db.DLAssignments
-                          from f in db.Clients
-                          where c.EmployeeID == g.DLID && d.ProjectID == b.ProjectID && b.ClientID == f.ClientID
-                          select new { a.FindingName, a.FindingResult, a.FindingType, a.FindingDescription, b.ProjectName, b.ProjectType, f.ClientName, name = c.FirstName + " " + c.LastName, d.ClientDecision, d.date, d.Status };
+            //var finding = from a in db.Findings
+            //              from b in db.Projects
+            //              from c in db.Employees
+                          
+            //              from g in db.DLAssignments
+            //              from f in db.Clients
+            //              where c.EmployeeID == g.DLID && b.ClientID == f.ClientID && b.ProjectName==pNameLabel.Text
+            //              select new { a.FindingName, a.FindingType, a.FindingDescription, a.EndDate};
 
-            if (finding.Count() != 0)
-            {
-                GridView1.DataSource = finding;
-                BoundField bf = (BoundField)GridView1.Columns[0];
-                bf.DataField = "FindingName";
-                BoundField bf1 = (BoundField)GridView1.Columns[1];
-                bf.DataField = "FindingType";
-                BoundField bf2 = (BoundField)GridView1.Columns[2];
-                bf2.DataField = "ExpectedEndDate";
-                BoundField bf3 = (BoundField)GridView1.Columns[3];
-                bf3.DataField = "FindingDescription";          
-                GridView1.DataBind();
-            }
+            //if (finding.Count() != 0)
+            //{
+            //    GridView1.DataSource = finding;
+            //    BoundField bf = (BoundField)GridView1.Columns[0];
+            //    bf.DataField = "FindingName";
+            //    BoundField bf1 = (BoundField)GridView1.Columns[1];
+            //    bf.DataField = "FindingType";
+            //    BoundField bf2 = (BoundField)GridView1.Columns[2];
+            //    bf2.DataField = "EndDate";
+            //    BoundField bf3 = (BoundField)GridView1.Columns[3];
+            //    bf3.DataField = "FindingDescription";          
+            //    GridView1.DataBind();
+            //}
+        }
         }
 
         protected void moreButton_Click(object sender, EventArgs e)

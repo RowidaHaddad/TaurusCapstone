@@ -54,6 +54,7 @@
         }
     </style>
    <div class="well">
+       <div id="closedproject" runat="server">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <strong>Client Feedback Survery</strong>
@@ -79,7 +80,8 @@
                 <br /><input  class="auto-style6" id="Text2" type="text" />
             </div>
             <div class="panel-body">
-                <p>How effective were our design (or implementation) specs to meeting your project deliverables?</p>
+                <p>How effective were our design (or implementation) specs to meeting your project deliverables?<asp:Label ID="gradeText1" runat="server" Text="Label" Visible="False"></asp:Label>
+                </p>
                 <asp:RadioButtonList ID="question3" runat="server">
                     <asp:ListItem>Very</asp:ListItem>
                     <asp:ListItem>Somewhat</asp:ListItem>
@@ -89,7 +91,8 @@
                 </asp:RadioButtonList>
             </div>
             <div class="panel-body">
-                <p>Did our product/service meet your expectations?</p>
+                <p>Did our product/service meet your expectations?<asp:Label ID="gradeText2" runat="server" Text="Label" Visible="False"></asp:Label>
+                </p>
                 <asp:RadioButtonList ID="question4" runat="server">
                     <asp:ListItem>Yes</asp:ListItem>
                     <asp:ListItem Value="No"></asp:ListItem>
@@ -97,15 +100,20 @@
                 <asp:Label ID="Label2" runat="server" Text="if no, please specify why."></asp:Label>
                 <input class="auto-style6" id="Text1" type="text" /></div>
             <div class="panel-body">
-                <p>Do you have any other comments, suggestion or concerns which can help us to improve user experience?</p>
+                <p>Do you have any other comments, suggestion or concerns which can help us to improve user experience?<asp:Label ID="gradeText3" runat="server" Text="Label" Visible="False"></asp:Label>
+                </p>
                 <input class="auto-style5" id="comment" type="text" />
             </div>
             <div class="auto-style4">
                 <p class="text-center"> Thank you for your feedback. We sincerely appreciate your honest opinion and will take your input into consideration while providing products and services in the future.</p>
                  <button type="submit" class="btn btn-default" style="color: white; background-color: black" runat="server" id="submit" onclick="submit_Click">Submit</button>
-                <asp:Button ID="Button1" runat="server" Text="click" Width="70px" />
+                </div>
+                <%--<asp:Button ID="Button1" runat="server" Text="click" Width="70px" />--%>
             </div>
-        </div><asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+           <div id ="notclosed" runat="server" visible="false">
+               <p style="font-size: medium; text-align: center; font-family:'Avenir LT Std 65 Medium'"><strong>Project hasn't been closed yet. Please check again later!</strong></p>
+           </div>
+        </div><asp:Label ID="Label3" runat="server" Visible="False"></asp:Label>
     </div>
     
 </asp:Content>

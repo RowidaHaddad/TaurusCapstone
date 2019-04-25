@@ -57,9 +57,6 @@
             padding-right: 15px;
             height: 20px;
         }
-        .auto-style25 {
-            margin-left: 0;
-        }
         .auto-style26 {
             position: relative;
             min-height: 1px;
@@ -75,12 +72,12 @@
 
     <div class="well">
          <div class="alert alert-dismissible alert-success" runat="server" id="alert">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  
   <h4>Success!</h4>
-  <p>Project is successfully created! <a href="~/DOCreateAProject.aspx" class="alert-link">View here</a>.</p>
+  <p>Project is successfully created!</p>
 </div>
         <div class="alert alert-dismissible alert-danger" runat="server" id="fields">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  
   <h4>Oh snap!</h4>
   <p>Something is wrong, try again!</p>
 </div>
@@ -125,7 +122,7 @@
       <div class="form-group">
       <label for="inputPassword" class="auto-style21">Design Lead</label>
       <div class="col-xs-4">
-          <asp:DropDownList ID="dlNames" runat="server" style="color: black;" DataSourceID="dlname" DataTextField="FirstName" DataValueField="EmployeeID" Height="40px" Width="470px"></asp:DropDownList><asp:LinqDataSource ID="dlName" runat="server" ContextTypeName="TaurusCapstone.PMSDataClassesDataContext" EntityTypeName="" Select="new (FirstName, EmployeeID)" TableName="Employees"></asp:LinqDataSource>
+          <asp:DropDownList ID="dlNames" runat="server" style="color: black;" Height="40px" Width="470px"></asp:DropDownList>
 
           <asp:RequiredFieldValidator ID="DLRFV" runat="server" ErrorMessage="**" ControlToValidate="dlNames"></asp:RequiredFieldValidator>
 

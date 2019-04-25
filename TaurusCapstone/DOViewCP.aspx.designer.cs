@@ -49,39 +49,12 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.WebControls.Label decisionLabel;
         
         /// <summary>
-        /// scopeLabel control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label scopeLabel;
-        
-        /// <summary>
-        /// categoryLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label categoryLabel;
-        
-        /// <summary>
-        /// deliverablesLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label deliverablesLabel;
-        
-        /// <summary>
-        /// editButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editButton;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

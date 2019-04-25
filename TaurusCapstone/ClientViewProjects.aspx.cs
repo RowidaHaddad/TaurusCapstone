@@ -14,6 +14,7 @@ namespace TaurusCapstone
         Client myClient = new Client();
         protected void Page_Load(object sender, EventArgs e)
         {
+            notclosed.Visible = false;
             if (Session.Count != 0)
             {
                 foreach (string item in Session.Keys)
@@ -42,11 +43,6 @@ namespace TaurusCapstone
             }
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            //var ele = from a in db.CostProposals
-        }
-
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName.Equals("ViewProposal"))
@@ -65,10 +61,22 @@ namespace TaurusCapstone
             }
             if (e.CommandName.Equals("Submit"))
             {
+
                 int RowIndex = ((GridViewRow)((Control)e.CommandSource).NamingContainer).RowIndex;
                 string s = GridView1.Rows[RowIndex].Cells[0].Text;
-                Session.Add("ProjectName", s);
-                Response.Redirect("~/ClientSubmitSurvey.aspx");
+                var pro = from a in db.Projects 
+                          where a.ProjectName == s && a.Status=="Completed"
+                          select a;
+                if (pro.Count()!=0)
+                {
+                    Session.Add("ProjectName", s);
+                    Response.Redirect("~/ClientSubmitSurvey.aspx");
+                }
+                else
+                {
+                    //label no survey 
+                    notclosed.Visible = true;
+                }
             }
         }
     }

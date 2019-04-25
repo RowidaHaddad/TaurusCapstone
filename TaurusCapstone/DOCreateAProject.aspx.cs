@@ -28,6 +28,16 @@ namespace TaurusCapstone
                     }
                 }
             }
+            var dlname = from a in db.Employees
+                         where a.EmployeeType == "2"
+                         select new { Name = a.FirstName + " " + a.LastName, a.EmployeeID };
+            if(dlname.Count()!=0)
+            {
+                dlNames.DataSource = dlname;
+                dlNames.DataTextField = "Name";
+                dlNames.DataValueField = "EmployeeID";
+                dlNames.DataBind();
+            }
             
         }
         protected void addProject_ServerClick(object sender, EventArgs e)

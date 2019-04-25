@@ -30,9 +30,10 @@
             <div class="panel-body">
                  <input type="text" class="auto-style4" id="clientComment">
       </div>
-            </div>
+           
         <div class="panel-body">
             <asp:Button ID="submitComment" runat="server" Text="Submit" BackColor="Black" ForeColor="White" OnClick="submitComment_Click" Width="70px" />
         </div>
     </div>
+         </div>
 </asp:Content>

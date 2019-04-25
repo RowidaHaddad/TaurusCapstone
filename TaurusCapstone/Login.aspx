@@ -58,7 +58,7 @@
     
          <div class="col-md-5">
           <div class="alert alert-dismissible alert-danger" runat ="server" id="alert">
-  <strong>Oh snap!</strong> Something is wrong, try again.
+  <strong>Oh snap!</strong> Incorrect username and/or password, try again.
 </div>
         </div>
 

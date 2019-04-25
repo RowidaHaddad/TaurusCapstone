@@ -8,12 +8,12 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script type="text/javascript">
+   <%-- <script type="text/javascript">
             function disableBackButton() {
             window.history.forward();
         }
         setTimeout("disableBackButton()", 0);
-        </script>
+        </script>--%>
     <style type="text/css">
         .auto-style2 {
             width: 100%;

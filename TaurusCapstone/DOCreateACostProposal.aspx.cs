@@ -116,6 +116,8 @@ namespace TaurusCapstone
                     mydb.ScopeDeliverables.InsertOnSubmit(mydel);
                     mydb.SubmitChanges();
                     alert.Visible = true;
+
+
                 }
             }
         }

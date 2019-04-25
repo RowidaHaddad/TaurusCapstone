@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-   <div class="well">
+    <div class="well">
        <div class="panel panel-default">
     <div class="panel-heading">
                 <strong>Select a project:</strong> <asp:DropDownList ID="DropDownList1" runat="server" Height="40px" Width="385px"></asp:DropDownList>

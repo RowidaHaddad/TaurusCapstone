@@ -24,15 +24,45 @@
             Client Decision: <asp:Label ID="decisionLabel" runat="server" Text=""></asp:Label>
         </div>
         <div class="panel-body">
-            Scope: <asp:Label ID="scopeLabel" runat="server" Text=""></asp:Label>
+           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Width="1006px">
+                <AlternatingRowStyle BackColor="#CCCCCC" />
+                <Columns>
+                    <asp:TemplateField HeaderText="Scope No.">
+                        <ItemTemplate>
+                            <asp:Label ID="number" runat="server"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField HeaderText="Scope Description" />
+                    <asp:TemplateField HeaderText="Deliverables">
+                        <ItemTemplate>
+                            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Deliverable No.">
+                                        <ItemTemplate>
+                                            <asp:Label ID="numberD" runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField HeaderText="Deliverable Description" />
+                                </Columns>
+                            </asp:GridView>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <EmptyDataTemplate>
+                    <asp:GridView ID="GridView2" runat="server">
+                    </asp:GridView>
+                </EmptyDataTemplate>
+                <FooterStyle BackColor="#CCCCCC" />
+                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#808080" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#383838" />
+            </asp:GridView>
         </div>
-        <div class="panel-body">
-            Category: <asp:Label ID="categoryLabel" runat="server" Text=""></asp:Label>
-        </div>
-        <div class="panel-body">
-            Deliverables: <asp:Label ID="deliverablesLabel" runat="server" Text=""></asp:Label>
-        </div>
-        <asp:LinkButton ID="editButton" runat="server" class="edit" OnClick="editButton_Click">Edit</asp:LinkButton>
+        
     </div>
         </div>
 </asp:Content>

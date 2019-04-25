@@ -23,7 +23,7 @@ namespace TaurusCapstone
                     if (item == "Firstname")
                     {
                         Employee myEmp = (Employee)Session[item];
-                        Label9.Text = myEmp.EmployeeID.ToString();
+                        //Label9.Text = myEmp.EmployeeID.ToString();
 
                     }
                 }

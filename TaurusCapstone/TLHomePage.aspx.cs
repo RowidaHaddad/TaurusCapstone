@@ -26,5 +26,14 @@ namespace TaurusCapstone
                 }
             }
         }
+        //protected void addClientButton_ServerClick(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/TLViewTasks.aspx");
+        //}
+        //protected void addEmployeeButton_ServerClick(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/DLViewTasksDetails.aspx");
+
+        //}
     }
 }

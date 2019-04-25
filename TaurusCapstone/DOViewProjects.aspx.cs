@@ -12,6 +12,10 @@ namespace TaurusCapstone
         PMSDataClassesDataContext db = new PMSDataClassesDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+
+         
             var ele = from a in db.Projects
                       from b in db.Employees
                       from c in db.DLAssignments
@@ -32,6 +36,7 @@ namespace TaurusCapstone
                 bf4.DataField = "name";
                 viewProjects.DataBind();
             }
+        }
         }
 
         protected void viewProjects_RowCommand(object sender, GridViewCommandEventArgs e)

@@ -96,6 +96,9 @@ namespace TaurusCapstone
     partial void InsertProject(Project instance);
     partial void UpdateProject(Project instance);
     partial void DeleteProject(Project instance);
+    partial void InsertProjectEvaluation(ProjectEvaluation instance);
+    partial void UpdateProjectEvaluation(ProjectEvaluation instance);
+    partial void DeleteProjectEvaluation(ProjectEvaluation instance);
     #endregion
 		
 		public PMSDataClassesDataContext() : 
@@ -301,6 +304,14 @@ namespace TaurusCapstone
 			get
 			{
 				return this.GetTable<Project>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProjectEvaluation> ProjectEvaluations
+		{
+			get
+			{
+				return this.GetTable<ProjectEvaluation>();
 			}
 		}
 	}
@@ -5257,6 +5268,8 @@ namespace TaurusCapstone
 		
 		private string _DOComments;
 		
+		private string _CloseDocument;
+		
 		private EntitySet<CostProposal> _CostProposals;
 		
 		private EntitySet<DLAssignment> _DLAssignments;
@@ -5299,6 +5312,8 @@ namespace TaurusCapstone
     partial void OnDOIDChanged();
     partial void OnDOCommentsChanging(string value);
     partial void OnDOCommentsChanged();
+    partial void OnCloseDocumentChanging(string value);
+    partial void OnCloseDocumentChanged();
     #endregion
 		
 		public Project()
@@ -5561,6 +5576,26 @@ namespace TaurusCapstone
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CloseDocument", DbType="VarChar(200)")]
+		public string CloseDocument
+		{
+			get
+			{
+				return this._CloseDocument;
+			}
+			set
+			{
+				if ((this._CloseDocument != value))
+				{
+					this.OnCloseDocumentChanging(value);
+					this.SendPropertyChanging();
+					this._CloseDocument = value;
+					this.SendPropertyChanged("CloseDocument");
+					this.OnCloseDocumentChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_CostProposal", Storage="_CostProposals", ThisKey="ProjectID", OtherKey="ProjectID")]
 		public EntitySet<CostProposal> CostProposals
 		{
@@ -5772,6 +5807,116 @@ namespace TaurusCapstone
 		{
 			this.SendPropertyChanging();
 			entity.Project = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProjectEvaluation")]
+	public partial class ProjectEvaluation : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProjectID;
+		
+		private int _CriteriaID;
+		
+		private string _GradeText;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProjectIDChanging(int value);
+    partial void OnProjectIDChanged();
+    partial void OnCriteriaIDChanging(int value);
+    partial void OnCriteriaIDChanged();
+    partial void OnGradeTextChanging(string value);
+    partial void OnGradeTextChanged();
+    #endregion
+		
+		public ProjectEvaluation()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ProjectID
+		{
+			get
+			{
+				return this._ProjectID;
+			}
+			set
+			{
+				if ((this._ProjectID != value))
+				{
+					this.OnProjectIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectID = value;
+					this.SendPropertyChanged("ProjectID");
+					this.OnProjectIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CriteriaID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CriteriaID
+		{
+			get
+			{
+				return this._CriteriaID;
+			}
+			set
+			{
+				if ((this._CriteriaID != value))
+				{
+					this.OnCriteriaIDChanging(value);
+					this.SendPropertyChanging();
+					this._CriteriaID = value;
+					this.SendPropertyChanged("CriteriaID");
+					this.OnCriteriaIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GradeText", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string GradeText
+		{
+			get
+			{
+				return this._GradeText;
+			}
+			set
+			{
+				if ((this._GradeText != value))
+				{
+					this.OnGradeTextChanging(value);
+					this.SendPropertyChanging();
+					this._GradeText = value;
+					this.SendPropertyChanged("GradeText");
+					this.OnGradeTextChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

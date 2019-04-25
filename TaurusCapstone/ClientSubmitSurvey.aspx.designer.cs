@@ -13,6 +13,15 @@ namespace TaurusCapstone {
     public partial class WebForm31 {
         
         /// <summary>
+        /// closedproject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl closedproject;
+        
+        /// <summary>
         /// question1 control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// gradeText1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label gradeText1;
+        
+        /// <summary>
         /// question3 control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace TaurusCapstone {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList question3;
+        
+        /// <summary>
+        /// gradeText2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label gradeText2;
         
         /// <summary>
         /// question4 control.
@@ -67,6 +94,15 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
+        /// gradeText3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label gradeText3;
+        
+        /// <summary>
         /// submit control.
         /// </summary>
         /// <remarks>
@@ -76,13 +112,13 @@ namespace TaurusCapstone {
         protected global::System.Web.UI.HtmlControls.HtmlButton submit;
         
         /// <summary>
-        /// Button1 control.
+        /// notclosed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notclosed;
         
         /// <summary>
         /// Label3 control.

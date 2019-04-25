@@ -59,7 +59,7 @@
                 <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/images/add.png" Width="21px" OnClick="ImageButton2_Click1" />
             </div>
             <div class="auto-style6">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="277px" Width="966px">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="277px" Width="966px" OnRowCommand="GridView1_RowCommand">
                     <AlternatingRowStyle BackColor="#CCCCCC" />
                     <Columns>
                         <asp:TemplateField HeaderText="No.">
@@ -102,9 +102,9 @@
                     <SortedDescendingHeaderStyle BackColor="#383838" />
                 </asp:GridView>
             </div>
-            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+            <asp:Label ID="Label1" runat="server" Visible="False"></asp:Label>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click3" Text="Add" BackColor="Black" Font-Names="Avenir LT Std 45 Book" ForeColor="White" Width="50px" />
-            <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+            <asp:Label ID="Label2" runat="server" Visible="False"></asp:Label>
   </div>
     </div>
 </asp:Content>

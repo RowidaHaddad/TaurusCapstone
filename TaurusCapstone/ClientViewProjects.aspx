@@ -11,7 +11,7 @@
     <div class="well">
         <div class="panel panel-default">
             <div class="panel-heading">
-                        <p style="text-align: center; font-family: Avenir LT Std 45 Medium; font-size: large; ">View Projects</p>
+                        <p style="text-align: center; font-family: Avenir LT Std 65 Medium; font-size: large; ">View Projects</p>
                 <div class="panel-body">
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" RowStyle-HorizontalAlign="Center" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" OnRowCommand="GridView1_RowCommand" HorizontalAlign="Center">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
@@ -43,6 +43,9 @@
                         <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
                 </div>
+                <div id ="notclosed" runat="server" visible="false">
+               <p style="font-size: medium; text-align: center; font-family:'Avenir LT Std 65 Medium'"><strong>Project hasn't been closed yet. Please check again later!</strong></p>
+           </div>
                 <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
             </div>
         </div>

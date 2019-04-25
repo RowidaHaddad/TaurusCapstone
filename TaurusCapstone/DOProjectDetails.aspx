@@ -49,14 +49,14 @@
     <div class="panel panel-default" runat="server" id="costProposal">
   <div class="panel-heading"><strong>Proposal Details</strong></div>
   <div class="panel-body">
-   Date uploaded: <asp:Label ID="dateUploadedLabel" runat="server" Text=""></asp:Label>
+      <asp:Label ID="Label1" runat="server" Text="Date uploaded: "></asp:Label><asp:Label ID="dateUploadedLabel" runat="server" Text=""></asp:Label>
 </div>
      
         <div class="panel-body">
-            Status: <asp:Label ID="cpStatusLabel" runat="server" Text=""></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Status: "></asp:Label><asp:Label ID="cpStatusLabel" runat="server" Text=""></asp:Label>
         </div>
         <div class="panel-body">
-            Client Decision: <asp:Label ID="decisionLabel" runat="server" Text=""></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Client Decision: "></asp:Label> <asp:Label ID="decisionLabel" runat="server" Text=""></asp:Label>
         </div>
         <div class="panel-body">
             <asp:LinkButton ID="moreButton" runat="server" CssClass="more" OnClick="moreButton_Click">More...</asp:LinkButton>
@@ -67,10 +67,10 @@
         </div>
   </div>
         <div class="panel panel-default">
-            <div class="panel-heading">
+          <%--  <div class="panel-heading">
                 <strong>Projects Findings</strong>
             </div>
-            <div class="auto-style5">
+           <%-- <div class="auto-style5">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Width="1053px">
                     <AlternatingRowStyle BackColor="#CCCCCC" />
                     <Columns>
@@ -78,7 +78,11 @@
                         <asp:BoundField HeaderText="Finding Type" />
                         <asp:BoundField DataFormatString="{0:d}" HeaderText="Expected End Date" />
                         <asp:BoundField HeaderText="Finding Description" />
-                        <asp:TemplateField HeaderText="Finding Result"></asp:TemplateField>
+                        <asp:TemplateField HeaderText="Finding Result">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CommandName="FindingResults">LinkButton</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Add Comments">
                             <ItemTemplate>
                                 <asp:TextBox ID="findingComments" runat="server" TextMode="MultiLine"></asp:TextBox>
@@ -96,10 +100,9 @@
                     <SortedAscendingHeaderStyle BackColor="#808080" />
                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
                     <SortedDescendingHeaderStyle BackColor="#383838" />
-                </asp:GridView>
+                </asp:GridView>--%>
                 <br />
-                <asp:Button ID="submitComments" runat="server" Text="Submit" BackColor="Black" ForeColor="White" Width="70px" />
-            </div>
+                
         </div>
     </div>
 </asp:Content>

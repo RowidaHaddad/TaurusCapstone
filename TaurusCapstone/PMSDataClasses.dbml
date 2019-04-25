@@ -242,6 +242,7 @@
       <Column Name="ClientID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DOID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DOComments" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="CloseDocument" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Association Name="Project_CostProposal" Member="CostProposals" ThisKey="ProjectID" OtherKey="ProjectID" Type="CostProposal" />
       <Association Name="Project_DLAssignment" Member="DLAssignments" ThisKey="ProjectID" OtherKey="ProjectID" Type="DLAssignment" />
       <Association Name="Project_ImpactAnalysisUpload" Member="ImpactAnalysisUploads" ThisKey="ProjectID" OtherKey="ProjectID" Type="ImpactAnalysisUpload" />
@@ -249,6 +250,13 @@
       <Association Name="Project_TaskCreation" Member="TaskCreations" ThisKey="ProjectID" OtherKey="ProjectID" Type="TaskCreation" />
       <Association Name="Client_Project" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
       <Association Name="DesignOfficer_Project" Member="DesignOfficer" ThisKey="DOID" OtherKey="DOID" Type="DesignOfficer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectEvaluation" Member="ProjectEvaluations">
+    <Type Name="ProjectEvaluation">
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CriteriaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GradeText" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

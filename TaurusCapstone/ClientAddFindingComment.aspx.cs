@@ -22,7 +22,7 @@ namespace TaurusCapstone
             //add comment to db
             //
             //redirect to gridview again
-            Response.Redirect("");
+            Response.Redirect("~/ClientViewFindings.aspx");
         }
     }
 }

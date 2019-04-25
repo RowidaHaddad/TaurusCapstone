@@ -43,7 +43,7 @@
                     </asp:DropDownList>
         </div>
         <div class="panel-body">
-          <asp:Label ID="Label4" runat="server" Text="How many scopes does this projec requires?"></asp:Label>
+          <asp:Label ID="Label4" runat="server" Text="How many scopes does this project requires?"></asp:Label>
           <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged">
               <asp:ListItem>1</asp:ListItem>
               <asp:ListItem>2</asp:ListItem>
@@ -51,11 +51,12 @@
               <asp:ListItem>4</asp:ListItem>
               <asp:ListItem>5</asp:ListItem>
           </asp:DropDownList>
-          <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+          <asp:Label ID="Label1" runat="server" Visible="False"></asp:Label>
 
         </div>
         <div class="auto-style9">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+            <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
                 <asp:TemplateField HeaderText="Scope Name">
                     <ItemTemplate>
@@ -87,10 +88,18 @@
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
+            <FooterStyle BackColor="#CCCCCC" />
+            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#808080" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
             </div>
-
-        <button class="btn btn-primary" id="Button1" runat="server" onserverclick="Button1_ServerClick">Submit</button>
+           <asp:Button ID="Button1" runat="server" Text="Button" />
+<%--        <button class="btn btn-default" id="Button1" runat="server"style="background-color: black; color: white" onserverclick="Button1_ServerClick">Submit</button>--%>
         
         </div>
         </div>
