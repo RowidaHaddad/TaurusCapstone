@@ -44,8 +44,8 @@ namespace TaurusCapstone
                      from b in db.TaskLeadFindingSubmissions
                      from c in db.Findings
                      where a.TaskID == b.TaskID && b.FindingID == c.FindingID
-                     select new {}
-            GridView1.DataSource
+                     select new { };
+            GridView1.DataSource = el;
         }
     }
 }

@@ -52,6 +52,7 @@
       <asp:Label ID="Label1" runat="server" Text="Date uploaded: "></asp:Label><asp:Label ID="dateUploadedLabel" runat="server" Text=""></asp:Label>
 </div>
      
+        <div id ="cp" runat="server">
         <div class="panel-body">
             <asp:Label ID="Label2" runat="server" Text="Status: "></asp:Label><asp:Label ID="cpStatusLabel" runat="server" Text=""></asp:Label>
         </div>
@@ -61,6 +62,7 @@
         <div class="panel-body">
             <asp:LinkButton ID="moreButton" runat="server" CssClass="more" OnClick="moreButton_Click">More...</asp:LinkButton>
         </div>
+            </div>
         <div class="panel-body" id="noCP" runat="server">
             <p>You have not created a proposal yet.</p>
             <a href="~/DOCreateACostProposal.aspx" class="btn btn-default" id="noCPButton" runat="server">Create a Proposal</a>

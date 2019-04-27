@@ -21,18 +21,23 @@ namespace TaurusCapstone
                     if (name == "ProjectDetails")
                     {
                         projectName.Text = (string)Session[name];
+                        
                     }
 
                 }
             }
+
+            //add details for proposal
+                        
             var ele = from a in db.CostProposalScopes
 
                       from c in db.Projects
                       from d in db.CostProposals
-                      where c.ProjectID == d.ProjectID && a.CostProposalID == d.CostProposalID && c.ProjectID == Convert.ToInt32(Label1.Text)
+                      where c.ProjectID == d.ProjectID && a.CostProposalID == d.CostProposalID && c.ProjectID == Convert.ToInt32(projectName.Text)
                       select a;
             if (ele.Count() != 0)
             {
+                
                 GridView1.DataSource = ele;
                 BoundField bf = (BoundField)GridView1.Columns[1];
                 bf.DataField = "ScopeName";

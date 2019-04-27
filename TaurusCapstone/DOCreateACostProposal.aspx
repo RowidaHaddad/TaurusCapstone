@@ -9,22 +9,13 @@
         }
     </style>
     <div class="well">
-         <div class="alert alert-dismissible alert-success" runat="server" id="alert">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <h4>Success!</h4>
-  <p>Proposai is successfully created! <a href="~/DOViewCP.aspx" class="alert-link">View here</a>.</p>
-</div>
-        <div class="alert alert-dismissible alert-danger" runat="server" id="fields">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <h4>Oh snap!</h4>
-  <p>Something is wrong, try again!</p>
-</div>
+        
        <div class="panel panel-default">
         <div class="panel-heading" style="color: #990000">
            <strong>Project Name</strong>
         </div>
         <div class="panel-body">
-            <asp:DropDownList ID="DropDownList1" runat="server" Height="33px" Width="100px">
+            <asp:DropDownList ID="DropDownList1" runat="server" Height="28px" Width="238px">
                     </asp:DropDownList>
         &nbsp;</div>
     <div class="panel-heading">
@@ -98,9 +89,10 @@
             <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
             </div>
-           <asp:Button ID="Button1" runat="server" Text="Button" />
+                 &nbsp; &nbsp;<asp:Button ID="Button1" runat="server" Text="Submit" BackColor="Black" ForeColor="White" Width="70px" OnClick="Button1_Click1" />
 <%--        <button class="btn btn-default" id="Button1" runat="server"style="background-color: black; color: white" onserverclick="Button1_ServerClick">Submit</button>--%>
-        
+        <br />
+           <br />
         </div>
         </div>
 </asp:Content>

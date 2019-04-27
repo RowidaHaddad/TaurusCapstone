@@ -28,22 +28,23 @@ namespace TaurusCapstone
                     }
                 }
             }
-
-            var proj = from a in db.Tasks
-                       from b in db.Projects
-                       from c in db.TaskCreations
-                       from d in db.TaskLeadAssignments
-                       where a.TaskID == c.TaskID && c.ProjectID == b.ProjectID && d.TaskID == a.TaskID && d.TLID == Convert.ToInt16(Label1.Text)
-                       select new { b.ProjectID, b.ProjectName };
-
-            if(proj.Count()!=0)
+            if (!IsPostBack)
             {
-                DropDownList1.DataSource = proj;
-                DropDownList1.DataTextField = "ProjectName";
-                DropDownList1.DataValueField = "ProjectID";
-                DropDownList1.DataBind();
-            }
+                var proj = from a in db.Tasks
+                           from b in db.Projects
+                           from c in db.TaskCreations
+                           from d in db.TaskLeadAssignments
+                           where a.TaskID == c.TaskID && c.ProjectID == b.ProjectID && d.TaskID == a.TaskID && d.TLID == Convert.ToInt16(Label1.Text)
+                           select new { b.ProjectID, b.ProjectName };
 
+                if (proj.Count() != 0)
+                {
+                    DropDownList1.DataSource = proj;
+                    DropDownList1.DataTextField = "ProjectName";
+                    DropDownList1.DataValueField = "ProjectID";
+                    DropDownList1.DataBind();
+                }
+            }
         }
 
      
@@ -73,7 +74,7 @@ namespace TaurusCapstone
             var ele =( from a in db.Tasks
                       from b in db.TaskLeadAssignments
                       from c in db.TaskCreations
-                      where a.TaskID == b.TaskID && c.ProjectID == Convert.ToInt16(DropDownList1.SelectedValue)
+                      where b.TaskID==c.TaskID && a.TaskID == b.TaskID && c.ProjectID == Convert.ToInt16(DropDownList1.SelectedValue) && b.TLID==Convert.ToInt32(Label1.Text)
                       select new { a.TaskName, a.ExpectedEndDate, a.Status }).Distinct();
 
             GridView1.DataSource = ele;

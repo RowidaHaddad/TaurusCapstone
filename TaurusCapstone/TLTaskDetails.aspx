@@ -39,22 +39,23 @@
         
         
         <div class="auto-style4">
-            Task Name:
+            TaTask Name:
             <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-            <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label8" runat="server" Text="Label" Visible="False"></asp:Label>
         </div>
         <div class="auto-style4">
             Expected End Date:
-        <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label>
         </div>
         <div class="auto-style4">
             Description:
-            <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label>
         </div>
         
         <div class="auto-style4">
             Status:
-            <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+            
+            <asp:Label ID="Label12" runat="server" Text="Label"></asp:Label>
         </div>
                  
               </div>

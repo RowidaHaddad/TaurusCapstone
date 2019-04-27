@@ -86,12 +86,12 @@
   </div>
     <div class="well">
         <div class="alert alert-dismissible alert-success" runat="server" id="alert">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  
   <h4>Success!</h4>
   <p>Client is successfully added! <a href="~/AdminViewClients.aspx" class="alert-link">View here</a>.</p>
 </div>
         <div class="alert alert-dismissible alert-danger" runat="server" id="fields">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  
   <h4>Oh snap!</h4>
   <p>Something is wrong, try again!</p>
 </div>
@@ -131,7 +131,7 @@
       <div class="form-group">
       <label for="inputPassword" class="auto-style9">Password</label>
       <div class="col-xs-4">
-        <input type="text" class="form-control" id="clientPassword" runat="server"><asp:RequiredFieldValidator ID="passwordRFV" runat="server" ControlToValidate="clientPassword" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
+        <input type="password" class="form-control" id="clientPassword" runat="server"><asp:RequiredFieldValidator ID="passwordRFV" runat="server" ControlToValidate="clientPassword" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
 
           &nbsp;</div>
         </div>

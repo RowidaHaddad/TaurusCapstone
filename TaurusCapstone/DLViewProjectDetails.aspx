@@ -27,6 +27,10 @@
         }
         </style>
     <div class="well">
+        <div class="alert alert-dismissible alert-success" runat="server" id="alert">
+  <h4 class="text-right">Success!</h4>
+  <p class="text-right">Task is successfully created!</p>
+</div>
 <div class="panel panel-default">
   <div class="panel-heading"><strong>Project Details</strong></div>
   <div class="panel-body" runat="server">
@@ -46,9 +50,6 @@
   </div>
     <div class="panel-body" runat="server">
     Project Type: <asp:Label ID="pTypeLabel" runat="server" Text=""></asp:Label>
-  </div>
-    <div class="panel-body" runat="server">
-    Current status: <asp:Label ID="currentStatusLabel" runat="server" Text=""></asp:Label>
   </div>
 </div>
         <div class ="panel panel-default">

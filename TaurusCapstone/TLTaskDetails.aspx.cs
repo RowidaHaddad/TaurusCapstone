@@ -52,9 +52,13 @@ namespace TaurusCapstone
             {
                 var det = TASDET.First();
                 Label8.Text = det.TaskID.ToString();
-
-                Label5.Text = det.ExpectedEndDate.ToString("dd/MM/yyyy");
-                Label6.Text = "Pending";
+                Label11.Text = det.Description;
+                if(Label11.Text=="")
+                {
+                    Label11.Text = "No Description";
+                }
+                Label10.Text = det.ExpectedEndDate.ToString("dd/MM/yyyy");
+                Label12.Text = "Pending";
             }
 
             var projectDetails = from a in db.TaskCreations
@@ -154,9 +158,10 @@ namespace TaurusCapstone
 
                     db.TaskLeadFindingSubmissions.InsertOnSubmit(tskfind);
                     db.SubmitChanges();
+                    
                  }
             }
-
+            Response.Redirect("~/TLHomePage.aspx");
         }
         }
 }

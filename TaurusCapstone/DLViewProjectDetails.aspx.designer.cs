@@ -13,6 +13,15 @@ namespace TaurusCapstone {
     public partial class WebForm26 {
         
         /// <summary>
+        /// alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert;
+        
+        /// <summary>
         /// pNameLabel control.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace TaurusCapstone {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label pTypeLabel;
-        
-        /// <summary>
-        /// currentStatusLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label currentStatusLabel;
         
         /// <summary>
         /// TextBox1 control.

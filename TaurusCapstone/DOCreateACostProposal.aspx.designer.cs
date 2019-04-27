@@ -13,24 +13,6 @@ namespace TaurusCapstone {
     public partial class WebForm44 {
         
         /// <summary>
-        /// alert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert;
-        
-        /// <summary>
-        /// fields control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fields;
-        
-        /// <summary>
         /// DropDownList1 control.
         /// </summary>
         /// <remarks>

@@ -16,12 +16,8 @@ namespace TaurusCapstone
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-                {
-
-            
-            requiredField.Visible = false;
-            }
+            alert.Visible = false;
+            fields.Visible = false;
         }
 
         protected void cancelButton_ServerClick(object sender, EventArgs e)
@@ -89,7 +85,8 @@ namespace TaurusCapstone
                     }
 
                 }
-                Response.Redirect("~//AdminEmployeeConfirmationPage.aspx");
+            //alert.Visible = true;
+            Response.Redirect("~/AdminHomePage.aspx");
           
             //else
             //{
@@ -157,7 +154,7 @@ namespace TaurusCapstone
                 }
 
             }
-            Response.Redirect("~//AdminEmployeeConfirmationPage.aspx");
+            //Response.Redirect("~//AdminEmployeeConfirmationPage.aspx");
 
         }
     }

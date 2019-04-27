@@ -22,37 +22,7 @@
             background-color: #ffffff;
             background-image: none;
         }
-        .auto-style6 {
-            display: block;
-            width: 30%;
-            height: 38px;
-            font-size: 14px;
-            line-height: 1.42857143;
-            color: #555555;
-            border-radius: 4px;
-            box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.075);
-            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-            border: 1px solid #e7e7e7;
-            padding: 7px 12px;
-            background-color: #ffffff;
-            background-image: none;
-        }
-        .auto-style7 {
-            display: block;
-            width: 29%;
-            height: 38px;
-            font-size: 14px;
-            line-height: 1.42857143;
-            color: #555555;
-            border-radius: 4px;
-            box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.075);
-            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-            border: 1px solid #e7e7e7;
-            padding: 7px 12px;
-            background-color: #ffffff;
-            background-image: none;
-        }
-    </style>
+        </style>
    <div class="well">
        <div id="closedproject" runat="server">
         <div class="panel panel-default">
@@ -61,7 +31,8 @@
                 <p style="font-style:italic">Please fill in this survey to gather feedback on what aspects of your project were performed well, what areas of improvement we need to consider for the next project and any other comments or suggestions you would like to provide.</p>
             </div>
             <div class="panel-body">
-                <p>Were the objectives for this project clearly defined?</p>
+                <p>Were the objectives for this project clearly defined?<asp:Label ID="gradeText4" runat="server" Text="1" Visible="False"></asp:Label>
+                </p>
                 <asp:RadioButtonList ID="question1" runat="server">
                     <asp:ListItem>Very</asp:ListItem>
                     <asp:ListItem>Somewhat</asp:ListItem>
@@ -71,16 +42,15 @@
                 </asp:RadioButtonList>
             </div>
             <div class="panel-body">
-                <p>Were you satisfied with your experience for this  project?</p>
+                <p>Were you satisfied with your experience for this  project?<asp:Label ID="Label4" runat="server" Text="2"></asp:Label>
+                </p>
                 <asp:RadioButtonList ID="question2" runat="server">
                     <asp:ListItem>Yes</asp:ListItem>
                     <asp:ListItem Value="No"></asp:ListItem>
                 </asp:RadioButtonList>
-                <asp:Label ID="Label1" runat="server" Text="if no, please specify why."></asp:Label>
-                <br /><input  class="auto-style6" id="Text2" type="text" />
-            </div>
+                <br />&nbsp;</div>
             <div class="panel-body">
-                <p>How effective were our design (or implementation) specs to meeting your project deliverables?<asp:Label ID="gradeText1" runat="server" Text="Label" Visible="False"></asp:Label>
+                <p>How effective were our design (or implementation) specs to meeting your project deliverables?<asp:Label ID="gradeText1" runat="server" Text="3" Visible="False"></asp:Label>
                 </p>
                 <asp:RadioButtonList ID="question3" runat="server">
                     <asp:ListItem>Very</asp:ListItem>
@@ -91,22 +61,23 @@
                 </asp:RadioButtonList>
             </div>
             <div class="panel-body">
-                <p>Did our product/service meet your expectations?<asp:Label ID="gradeText2" runat="server" Text="Label" Visible="False"></asp:Label>
+                <p>Did our product/service meet your expectations?<asp:Label ID="gradeText2" runat="server" Text="4" Visible="False"></asp:Label>
                 </p>
                 <asp:RadioButtonList ID="question4" runat="server">
                     <asp:ListItem>Yes</asp:ListItem>
                     <asp:ListItem Value="No"></asp:ListItem>
                 </asp:RadioButtonList>
-                <asp:Label ID="Label2" runat="server" Text="if no, please specify why."></asp:Label>
-                <input class="auto-style6" id="Text1" type="text" /></div>
+                </div>
             <div class="panel-body">
-                <p>Do you have any other comments, suggestion or concerns which can help us to improve user experience?<asp:Label ID="gradeText3" runat="server" Text="Label" Visible="False"></asp:Label>
+                <p>Do you have any other comments, suggestion or concerns which can help us to improve user experience?<asp:Label ID="gradeText3" runat="server" Text="5" Visible="False"></asp:Label>
                 </p>
                 <input class="auto-style5" id="comment" type="text" />
             </div>
             <div class="auto-style4">
                 <p class="text-center"> Thank you for your feedback. We sincerely appreciate your honest opinion and will take your input into consideration while providing products and services in the future.</p>
+                 <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
                  <button type="submit" class="btn btn-default" style="color: white; background-color: black" runat="server" id="submit" onclick="submit_Click">Submit</button>
+                <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
                 </div>
                 <%--<asp:Button ID="Button1" runat="server" Text="click" Width="70px" />--%>
             </div>

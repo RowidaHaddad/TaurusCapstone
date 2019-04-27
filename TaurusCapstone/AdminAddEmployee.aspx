@@ -21,48 +21,82 @@
             text-align: right;
             font-family: Avenir LT Std 65 Medium;
         }
+        .auto-style4 {
+            position: relative;
+            min-height: 1px;
+            float: left;
+            width: 30%;
+            text-align: right;
+            font-family: "Avenir LT Std 65 Medium";
+            left: 0px;
+            top: 0px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .auto-style5 {
+            position: relative;
+            min-height: 1px;
+            float: left;
+            width: 16.66666667%;
+            text-align: right;
+            font-family: "Avenir LT Std 65 Medium";
+            left: 146px;
+            top: -2px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
     </style>
     <br />
     <div class="well">
+          <div class="alert alert-dismissible alert-success" runat="server" id="alert">
+  
+  <h4>Success!</h4>
+  <p>Employee is successfully added!</p>
+</div>
+        <div class="alert alert-dismissible alert-danger" runat="server" id="fields">
+  
+  <h4>Oh snap!</h4>
+  <p>Something is wrong, try again!</p>
+</div>
         <form class="form-horizontal">
             <fieldset>
                 <h3 style="font-family: Avenir LT Std 65 Medium; text-align: center">Add a New Employee</h3>
                 <br />
                 <div class="form-group">
-                    <label for="inputEmail" class="col-xs-2">First name</label>
+                    <label for="inputEmail" class="auto-style4">First name</label>
                     <div class="col-xs-4">
                         <input type="text" class="form-control" id="empFN" runat="server"><asp:RequiredFieldValidator ID="empFNRFV" runat="server" ControlToValidate="empFN" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
 
                         &nbsp;
                     </div>
                     <br />
-                    <label for="inputPassword" class="col-xs-2">Last name</label>
+                    <label for="inputPassword" class="auto-style4">Last name</label>
                     <div class="col-xs-4">
                         <input type="text" class="form-control" id="empLN" runat="server"><asp:RequiredFieldValidator ID="empLNRFV" runat="server" ControlToValidate="empLN" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
 
                         &nbsp;
                     </div>
                     <br />
-                    <label for="inputPassword" class="col-xs-2">Job Title</label>
+                    <label for="inputPassword" class="auto-style4">Job Title</label>
                     <div class="col-xs-4">
                         <input type="text" class="form-control" id="jobTitle" runat="server"><asp:RequiredFieldValidator ID="jobTitleRFV" runat="server" ControlToValidate="jobTitle" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
 
                         &nbsp;
                     </div>
                     <br />
-                    <label for="inputPassword" class="col-xs-2">Phone Number</label>
+                    <label for="inputPassword" class="auto-style4">Phone Number</label>
                     <div class="col-xs-4">
                         <input type="text" class="form-control" id="empNumber" runat="server"><asp:RequiredFieldValidator ID="empNumberRFV" runat="server" ControlToValidate="empNumber" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
 
                         &nbsp;
                     </div>
                     <br />
-                    <label for="inputPassword" class="col-xs-2">Email</label>
+                    <label for="inputPassword" class="auto-style4">Email</label>
                     <div class="col-xs-4">
                         <input type="email" class="form-control" id="empEmail" runat="server">&nbsp;
                     </div>
                     <br />
-                    <label for="select" class="col-xs-2">Employee Type</label>
+                    <label for="select" class="auto-style4">Employee Type</label>
                     <div class="col-xs-4">
                         <select class="form-control" id="empType" runat="server">
                             <option>Design Officer</option>
@@ -72,7 +106,7 @@
                         </select>
                     </div>
                     <br />
-                    <label for="inputPassword" class="col-xs-2">Password</label>
+                    <label for="inputPassword" class="auto-style5">Password</label>
                     <div class="col-xs-4">
                         <input type="text" class="form-control" id="empPassword" runat="server"><asp:RequiredFieldValidator ID="empPasswordRFV" runat="server" ControlToValidate="empPassword" ErrorMessage="*" ForeColor="#990000"></asp:RequiredFieldValidator>
 

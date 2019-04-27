@@ -17,9 +17,7 @@ namespace TaurusCapstone
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
-            {
-                //NewRowGridview();
+            
 
                 if (Session.Count != 0)
                 {
@@ -58,6 +56,10 @@ namespace TaurusCapstone
 
                     }
                 }
+            if (!IsPostBack)
+            {
+                //NewRowGridview();
+                alert.Visible = false;
             }
 
         }
@@ -161,6 +163,7 @@ namespace TaurusCapstone
                     db.TaskLeadAssignments.InsertOnSubmit(MYASSIGN);
                     db.SubmitChanges();
                 }
+                alert.Visible = true;
             }
         }
 

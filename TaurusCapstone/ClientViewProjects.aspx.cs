@@ -59,17 +59,17 @@ namespace TaurusCapstone
                 Session.Add("ProjectName", s);
                 Response.Redirect("~/ClientViewFindings.aspx");
             }
-            if (e.CommandName.Equals("Submit"))
+            if (e.CommandName.Equals("SubmitSurvey"))
             {
 
                 int RowIndex = ((GridViewRow)((Control)e.CommandSource).NamingContainer).RowIndex;
                 string s = GridView1.Rows[RowIndex].Cells[0].Text;
                 var pro = from a in db.Projects 
-                          where a.ProjectName == s && a.Status=="Completed"
+                          where a.ProjectName == s
                           select a;
                 if (pro.Count()!=0)
                 {
-                    Session.Add("ProjectName", s);
+                    Session.Add("ProjectNameC", s);
                     Response.Redirect("~/ClientSubmitSurvey.aspx");
                 }
                 else

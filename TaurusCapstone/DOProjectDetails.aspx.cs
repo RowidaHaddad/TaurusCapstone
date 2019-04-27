@@ -20,7 +20,7 @@ namespace TaurusCapstone
                     if (name == "ProjectDetails")
                     {
                         pNameLabel.Text = (string)Session[name];
-                        clientLabel.Text = (string)Session[name];
+                        
 
                     }
 
@@ -29,17 +29,20 @@ namespace TaurusCapstone
             if (!IsPostBack)
             {
                 var ele = from a in db.Projects
-                      where a.ProjectName == pNameLabel.Text
-                      select a;
+                          from b in db.Clients
+                          from c in db.DLAssignments
+                          from d in db.Employees
+                      where a.ProjectName == pNameLabel.Text && a.ClientID == b.ClientID && a.ProjectID == c.ProjectID && d.EmployeeID == c.DLID
+                      select new { a.ProjectName, b.ClientName, a.Status, a.ExpectedEndDate, name = d.FirstName + " " + d.LastName };
 
             if (ele.Count() != 0)
             {
                 var el = ele.First();
                 pNameLabel.Text = el.ProjectName;
-                //clientLabel.Text = el.;
+                clientLabel.Text = el.ClientName;
                 pStatusLabel.Text = el.Status;
                 dateLabel.Text = el.ExpectedEndDate.ToString();
-                //designLeadLabel.Text = el.DLAssignments;
+                designLeadLabel.Text = el.name;
 
                 //list all the fields you want to show for specific project and then take him to page of cost proposal
 
@@ -63,9 +66,7 @@ namespace TaurusCapstone
                 }
                 else
             {
-                    dateLabel.Visible = false;
-                    cpStatusLabel.Visible = false;
-                    decisionLabel.Visible = false;
+                    cp.Visible = false;
 
                     noCP.Visible = true;
             }

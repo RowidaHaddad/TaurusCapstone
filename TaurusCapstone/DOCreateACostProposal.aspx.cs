@@ -14,14 +14,14 @@ namespace TaurusCapstone
         int scoid;
         protected void Page_Load(object sender, EventArgs e)
         {
-            alert.Visible = false;
-            fields.Visible = false;
+           // alert.Visible = false;
+            //fields.Visible = false;
 
             if (!IsPostBack)
             {
                 var pro = from a in mydb.Projects
                           from b in mydb.CostProposals
-                          where a.ProjectID == b.ProjectID
+                          where a.ProjectID == b.ProjectID && a.Status=="Pending"
                           select a;
 
                 var proo = mydb.Projects.Except(pro);
@@ -70,6 +70,17 @@ namespace TaurusCapstone
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+
+           
+        }
+
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+        }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
             CostProposal myprop = new CostProposal();
             myprop.Status = "Pending";
             //----myprop.Description = cpDescription.Value;
@@ -115,11 +126,14 @@ namespace TaurusCapstone
                     mydel.Deliverable = tbb.Text;
                     mydb.ScopeDeliverables.InsertOnSubmit(mydel);
                     mydb.SubmitChanges();
-                    alert.Visible = true;
+
+                    //alert.Visible = true;
 
 
                 }
+
             }
+            Response.Redirect("~/DOHomePage.aspx");
         }
     }
 }
